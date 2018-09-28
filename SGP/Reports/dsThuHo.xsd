@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsThuHo" targetNamespace="http://tempuri.org/dsThuHo.xsd" xmlns:mstns="http://tempuri.org/dsThuHo.xsd" xmlns="http://tempuri.org/dsThuHo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsThuHo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsThuHo" msprop:Generator_UserDSName="dsThuHo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ThuHo" msprop:Generator_TableClassName="ThuHoDataTable" msprop:Generator_TableVarName="tableThuHo" msprop:Generator_RowChangedName="ThuHoRowChanged" msprop:Generator_TablePropName="ThuHo" msprop:Generator_RowDeletingName="ThuHoRowDeleting" msprop:Generator_RowChangingName="ThuHoRowChanging" msprop:Generator_RowEvHandlerName="ThuHoRowChangeEventHandler" msprop:Generator_RowDeletedName="ThuHoRowDeleted" msprop:Generator_RowClassName="ThuHoRow" msprop:Generator_UserTableName="ThuHo" msprop:Generator_RowEvArgName="ThuHoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="STT" msprop:Generator_ColumnVarNameInTable="columnSTT" msprop:Generator_ColumnPropNameInRow="STT" msprop:Generator_ColumnPropNameInTable="STTColumn" msprop:Generator_UserColumnName="STT" type="xs:string" minOccurs="0" />
+              <xs:element name="Ngay" msprop:Generator_ColumnVarNameInTable="columnNgay" msprop:Generator_ColumnPropNameInRow="Ngay" msprop:Generator_ColumnPropNameInTable="NgayColumn" msprop:Generator_UserColumnName="Ngay" type="xs:string" minOccurs="0" />
+              <xs:element name="SoCG" msprop:Generator_ColumnVarNameInTable="columnSoCG" msprop:Generator_ColumnPropNameInRow="SoCG" msprop:Generator_ColumnPropNameInTable="SoCGColumn" msprop:Generator_UserColumnName="SoCG" type="xs:string" minOccurs="0" />
+              <xs:element name="SoTien" msprop:Generator_ColumnVarNameInTable="columnSoTien" msprop:Generator_ColumnPropNameInRow="SoTien" msprop:Generator_ColumnPropNameInTable="SoTienColumn" msprop:Generator_UserColumnName="SoTien" type="xs:double" minOccurs="0" />
+              <xs:element name="PhieuThu" msprop:Generator_ColumnVarNameInTable="columnPhieuThu" msprop:Generator_ColumnPropNameInRow="PhieuThu" msprop:Generator_ColumnPropNameInTable="PhieuThuColumn" msprop:Generator_UserColumnName="PhieuThu" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

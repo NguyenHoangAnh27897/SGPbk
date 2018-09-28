@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Font Awesome -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="../Content/Login.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In
+                </p>
+                <form class="login" method="post">
+                    <input type="text" id="User" placeholder="Username" name="User" />
+                    <input type="password" id="Pass" placeholder="Password" name="Pass" />
+                    <input type="text" id="Post" placeholder="PostOffice" name="Post" />
+                    <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+                    <div class="remember-forgot">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.forgot-pass').click(function (event) {
+            $(".pr-wrap").toggleClass("show-pass-reset");
+        });
+
+        $('.pass-reset-submit').click(function (event) {
+            $(".pr-wrap").removeClass("show-pass-reset");
+        });
+    });
+</script>

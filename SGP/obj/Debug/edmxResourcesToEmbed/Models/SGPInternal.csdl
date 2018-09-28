@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SGPInternalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivityInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UserPost" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PostOfficeId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="IsClock" Type="Int32" />
+    <Property Name="UserLock" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PostOffice" Relationship="Self.FK__ActivityI__PostO__4222D4EF" FromRole="ActivityInfo" ToRole="PostOffice" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__Activit__52593CB8" FromRole="ActivityInfo" ToRole="Comment" />
+    <NavigationProperty Name="FileAttaches" Relationship="Self.FK__FileAttac__Activ__4CA06362" FromRole="ActivityInfo" ToRole="FileAttach" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPost" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PostOfficeId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="ActivityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityInfo" Relationship="Self.FK__Comment__Activit__52593CB8" FromRole="Comment" ToRole="ActivityInfo" />
+    <NavigationProperty Name="PostOffice" Relationship="Self.FK__Comment__PostOff__5165187F" FromRole="Comment" ToRole="PostOffice" />
+    <NavigationProperty Name="FileAttachComments" Relationship="Self.FK__FileAttac__Comme__571DF1D5" FromRole="Comment" ToRole="FileAttachComment" />
+  </EntityType>
+  <EntityType Name="FileAttach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoucumentType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityInfo" Relationship="Self.FK__FileAttac__Activ__4CA06362" FromRole="FileAttach" ToRole="ActivityInfo" />
+  </EntityType>
+  <EntityType Name="FileAttachComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoucumentType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CommentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comment" Relationship="Self.FK__FileAttac__Comme__571DF1D5" FromRole="FileAttachComment" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="PostOffice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ProvinceId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityInfoes" Relationship="Self.FK__ActivityI__PostO__4222D4EF" FromRole="PostOffice" ToRole="ActivityInfo" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__PostOff__5165187F" FromRole="PostOffice" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="SGPWiki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastTime" Type="DateTime" Precision="3" />
+    <Property Name="LastUser" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SortNumber" Type="Int32" />
+    <Property Name="ParentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ZoneInfo">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZoneName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__ActivityI__PostO__4222D4EF">
+    <End Role="PostOffice" Type="Self.PostOffice" Multiplicity="0..1" />
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostOffice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityInfo">
+        <PropertyRef Name="PostOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__Activit__52593CB8">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Activ__4CA06362">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+    <End Role="FileAttach" Type="Self.FileAttach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttach">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__PostOff__5165187F">
+    <End Role="PostOffice" Type="Self.PostOffice" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostOffice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="PostOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Comme__571DF1D5">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="FileAttachComment" Type="Self.FileAttachComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttachComment">
+        <PropertyRef Name="CommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SGPInternalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityInfoes" EntityType="Self.ActivityInfo" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="FileAttaches" EntityType="Self.FileAttach" />
+    <EntitySet Name="FileAttachComments" EntityType="Self.FileAttachComment" />
+    <EntitySet Name="PostOffices" EntityType="Self.PostOffice" />
+    <EntitySet Name="SGPWikis" EntityType="Self.SGPWiki" />
+    <EntitySet Name="ZoneInfoes" EntityType="Self.ZoneInfo" />
+    <AssociationSet Name="FK__ActivityI__PostO__4222D4EF" Association="Self.FK__ActivityI__PostO__4222D4EF">
+      <End Role="PostOffice" EntitySet="PostOffices" />
+      <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__Activit__52593CB8" Association="Self.FK__Comment__Activit__52593CB8">
+      <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Activ__4CA06362" Association="Self.FK__FileAttac__Activ__4CA06362">
+      <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+      <End Role="FileAttach" EntitySet="FileAttaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__PostOff__5165187F" Association="Self.FK__Comment__PostOff__5165187F">
+      <End Role="PostOffice" EntitySet="PostOffices" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Comme__571DF1D5" Association="Self.FK__FileAttac__Comme__571DF1D5">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="FileAttachComment" EntitySet="FileAttachComments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

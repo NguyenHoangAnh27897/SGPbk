@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7f6361d9-e6d7-4f53-9126-81599bef5fe5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://api.saigonpost.vn/wcfservice/mailerscan.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mailerscan.disco" MetadataType="Disco" ID="b3d5c1bb-eb40-47fa-9021-989e98de0c1c" SourceId="1" SourceUrl="http://api.saigonpost.vn/wcfservice/mailerscan.svc?disco" />
+    <MetadataFile FileName="mailerscan.wsdl" MetadataType="Wsdl" ID="95699436-5dbd-4ffc-b42e-dc0c191f72b5" SourceId="1" SourceUrl="http://api.saigonpost.vn/wcfservice/mailerscan.svc?wsdl" />
+    <MetadataFile FileName="mailerscan.xsd" MetadataType="Schema" ID="0461139f-14ee-42b4-91dd-00f0c159caa0" SourceId="1" SourceUrl="http://api.saigonpost.vn/wcfservice/mailerscan.svc?xsd=xsd1" />
+    <MetadataFile FileName="mailerscan1.xsd" MetadataType="Schema" ID="f02f40db-4e92-41ac-9ab6-6752969eeac0" SourceId="1" SourceUrl="http://api.saigonpost.vn/wcfservice/mailerscan.svc?xsd=xsd2" />
+    <MetadataFile FileName="mailerscan2.xsd" MetadataType="Schema" ID="097a727f-101f-422f-8340-574ac4538d9a" SourceId="1" SourceUrl="http://api.saigonpost.vn/wcfservice/mailerscan.svc?xsd=xsd3" />
+    <MetadataFile FileName="mailerscan3.xsd" MetadataType="Schema" ID="ea5abf1e-e03a-4f4b-970f-36da1cde360d" SourceId="1" SourceUrl="http://api.saigonpost.vn/wcfservice/mailerscan.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

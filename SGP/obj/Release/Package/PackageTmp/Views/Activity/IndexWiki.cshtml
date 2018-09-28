@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SGP.Models.WikiInfo>
+@{
+    ViewBag.Title = "IndexWiki";
+    Layout = "~/Views/Shared/_LayoutWiki.cshtml";
+}
+
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!--menu-->
+        <ul class="sidebar-menu">
+            <li class="@(ViewBag.CurrentData.Id == null ? "active" : "")">
+                <a class="" href="/home/index">
+                    <i class="icon_house_alt"></i>
+                    <span>SGP</span>
+                </a>
+            </li>
+            @foreach (var item in Model)
+            {
+
+                if (item.Childes.Count() > 0)
+                {
+                    <li class="sub-menu @(item.Id == ViewBag.CurrentData.Id ? "active" : "")">
+                        <a href="javascript:;">
+                            <span>@item.Title</span>
+                        </a>
+                        <ul class="sub">
+                            @foreach (var menu in item.Childes)
+                            {
+                                <li><a class="@(menu.Id == ViewBag.CurrentData.Id ? "active" : "")" href="/activity/indexwiki/@menu.Id">@menu.Title</a></li>
+                            }
+
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="@(item.Id == ViewBag.CurrentData.Id ? "active" : "")" href="/activity/indexwiki/@item.Id">
+                            <span>@item.Title</span>
+                        </a>
+                    </li>
+                }
+
+
+            }
+
+        </ul>
+    </div>
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/home/index">Home</a></li>
+                    <li>@ViewBag.CurrentData.Title</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        </i><a href="#">TẢI PDF</a>
+                    </header>
+
+                    <div class="panel-body">
+                        @Html.Raw(ViewBag.CurrentData.Content)
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </section>
+</section>
+<!--main content end-->
+
+

@@ -1,0 +1,304 @@
+﻿@{
+    ViewBag.Title = "Test chơi thôi mà";
+}
+
+@*<div class="row tile_count">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-money"></i> Doanh thu(tỷ đồng)</span>
+        <div class="count">@ViewBag.DoanhThu</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-barcode"></i> Phiếu gửi</span>
+        <div class="count">@ViewBag.SoPhieu</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-bars"></i> Số lượng</span>
+        <div class="count green">@ViewBag.SoLuong</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-gift"></i> Trọng lượng (kg)</span>
+        <div class="count">@ViewBag.TrongLuong</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Ngoại tuyến</span>
+        <div class="count">--</div>
+        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-money"></i> Chi phí</span>
+        <div class="count">0</div>
+        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>0% </i> From last Week</span>
+    </div>
+</div>
+<div class="row">*@
+
+
+    @*<div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="x_panel tile fixed_height_320">
+            <div class="x_title">
+                <h2>Doanh thu theo tháng<small>chưa bao gồm KV1</small></h2>
+                <canvas id="myLineChart" width="740" height="500"></canvas>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="x_panel tile fixed_height_320 overflow_hidden">
+            <div class="x_title">
+                <h2>Doanh thu theo dịch vụ</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="" style="width:100%; height:100%">
+                    <tr>
+                        <td>
+                            <canvas id="canvas1" height="200" width="200" style="margin: 15px 10px 10px 0"></canvas>
+                        </td>
+                        <td>
+                            <table class="tile_info" id="result">
+                              jquery tao bang ti le phan tram
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="x_panel tile fixed_height_320">
+                       
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="dashboard_graph">
+
+            <div class="row x_title">
+                <div class="col-md-6">
+                    <h3>Sản xuất kinh doanh <small>Số liệu thống kê 7 ngày gần nhất</small></h3>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-9 col-xs-12">
+                <div id="placeholder33" style="height: 160px; display: none" class="demo-placeholder"></div>
+                <div style="width: 100%;">
+                    <div class="x_content">
+                        <canvas id="mybarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+</div>
+<br />*@
+
+
+@section styles{
+
+}
+@section scripts{
+
+    <!-- jQuery -->
+    <!-- Bootstrap -->
+    <script src="../Scripts/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- NProgress -->
+    <script src="../Scripts/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../Scripts/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../Scripts/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../Scripts/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../Scripts/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../Scripts/vendors/Flot/jquery.flot.js"></script>
+    <script src="../Scripts/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../Scripts/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../Scripts/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../Scripts/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../Scripts/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../Scripts/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../Scripts/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../Scripts/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../Scripts/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../Scripts/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../Scripts/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../Scripts/vendors/moment/min/moment.min.js"></script>
+    <script src="../Scripts/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!--line chart hien thi doanh thu theo tung thang-->
+    <script>
+       
+        callChart1();
+        function callChart1() {
+            $.ajax({
+                url: "/Home/GetAmountByMonth",
+                data: {},
+                success: OnSucess_,
+                error: OnErrorCall_
+            });
+            
+        }
+        function OnSucess_(response) {
+            console.log(response);
+            var arrLabel = [];
+            var arrData = [];
+            $(response).each(function (i, e) {
+                arrLabel.push(e.Thang);
+                arrData.push(e.DoanhThu);
+            });
+
+            var ctx = document.getElementById("myLineChart");
+            var data = {
+                labels: arrLabel,
+                datasets: [
+                    {
+                        label: "tỷ đồng",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(75,192,192,0.4)",
+                        borderColor: "rgba(75,192,192,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: arrData,
+                        spanGaps: false,
+                    }
+                ]
+            };
+            console.log("data");
+            var myLinechart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+        }
+        function OnErrorCall_(repo) {
+            alert("Woops something went wrong, pls try later !");
+        }
+    </script>
+    <!--pie chart-->
+    <!-- Doughnut Chart -->
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Home/GetServiceAmount",
+                data: {},
+                success: OnSucess_,
+                error: OnErrorCall_
+            });
+
+            function OnSucess_(response) {
+                console.log(response);
+                var arrLabel = [];
+                var arrData = [];
+                $(response).each(function (i, e) {
+                    var tr = $("<tr/>");
+                    if (e.PhanTram > 0) {
+                        $("<td/>").html(e.DV).appendTo(tr);
+                        $("<td/>").html(e.PhanTram + "%").appendTo(tr);
+                        tr.appendTo("table#result");
+                    }
+                    arrLabel.push(e.DV);
+                    arrData.push(e.DoanhThu);
+                });
+
+                var options = {
+                    legend: false,
+                    responsive: false
+                };
+
+                new Chart(document.getElementById("canvas1"), {
+                    // type: 'doughnut',
+                    type: 'pie',
+                    tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+                    data: {
+                        labels: arrLabel,
+                        datasets: [{
+                            data: arrData,
+                            backgroundColor: [
+                              "#ff0000", //01
+                              "#9B59B6",
+                              "#99b3ff",
+                              "#26B99A",
+                              "#3498DB"
+                            ],
+                            hoverBackgroundColor: [
+                              "#ffcccc",
+                              "#B370CF",
+                              "#809fff",
+                              "#36CAAB",
+                              "#49A9EA"
+                            ]
+                        }]
+                    },
+                    options: options
+                });
+            };
+            
+        });
+    </script>
+    <!-- /Doughnut Chart -->
+    <!--end pie chart-->
+    <!--End line chatrt hien thi doanh thu theo tung thang-->
+    <!--hien thi table chi tiet cac dich vu-->
+}
+
+

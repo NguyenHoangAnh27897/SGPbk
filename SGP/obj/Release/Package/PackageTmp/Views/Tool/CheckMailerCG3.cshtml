@@ -1,0 +1,105 @@
+﻿@model PagedList.IPagedList<SGP.Models.ResponeCheckPackingList>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tra cứu chuyến thư theo phiếu gửi</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="get">
+                <div class='col-sm-4'>
+                    Nhập vào số phiếu
+                    <input type='text' class="form-control" id="fdate" name="MailerID" value="@ViewBag.MailerID" />
+                </div>
+                <div class="col-sm-3">
+                    <div class="select2-selection--single">
+                        Chọn loại bảng kê
+                        <select name="TypeID" class="form-control">
+                            <option value="CG3">CG3</option>
+                            <option value="CG8">CG8</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="select2-selection--single">
+                        Dữ liệu
+                        <select name="DB" class="form-control">
+                            <option value="M">2017</option>
+                            <option value="C">2016</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+                
+            </form>
+        </div>    
+    </div>
+</div>
+<br />
+<div class="table-responsive">
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">NGÀY CHỨNG TỪ</th>
+                <th class="column-title">MÃ CHỨNG TỪ</th>
+                <th class="column-title">BƯU CỤC GỬI</th>
+                <th class="column-title">BƯU CỤC NHẬN</th>
+                <th class="column-title">SỐ CHUYẾN THƯ</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.DocumentDate</td>
+                    <td>@item.DocumentID</td>
+                    <td>@item.PostOfficeID</td>
+                    <td>@item.PostOfficeIDAccept</td>
+                    <td>@item.TripNumber</td>
+
+                    <td />
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("CheckMailerCG3",
+                            new { page, MailerID = ViewBag.MailerID }))
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        var a = [];
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+

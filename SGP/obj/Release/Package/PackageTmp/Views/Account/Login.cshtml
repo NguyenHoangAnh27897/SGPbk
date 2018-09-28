@@ -1,0 +1,135 @@
+﻿@model SGP.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "";
+}
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">*@
+<!-- Font Awesome -->
+@*<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Content/Login.css" rel="stylesheet">
+    <h2>@ViewBag.Title.</h2>*@
+
+@*<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In
+                </p>
+                <form class="login" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <input type="text" id="UserName" placeholder="Username" name="UserName" />
+                    <input type="password" id="Password" placeholder="Password" name="Password" />
+                    <input type="submit" value="Sign In" class="btn btn-success btn-sm" />*@
+@*<div class="remember-forgot">
+        @Html.ActionLink("Tạo tài khoản", "Register")
+    </div>*@
+@*</form>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">*@
+    <link rel="stylesheet" href="~/Content/admin/css/Login.css">
+    @*<link href="~/Content/admin/css/bootstrap.min.css" rel="stylesheet" />*@
+    <script src="~/Scripts/vendors/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('#login-form-link').click(function (e) {
+                $("#login-form").delay(100).fadeIn(100);
+                $("#register-form").fadeOut(100);
+                $('#register-form-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+            $('#register-form-link').click(function (e) {
+                $("#register-form").delay(100).fadeIn(100);
+                $("#login-form").fadeOut(100);
+                $('#login-form-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="login-form" action="/Account/Login" method="post" role="form" style="display: block;">
+                                <h2>SGP</h2>
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Tên đăng nhập",@class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                </div>
+                                <div class="form-group">
+   
+                                    @Html.PasswordFor(m => m.Password, new { placeholder = "Mật khẩu", @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Post, new {placeholder = "Mã bưu cục", @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Post)
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        @Html.LabelFor(m => m.RememberMe)
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 form-group pull-right">
+                                    <input type="submit" name="login-submit1" id="login-submit1" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                </div>
+                            </form>
+                            <form id="register-form" action="/Customer/Index" method="post" role="form" style="display: none;">
+                                <h2>KHÁCH HÀNG</h2>
+                                <div class="form-group">
+                                    <input type="text" name="username2" id="username2" tabindex="1" class="form-control" placeholder="Username" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="col-xs-6 form-group pull-left checkbox">
+                                    <input id="checkbox2" type="checkbox" name="remember2">
+                                    <label for="checkbox2">Remember Me</label>
+                                </div>
+                                <div class="col-xs-6 form-group pull-right">
+                                    <input type="submit" name="login-submit2" id="login-submit2" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6 tabs">
+                            <a href="#" class="active" id="login-form-link"><div class="login">SGP</div></a>
+                        </div>
+                        <div class="col-xs-6 tabs">
+                            <a href="#" id="register-form-link"><div class="register">KHÁCH HÀNG</div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+}

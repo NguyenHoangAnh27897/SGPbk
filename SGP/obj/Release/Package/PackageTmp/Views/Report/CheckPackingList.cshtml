@@ -1,0 +1,123 @@
+﻿@model PagedList.IPagedList<SGP.Models.ResponeCheckPackingList>
+@using PagedList.Mvc;
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Theo dõi thời gian lên bảng kê các bưu cục</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    </br>
+                    <input type="text" id="PostOfficeID" placeholder="Buu cuc" name="PostOfficeID" value="@ViewBag.PostOfficeID" />
+                </div>
+                <div class="col-sm-2">
+                    </br>
+                    <input type="text" id="TripNumber" placeholder="Chuyen thu" name="TripNumber" value="@ViewBag.TripNumber" />
+                </div>
+                <div class="col-sm-2">
+                    </br>
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Ngày lập</th>
+                <th class="column-title">Chứng từ</th>
+                <th class="column-title">BC gửi</th>
+                <th class="column-title">BC nhận</th>
+                <th class="column-title">Chuyến thư</th>
+                <th class="column-title">Trọng lượng</th>
+                <th class="column-title">Số túi</th>
+                <th class="column-title">Đơn vị VC</th>
+                <th class="column-title">Ghi chú gửi</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.DocumentDate</td>
+                    <td>@item.DocumentID</td>
+                    <td>@item.PostOfficeID</td>
+                    <td>@item.PostOfficeIDAccept</td>
+                    <td>@item.TripNumber</td>
+                    <td>@item.Weight</td>
+                    <td>@item.NumberOfPackage</td>
+                    <td>@item.TransportObjectID</td>
+                    <td>@item.SendDescription</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("CheckPackingList",
+                                    new { page, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate, PostOfficeID = ViewBag.PostOfficeID,TripNumber = ViewBag.TripNumber }))
+
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });     
+
+       
+    </script>
+}
+
+
+
+
+

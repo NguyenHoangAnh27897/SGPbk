@@ -1,0 +1,128 @@
+﻿@using PagedList.Mvc;
+@using GridMvc.Html
+@model PagedList.IPagedList<SGP.Models.ResponeCheckingPacking>
+@{
+    ViewBag.Title = "MBVPackingList";
+}
+
+<h2>Theo dõi thời gian lên bảng kê các bưu cục</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    </br>
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<link href="/Content/Gridmvc.css" rel="stylesheet" />
+
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">1.Số chứng từ</th>
+                <th class="column-title">2.Ngày lập</th>
+                <th class="column-title">3.Bưu cục nhận</th>
+                <th class="column-title">4.Số túi</th>
+                <th class="column-title">5.Trọng lượng</th>
+                <th class="column-title">6.Số chuyến</th>
+                <th class="column-title">7.Ghi chú gửi</th>
+                <th class="column-title">8.Chứng từ liên quan</th>
+                <th class="column-title">9.Nhà vận chuyển</th>
+                <th class="column-title">10.Thời gian khởi hành</th>
+                <th class="column-title">11.Thời gian dự kiến đến</th>
+                <th class="column-title">12.Ngày giờ nhận chuyến</th>
+                <th class="column-title">13.Ghi chú nhận</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.DocumentID</td>
+                    <td>@item.DocumentDate</td>
+                    <td>@item.PostOfficeIDAccept</td>
+                    <td>@item.NumberOfPackage</td>
+                    <td>@item.TripNumber</td>
+                    <td>@item.Weight</td>
+                    <td>@item.Description</td>
+                    <td>@item.DocumentOrder</td>
+                    <td>@item.Tranport</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                    <td>@item.RecieveDate</td>
+                    <td>@item.RecieveDescription</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("MBVPackingList",
+                            new { page, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate }))
+
+</div>
+
+
+<script src="../Scripts/vendors/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+<!-- FastClick -->
+<script src="../Scripts/vendors/fastclick/lib/fastclick.js"></script>
+
+<script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $('#dtpfromdate').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+    $(function () {
+        $('#dtptodate').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+</script>
+
+
+
+
+
+
+
+

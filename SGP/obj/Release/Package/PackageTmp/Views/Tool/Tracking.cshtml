@@ -1,0 +1,109 @@
+﻿@model PagedList.IPagedList<SGP.Models.ResponseTracking>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tra cứu phiếu gửi nâng cao</h2>
+<div>
+    <div class="container">
+
+        <form method="get">
+            <div class="row">
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        Nhập vào số phiếu
+                        <input type='text' class="form-control" id="fdate" name="MailerID" value="" />
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+            </div>
+        </form>
+
+
+        <form method="post" enctype="multipart/form-data" onsubmit="if(!confirm('Xuất excel từ danh sách mailer trong file tải lên ?')){return false;}">
+            <div class="row">
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        Nhập từ Excel
+                        <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="form-control" name="files" />
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xuất Excel</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">ID</th>
+                <th class="column-title">Số phiếu</th>
+                <th class="column-title">Mã CHỨNG TỪ</th>
+                <th class="column-title">TÊN BƯU CỤC</th>
+                <th class="column-title">NHÂN VIÊN</th>
+                <th class="column-title">TRẠNG THÁI</th>
+                <th class="column-title">NGÀY GIỜ</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.MailerID</td>
+                    <td>@item.DocumentID</td>
+                    <td>@item.PostOfficeName</td>
+                    <td>@item.StatusName</td>
+                    <td>@item.UserGroupID</td>
+                    <td>@item.CreationDate</td>
+                    <td />
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Tracking",
+                            new { page, MailerID = ViewBag.MailerID }))
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        var a = [];
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+

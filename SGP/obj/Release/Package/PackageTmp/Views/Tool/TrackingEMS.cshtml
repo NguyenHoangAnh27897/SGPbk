@@ -1,0 +1,54 @@
+﻿@model SGP.MM_Mailers
+@{
+    ViewBag.Title = "TrackingEMS";
+}
+
+
+    <div>
+        <div class="container">
+
+            <form method="get">
+                <div class="row">
+                    <div class='col-sm-4'>
+                        <div class="form-group">
+                            Nhập vào số phiếu
+                            <input type='text' class="form-control" id="fdate" name="ems" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <br />
+                        <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+<div class="table-responsive">
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">BC gốc</th>
+                <th class="column-title">Ngày nhận</th>
+                <th class="column-title">Số phiếu</th>
+                <th class="column-title">Ghi chú</th>
+                <th class="column-title">Nơi đến</th>
+                <th class="column-title">Gửi mail</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr>
+                    <td>@Model.PostOfficeAcceptID</td>
+                    <td>@Model.AcceptDate</td>
+                    <td>@Model.MailerID</td>
+                    <td>@Model.MailerDescription</td>
+                    <td>@Model.RecieverProvinceID</td>
+                    <td><a href="/tool/sendmail?ems=@Model.MailerID">Gửi mail</a></td>
+                </tr>
+
+        </tbody>
+    </table>
+    <br />
+</div>
+

@@ -1,0 +1,42 @@
+﻿@model SGP.Models.ReportOnline
+@{
+    ViewBag.Title = "ReviewReport";
+    
+}
+
+<h2>Biên bản Online</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-table"></i>CHI TIẾT BIÊN BẢN</h3>
+    </div>
+</div>
+
+<div class="table-responsive">  
+<table class="table table-striped">
+    <tbody>
+            <tr>
+                <td>
+                    <span id="Title"><strong>Tiêu đề: </strong>@Model.Title</span> <br />
+                    <span id="IDReceipt"><strong>Số phiếu: </strong>@Model.IDReceipt</span><br />
+                    <span id="DetailContent"><strong>Nội dung: </strong>@Model.DetailContent</span><br />
+                    <span id="CreateName"><strong>Người lập: </strong>@Model.CreateName</span> <br />
+                    <span id="CreateDate"><strong>Ngày lập: </strong>@Model.CreateDate</span><br />
+                    <span id="IDFault"><strong>Lỗi: </strong></span>@Model.Fault.FaultName<br />
+                    <span id="Status"><strong>Trạng thái: </strong>@Model.Status</span>
+                    @*<span><strong>Ngày lập: </strong>@item.CreateDate</span>
+                    <span><strong>Ngày lập: </strong>@item.CreateDate</span>*@
+                </td>
+            </tr>
+    </tbody>
+</table>
+</div>
+<button><a href="/tool/In/@Model.ID"> Report PDF </a></button>
+
+
+
+
+  
+
+
+
+

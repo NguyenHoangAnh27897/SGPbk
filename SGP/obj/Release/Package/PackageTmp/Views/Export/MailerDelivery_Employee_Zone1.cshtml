@@ -1,0 +1,75 @@
+﻿<h2>Sản lượng phát BC và CTV KV01</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="get" action="" id="formreport">
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    </br>
+                    <button type="button" class="btn btn-primary" onclick="runReport(1)">Excel CTV</button>
+                </div>
+
+                <div class="col-sm-1">
+                    </br>
+                    <button type="button" class="btn btn-primary" onclick="runReport(2)">Excel BC</button>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+
+        function runReport(type) {
+
+            var action = "";
+
+            if (type == 1) {
+                $("#formreport").attr("action", "/Export/ExcelMailerDelivery_Employee_Zone1");
+            }
+            else if (type == 2) {
+                $("#formreport").attr("action", "/Export/ExcelMailerDelivery_PostOffice_Zone1");
+            }
+
+            $("#formreport").submit();
+
+        }
+    </script>
+}

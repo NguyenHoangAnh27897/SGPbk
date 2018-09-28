@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "PackingListUpdate";
+}
+
+<h2>Cập nhật chuyến thư đến</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="wrap">
+                <p class="form-title">
+                </p>
+                <form method="post" onsubmit="if(!confirm('Them moi?')){return false;}">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên cột</th>
+                                <th>Giá trị</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mã chứng từ:</td>
+                                <td><input class="form-control" input type="text" id="DocumentID" placeholder="" name="DocumentID" /></td>
+                            </tr>
+                            <tr>
+                                <td>Mã chứng từ:</td>
+                                <td><input class="form-control" input type="text" id="DocID" placeholder="" name="DocID" /></td>
+                            </tr>
+                            <tr>
+                                <td> Ngày lập:</td>
+                                <td><input class="form-control" input type="text" id="DocumentDate" placeholder="" name="DocumentDate" /></td>
+                            </tr>
+                            <tr>
+                                <td>  Bưu cục nhận:</td>
+                                <td><input class="form-control" input type="text" id="PostOfficeIDAccept" placeholder="" name="PostOfficeIDAccept" /></td>
+                            </tr>
+                            <tr>
+                                <td> Chuyến thư:</td>
+                                <td><input class="form-control" input type="text" id="TripNumber" placeholder="" name="TripNumber" /></td>
+                            </tr>
+                            <tr>
+                                <td> Thời gian đến:</td>
+                                <td>
+
+                                    <div class='input-group date' id='RecieveDate'>
+                                        <input class="form-control" input type='text' class="form-control" name="RecieveDate" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Ghi chú nhận:</td>
+                                <td><input class="form-control" input type="text" id="RecieveDescription" placeholder="" name="RecieveDescription" /></td>
+                            </tr>
+                            <tr>
+                                <input type="submit" value="Cập nhật" class="btn btn-success btn-sm" />
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../Scripts/vendors/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+<!-- FastClick -->
+<script src="../Scripts/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Custom Theme Scripts -->
+@*<script src="../Scripts/build/js/custom.min.js"></script>*@
+
+<script type="text/javascript">
+
+    $('#DocumentID').keyup(function () {
+
+        var docid = $('#DocumentID').val();
+        $.ajax({
+            url: "/Tool/getPackingListInfo",
+            data: { DocumentID: docid },
+            success: function (response) {
+                if (response.stt === 0) {
+
+                    $('#DocID').val(response.documentid);
+                    $('#DocumentDate').val(response.documentdate);
+                    $('#PostOfficeIDAccept').val(response.post);
+                    $('#NumberOfPackage').val(response.package);
+                    $('#Weight').val(response.weight);
+                    $('#TripNumber').val(response.trip);
+
+                } else {
+                    // alert('Khong lay duoc');
+                }
+            }
+        });
+
+    });
+    $(function () {
+        $('#RecieveDate').datetimepicker({ format: 'DD/MM/YYYY HH:mm' });
+    });
+</script>
+
+
+
+
+

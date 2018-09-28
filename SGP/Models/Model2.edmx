@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PMS_TESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BS_Districts">
+          <Key>
+            <PropertyRef Name="DistrictID" />
+          </Key>
+          <Property Name="DistrictID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="DistrictName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProvinceID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MM_PostOffices">
+          <Key>
+            <PropertyRef Name="PostOfficeID" />
+          </Key>
+          <Property Name="PostOfficeID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PostOfficeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZoneID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ProvinceID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="25" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCollaborator" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccount" Type="varchar" MaxLength="50" />
+          <Property Name="MemberOf" Type="varchar" MaxLength="15" />
+          <Property Name="CustomerPre" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_MM_PostOffices_MM_PostOffices">
+          <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="0..1" />
+          <End Role="MM_PostOffices1" Type="Self.MM_PostOffices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_PostOffices1">
+              <PropertyRef Name="MemberOf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PMS_TESTModelStoreContainer">
+          <EntitySet Name="BS_Districts" EntityType="Self.BS_Districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MM_PostOffices" EntityType="Self.MM_PostOffices" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="Self.FK_MM_PostOffices_MM_PostOffices">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PMS_TESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BS_Districts">
+          <Key>
+            <PropertyRef Name="DistrictID" />
+          </Key>
+          <Property Name="DistrictID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="PMS_TESTEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BS_Districts" EntityType="Self.BS_Districts" />
+          <EntitySet Name="MM_PostOffices" EntityType="PMS_TESTModel.MM_PostOffices" />
+          <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="PMS_TESTModel.FK_MM_PostOffices_MM_PostOffices">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MM_PostOffices">
+          <Key>
+            <PropertyRef Name="PostOfficeID" />
+          </Key>
+          <Property Name="PostOfficeID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PostOfficeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCollaborator" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberOf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerPre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MM_PostOffices1" Relationship="PMS_TESTModel.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices" ToRole="MM_PostOffices1" />
+          <NavigationProperty Name="MM_PostOffices2" Relationship="PMS_TESTModel.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices1" ToRole="MM_PostOffices" />
+        </EntityType>
+        <Association Name="FK_MM_PostOffices_MM_PostOffices">
+          <End Type="PMS_TESTModel.MM_PostOffices" Role="MM_PostOffices" Multiplicity="0..1" />
+          <End Type="PMS_TESTModel.MM_PostOffices" Role="MM_PostOffices1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_PostOffices1">
+              <PropertyRef Name="MemberOf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PMS_TESTModelStoreContainer" CdmEntityContainer="PMS_TESTEntities1">
+          <EntitySetMapping Name="BS_Districts">
+            <EntityTypeMapping TypeName="PMS_TESTModel.BS_Districts">
+              <MappingFragment StoreEntitySet="BS_Districts">
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MM_PostOffices">
+            <EntityTypeMapping TypeName="PMS_TESTModel.MM_PostOffices">
+              <MappingFragment StoreEntitySet="MM_PostOffices">
+                <ScalarProperty Name="CustomerPre" ColumnName="CustomerPre" />
+                <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsCollaborator" ColumnName="IsCollaborator" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+                <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

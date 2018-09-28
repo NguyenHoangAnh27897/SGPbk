@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SGPAPIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActivityInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UserPost" Type="nvarchar" MaxLength="256" />
+    <Property Name="PostOfficeId" Type="nvarchar" MaxLength="32" />
+    <Property Name="IsClock" Type="int" />
+    <Property Name="UserLock" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="ActivityZone">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ZoneId" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserPost" Type="nvarchar" MaxLength="256" />
+    <Property Name="PostOfficeId" Type="nvarchar" MaxLength="32" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Fault">
+    <Key>
+      <PropertyRef Name="IDFault" />
+    </Key>
+    <Property Name="IDFault" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FaultName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Point" Type="int" />
+  </EntityType>
+  <EntityType Name="FileAttach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DocumentName" Type="nvarchar(max)" />
+    <Property Name="DocumentPath" Type="nvarchar(max)" />
+    <Property Name="DoucumentType" Type="nvarchar" MaxLength="256" />
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="FileAttachComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DocumentName" Type="nvarchar(max)" />
+    <Property Name="DocumentPath" Type="nvarchar(max)" />
+    <Property Name="DoucumentType" Type="nvarchar" MaxLength="256" />
+    <Property Name="CommentId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ReportOnline">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDReceipt" Type="nvarchar" MaxLength="20" />
+    <Property Name="DetailContent" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateName" Type="nvarchar" MaxLength="30" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="IDFault" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SGPWiki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="LastTime" Type="datetime" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="256" />
+    <Property Name="SortNumber" Type="int" />
+    <Property Name="ParentId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="UMS_tblUserAccount">
+    <Key>
+      <PropertyRef Name="UserGroupID" />
+    </Key>
+    <Property Name="UserGroupID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="UserGroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FValid" Type="bit" Nullable="false" />
+    <Property Name="FGroup" Type="bit" Nullable="false" />
+    <Property Name="FAdm" Type="bit" Nullable="false" />
+    <Property Name="FSpv" Type="bit" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="240" />
+    <Property Name="CantChangePwd" Type="bit" Nullable="false" />
+    <Property Name="PwdNeverExpire" Type="bit" Nullable="false" />
+    <Property Name="MustChangePwd" Type="bit" Nullable="false" />
+    <Property Name="DateOfChangePwd" Type="datetime" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="MemberOf" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="WK_PostOffice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="512" />
+    <Property Name="ZoneId" Type="nvarchar" MaxLength="32" />
+    <Property Name="ProvinceId" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="ZoneInfo">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="ZoneName" Type="nvarchar" MaxLength="512" />
+  </EntityType>
+  <Association Name="FK__ActivityI__PostO__16644E42">
+    <End Role="WK_PostOffice" Type="Self.WK_PostOffice" Multiplicity="0..1" />
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WK_PostOffice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityInfo">
+        <PropertyRef Name="PostOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ActivityZ__Activ__1758727B">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="1" />
+    <End Role="ActivityZone" Type="Self.ActivityZone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityZone">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ActivityZ__ZoneI__184C96B4">
+    <End Role="ZoneInfo" Type="Self.ZoneInfo" Multiplicity="1" />
+    <End Role="ActivityZone" Type="Self.ActivityZone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZoneInfo">
+        <PropertyRef Name="ZoneId" />
+      </Principal>
+      <Dependent Role="ActivityZone">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__Activit__1940BAED">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__PostOff__1A34DF26">
+    <End Role="WK_PostOffice" Type="Self.WK_PostOffice" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WK_PostOffice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="PostOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Activ__1B29035F">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+    <End Role="FileAttach" Type="Self.FileAttach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttach">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Comme__1C1D2798">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="FileAttachComment" Type="Self.FileAttachComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttachComment">
+        <PropertyRef Name="CommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportOnline_Fault">
+    <End Role="Fault" Type="Self.Fault" Multiplicity="0..1" />
+    <End Role="ReportOnline" Type="Self.ReportOnline" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fault">
+        <PropertyRef Name="IDFault" />
+      </Principal>
+      <Dependent Role="ReportOnline">
+        <PropertyRef Name="IDFault" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SGP_WEB_AmountByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SGP_WEB_DuongTruc_BCKT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SGP_WEB_DuongTruc_KTNhan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SGP_WEB_Mailer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fromdate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SGP_WEB_MailerByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZoneID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SGP_WEB_MailerBySaleDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZoneID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SGP_WEB_ReportOnline" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="SGPAPIModelStoreContainer">
+    <EntitySet Name="ActivityInfo" EntityType="Self.ActivityInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityZone" EntityType="Self.ActivityZone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fault" EntityType="Self.Fault" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileAttach" EntityType="Self.FileAttach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileAttachComment" EntityType="Self.FileAttachComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportOnline" EntityType="Self.ReportOnline" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SGPWiki" EntityType="Self.SGPWiki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMS_tblUserAccount" EntityType="Self.UMS_tblUserAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WK_PostOffice" EntityType="Self.WK_PostOffice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZoneInfo" EntityType="Self.ZoneInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ActivityI__PostO__16644E42" Association="Self.FK__ActivityI__PostO__16644E42">
+      <End Role="WK_PostOffice" EntitySet="WK_PostOffice" />
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ActivityZ__Activ__1758727B" Association="Self.FK__ActivityZ__Activ__1758727B">
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+      <End Role="ActivityZone" EntitySet="ActivityZone" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ActivityZ__ZoneI__184C96B4" Association="Self.FK__ActivityZ__ZoneI__184C96B4">
+      <End Role="ZoneInfo" EntitySet="ZoneInfo" />
+      <End Role="ActivityZone" EntitySet="ActivityZone" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__Activit__1940BAED" Association="Self.FK__Comment__Activit__1940BAED">
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__PostOff__1A34DF26" Association="Self.FK__Comment__PostOff__1A34DF26">
+      <End Role="WK_PostOffice" EntitySet="WK_PostOffice" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Activ__1B29035F" Association="Self.FK__FileAttac__Activ__1B29035F">
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+      <End Role="FileAttach" EntitySet="FileAttach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Comme__1C1D2798" Association="Self.FK__FileAttac__Comme__1C1D2798">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="FileAttachComment" EntitySet="FileAttachComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportOnline_Fault" Association="Self.FK_ReportOnline_Fault">
+      <End Role="Fault" EntitySet="Fault" />
+      <End Role="ReportOnline" EntitySet="ReportOnline" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,240 @@
+﻿@using PagedList.Mvc;
+@using GridMvc.Html
+@model PagedList.IPagedList<SGP.Models.BaoCaoTongHop>
+@{
+    ViewBag.Title = "SpecialCustomer";
+}
+<head>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Tool/GetData",
+                datatype: "JSON",
+                type: "Get",
+                success: function (data) {
+                    debugger;
+                    for (var i = 0; i < data.length; i++) {
+                        var opt = new Option(data[i].CustomerGroupID);
+                        $("#op1").append(opt);
+                    }
+                }
+            });
+        });
+
+        //$(document).ready(function () {
+        $(function() {
+            $("#op1").change(function () {
+                $("select[name='CustomerID'] option").remove()
+                var cusgroupid = $('#op1').val();
+                $.ajax({
+                    url: "/Tool/GetCustomerData",
+                    data: { CustomerGroupID: cusgroupid },
+                    datatype: "JSON",
+                    type: "Get",
+                    success: function (data) {
+                        debugger;
+                        $("#op2").prepend("<option> </option>");
+                        for (var i = 0; i < data.length; i++) {
+                            var opt = new Option(data[i].CustomerID);
+                            $("#op2").append(opt);
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<h2>Khách hàng đặc biệt</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11">
+                <form method="post">
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            From date
+                            <div class='input-group date' id='dtpfromdate'>
+                                <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-sm-2">
+                        To date
+                        <div class='input-group date' id='dtptodate'>
+                            <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        Nhóm khách hàng
+                        </br>
+                        <select class="form-control" id="op1" name="CustomerGroupID">
+                            @*<option selected="selected"></option>*@
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        Mã khách hàng
+                        </br>
+                        <select class="form-control" id="op2" name="CustomerID">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        Loại Báo cáo
+                        </br>
+                        <select class="form-control" id="opt" name="opt">
+                            @if (ViewBag.OPT == 1)
+                            {
+                                <option value="0">Báo cáo Tổng hợp</option>
+                                <option value="1" selected>Báo cáo Chi Tiết</option>
+                            }
+                            else
+                            {
+                                <option value="0" selected>Báo cáo Tổng hợp</option>
+                                <option value="1">Báo cáo Chi Tiết</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-1">
+                        <br />
+                        <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="col-sm-1">
+                <form method="post" action="@Url.Action("SpecialExcel", "Tool", new { FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate, CustomerGroupID = @ViewBag.CustomerGroupID, CustomerID = @ViewBag.CustomerID })">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Excel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<br />
+
+
+@if (ViewBag.OPT == 1)
+{
+    <div class="table-responsive">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="headings">
+                    <th class="column-title">Ngày</th>
+                    <th class="column-title">Số DO</th>
+                    <th class="column-title">Số lượng</th>
+                    <th class="column-title">Trọng lượng</th>
+                    <th class="column-title">Nơi đến</th>
+                    <th class="column-title">Ghi chú</th>
+                    <th class="column-title">Người nhận</th>
+                    <th class="column-title">Ngày phát</th>
+                    @*<th class="column-title">Tên KH</th>*@
+                    <th class="column-title">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.AcceptDates</td>
+                        <td>@item.MailerID</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Weight</td>
+                        <td>@item.RecieverProvince</td>
+                        <td>@item.Notes</td>
+                        <td>@item.RecieverName</td>
+                        <td>@item.DeliveryDate</td>
+                        @*<td>@item.CustomerName</td>*@
+                        <td>@item.DeliveryStatus</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+        <br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("SpecialCustomer",
+                                                              new { page, opt = ViewBag.OPT, CustomerGroupID = ViewBag.CustomerGroupID, CustomerID = ViewBag.CustomerID, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate }))
+    </div>
+}
+else
+{
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Từ ngày</th>
+                        <th class="column-title">Đến ngày</th>
+                        <th class="column-title">Tên nhóm</th>
+                        <th class="column-title">Mã KH</th>
+                        <th class="column-title">Tổng CG</th>
+                        <th class="column-title">Tổng phát</th>
+                        <th class="column-title">Chưa phát</th>
+                        @*<th class="column-title">BC chi tiết</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+            {
+
+                        <tr>
+                            <td>@item.FromDate</td>
+                            <td>@item.ToDate</td>
+                            <td>@item.CustomerGroupID</td>
+                            <td>@item.CustomerID</td>
+                            <td>@item.TongCG</td>
+                            <td>@item.TongPhat</td>
+                            <td>@item.ChuaPhat</td>
+                            @*<td><a href="/tool/detailcustomer/@item.CustomerID">Báo cáo chi tiết</a></td>*@
+                        </tr>
+
+            }
+                </tbody>
+            </table>
+        </div>
+            }
+        
+       
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+
+    <script type="text/javascript">
+        var a = [];
+
+        @*@foreach (var item in Model) {
+            @:a.push('@item.PostOfficeName');
+                        }*@
+
+        console.log(a);
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}

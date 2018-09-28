@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "SanLuongNhan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sản lượng nhận </h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="get" action="/Tool/ExcelSLNhan">
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        Date
+                        <div class='input-group date' id='dtpdate'>
+                            <input type='text' class="form-control" id="date" name="Date" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    </br>
+                    <button type="submit" class="btn btn-primary">Excel</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dtpdate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+    </script>
+}
+

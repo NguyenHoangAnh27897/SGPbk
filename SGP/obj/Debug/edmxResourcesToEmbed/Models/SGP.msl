@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SGPAPIModelStoreContainer" CdmEntityContainer="SGPAPIEntities">
+    <FunctionImportMapping FunctionImportName="SGP_WEB_Mailer" FunctionName="SGPAPIModel.Store.SGP_WEB_Mailer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_Mailer_Result">
+          <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+          <ScalarProperty Name="TongCG" ColumnName="TongCG" />
+          <ScalarProperty Name="TongSL" ColumnName="TongSL" />
+          <ScalarProperty Name="TongTL" ColumnName="TongTL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SGP_WEB_AmountByMonth" FunctionName="SGPAPIModel.Store.SGP_WEB_AmountByMonth">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_AmountByMonth_Result">
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+          <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SGP_WEB_ReportOnline" FunctionName="SGPAPIModel.Store.SGP_WEB_ReportOnline">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_ReportOnline_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IDReceipt" ColumnName="IDReceipt" />
+          <ScalarProperty Name="DetailContent" ColumnName="DetailContent" />
+          <ScalarProperty Name="CreateName" ColumnName="CreateName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IDFault" ColumnName="IDFault" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Faults">
+      <EntityTypeMapping TypeName="SGPAPIModel.Fault">
+        <MappingFragment StoreEntitySet="Fault">
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="FaultName" ColumnName="FaultName" />
+          <ScalarProperty Name="IDFault" ColumnName="IDFault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportOnlines">
+      <EntityTypeMapping TypeName="SGPAPIModel.ReportOnline">
+        <MappingFragment StoreEntitySet="ReportOnline">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IDFault" ColumnName="IDFault" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateName" ColumnName="CreateName" />
+          <ScalarProperty Name="DetailContent" ColumnName="DetailContent" />
+          <ScalarProperty Name="IDReceipt" ColumnName="IDReceipt" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityInfoes">
+      <EntityTypeMapping TypeName="SGPAPIModel.ActivityInfo">
+        <MappingFragment StoreEntitySet="ActivityInfo">
+          <ScalarProperty Name="UserLock" ColumnName="UserLock" />
+          <ScalarProperty Name="IsClock" ColumnName="IsClock" />
+          <ScalarProperty Name="PostOfficeId" ColumnName="PostOfficeId" />
+          <ScalarProperty Name="UserPost" ColumnName="UserPost" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="SGPAPIModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="PostOfficeId" ColumnName="PostOfficeId" />
+          <ScalarProperty Name="UserPost" ColumnName="UserPost" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileAttaches">
+      <EntityTypeMapping TypeName="SGPAPIModel.FileAttach">
+        <MappingFragment StoreEntitySet="FileAttach">
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+          <ScalarProperty Name="DoucumentType" ColumnName="DoucumentType" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileAttachComments">
+      <EntityTypeMapping TypeName="SGPAPIModel.FileAttachComment">
+        <MappingFragment StoreEntitySet="FileAttachComment">
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="DoucumentType" ColumnName="DoucumentType" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SGPWikis">
+      <EntityTypeMapping TypeName="SGPAPIModel.SGPWiki">
+        <MappingFragment StoreEntitySet="SGPWiki">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZoneInfoes">
+      <EntityTypeMapping TypeName="SGPAPIModel.ZoneInfo">
+        <MappingFragment StoreEntitySet="ZoneInfo">
+          <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActivityZone" TypeName="SGPAPIModel.ActivityZone" StoreEntitySet="ActivityZone">
+      <EndProperty Name="ZoneInfo">
+        <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+      </EndProperty>
+      <EndProperty Name="ActivityInfo">
+        <ScalarProperty Name="Id" ColumnName="ActivityId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="WK_PostOffice">
+      <EntityTypeMapping TypeName="SGPAPIModel.WK_PostOffice">
+        <MappingFragment StoreEntitySet="WK_PostOffice">
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SGP_WEB_DuongTruc_BCKT" FunctionName="SGPAPIModel.Store.SGP_WEB_DuongTruc_BCKT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_DuongTruc_BCKT_Result">
+          <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+          <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+          <ScalarProperty Name="RecieverProvinceID" ColumnName="RecieverProvinceID" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SGP_WEB_DuongTruc_KTNhan" FunctionName="SGPAPIModel.Store.SGP_WEB_DuongTruc_KTNhan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_DuongTruc_KTNhan_Result">
+          <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+          <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+          <ScalarProperty Name="RecieverProvinceID" ColumnName="RecieverProvinceID" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+          <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SGP_WEB_MailerBySaleDate" FunctionName="SGPAPIModel.Store.SGP_WEB_MailerBySaleDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_MailerBySaleDate_Result">
+          <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+          <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+          <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="SenderProvinceID" ColumnName="SenderProvinceID" />
+          <ScalarProperty Name="ReceiveProvinceID" ColumnName="ReceiveProvinceID" />
+          <ScalarProperty Name="RecieverDistrictID" ColumnName="RecieverDistrictID" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="MailerTypeID" ColumnName="MailerTypeID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceDefault" ColumnName="PriceDefault" />
+          <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="BefVATAmount" ColumnName="BefVATAmount" />
+          <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+          <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="AmountBefDiscount" ColumnName="AmountBefDiscount" />
+          <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PostOfficeRecieverMoneyID" ColumnName="PostOfficeRecieverMoneyID" />
+          <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+          <ScalarProperty Name="ThirdpartyDocID" ColumnName="ThirdpartyDocID" />
+          <ScalarProperty Name="ThirdpartyCost" ColumnName="ThirdpartyCost" />
+          <ScalarProperty Name="CommissionAmt" ColumnName="CommissionAmt" />
+          <ScalarProperty Name="CommissionPercent" ColumnName="CommissionPercent" />
+          <ScalarProperty Name="CostAmt" ColumnName="CostAmt" />
+          <ScalarProperty Name="SalesClosingDate" ColumnName="SalesClosingDate" />
+          <ScalarProperty Name="ReceiveProvinceID1" ColumnName="ReceiveProvinceID1" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+          <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+          <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SGP_WEB_MailerByDate" FunctionName="SGPAPIModel.Store.SGP_WEB_MailerByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_MailerByDate_Result">
+          <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+          <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+          <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="SenderProvinceID" ColumnName="SenderProvinceID" />
+          <ScalarProperty Name="ReceiveProvinceID" ColumnName="ReceiveProvinceID" />
+          <ScalarProperty Name="RecieverDistrictID" ColumnName="RecieverDistrictID" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="MailerTypeID" ColumnName="MailerTypeID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceDefault" ColumnName="PriceDefault" />
+          <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="BefVATAmount" ColumnName="BefVATAmount" />
+          <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+          <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="AmountBefDiscount" ColumnName="AmountBefDiscount" />
+          <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PostOfficeRecieverMoneyID" ColumnName="PostOfficeRecieverMoneyID" />
+          <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+          <ScalarProperty Name="ThirdpartyDocID" ColumnName="ThirdpartyDocID" />
+          <ScalarProperty Name="ThirdpartyCost" ColumnName="ThirdpartyCost" />
+          <ScalarProperty Name="CommissionAmt" ColumnName="CommissionAmt" />
+          <ScalarProperty Name="CommissionPercent" ColumnName="CommissionPercent" />
+          <ScalarProperty Name="CostAmt" ColumnName="CostAmt" />
+          <ScalarProperty Name="SalesClosingDate" ColumnName="SalesClosingDate" />
+          <ScalarProperty Name="ReceiveProvinceID1" ColumnName="ReceiveProvinceID1" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+          <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+          <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="UMS_tblUserAccount">
+      <EntityTypeMapping TypeName="SGPAPIModel.UMS_tblUserAccount">
+        <MappingFragment StoreEntitySet="UMS_tblUserAccount">
+          <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="DateOfChangePwd" ColumnName="DateOfChangePwd" />
+          <ScalarProperty Name="MustChangePwd" ColumnName="MustChangePwd" />
+          <ScalarProperty Name="PwdNeverExpire" ColumnName="PwdNeverExpire" />
+          <ScalarProperty Name="CantChangePwd" ColumnName="CantChangePwd" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FSpv" ColumnName="FSpv" />
+          <ScalarProperty Name="FAdm" ColumnName="FAdm" />
+          <ScalarProperty Name="FGroup" ColumnName="FGroup" />
+          <ScalarProperty Name="FValid" ColumnName="FValid" />
+          <ScalarProperty Name="UserGroupName" ColumnName="UserGroupName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="SGPAPIModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="SGPAPIModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="SGPAPIModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

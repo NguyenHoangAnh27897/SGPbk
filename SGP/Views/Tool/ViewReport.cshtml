@@ -1,0 +1,40 @@
+﻿@model PagedList.IPagedList<SGP.Models.CreateTable>
+@using PagedList.Mvc;
+@using GridMvc.Html
+@{
+    ViewBag.Title = "ViewReport";
+}
+
+<h2>Danh sách biên bản Online</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-table"></i>BIÊN BẢN</h3>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <span><strong>Tiêu đề: </strong>@item.Title</span> <br />
+                        <span><strong>Số phiếu: </strong>@item.IDReceipt</span><br />
+                        <span><strong>Người lập: </strong>@item.CreateName</span> <br />
+                        <span><strong>Ngày lập: </strong>@item.CreateDate</span>
+                    </td>
+                    <td><a href="/tool/reviewreport/@item.ID">Xem chi tiết</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+     @Html.PagedListPager(Model, page => Url.Action("ViewReport",
+                                             new { page }))
+</div>
+
+<script src="../Scripts/vendors/fastclick/lib/fastclick.js"></script>
+
+

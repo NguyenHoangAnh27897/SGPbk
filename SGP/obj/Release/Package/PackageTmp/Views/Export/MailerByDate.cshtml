@@ -1,0 +1,93 @@
+﻿<h2>Số liệu thô</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="get" action="/Export/ExcelMailerByDate">
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-3">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    Loại ngày
+                    </br>
+                    <select class="form-control" id="opt" name="opt">
+                        @if (ViewBag.OPT == 1)
+                        {
+                            <option value="0">Ngày chứng từ</option>
+                            <option value="1" selected>Ngày phát sinh doanh thu</option>
+                        }
+                        else
+                        {
+                            <option value="0" selected>Ngày chứng từ</option>
+                            <option value="1">Ngày phát sinh doanh thu</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    Khu vực
+                    </br>
+                    <select class="form-control" id="zone" name="zone">
+                        @if(ViewBag.ZONE == 1)
+                        {
+                            <option value="0">KV1</option>
+                            <option value="1" selected>KV2</option>
+                            <option value="2">KV3</option>
+                            <option value="3">KV4</option>
+                        }
+                        else
+                        {
+                            <option value="0" selected>KV1</option>
+                            <option value="1">KV2</option>
+                            <option value="2">KV3</option>
+                            <option value="3">KV4</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-1">
+                    </br>
+                    <button type="submit" class="btn btn-primary">Excel</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+    </script>
+}

@@ -1,0 +1,168 @@
+﻿@model IEnumerable<SGP.Models.WikiInfo>
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_LayoutWiki.cshtml";
+}
+
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+
+        <!--menu-->
+        <ul class="sidebar-menu">
+            <li class="@(ViewBag.CurrentData.Id == null  ? "active" : "")">
+                <a class="" href="/activity/manage">
+                    <i class="icon_house_alt"></i>
+                    <span>SGP</span>
+                </a>
+            </li>
+            @foreach (var item in Model)
+            {
+
+                if (item.Childes.Count() > 0)
+                {
+                    <li class="sub-menu @(item.Id == ViewBag.CurrentData.Id ? "active" : "")">
+                        <a href="javascript:;" class="">
+                            <span>@item.Title</span>
+                        </a>
+                        <ul class="sub">
+                            @foreach (var menu in item.Childes)
+                            {
+                                <li><a class="@(menu.Id == ViewBag.CurrentData.Id ? "active" : "")" href="/activity/manage/@menu.Id">@menu.Title</a></li>
+                            }
+
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="@(item.Id == ViewBag.CurrentData.Id ? "active" : "")" href="/activity/manage/@item.Id">
+                            <span>@item.Title</span>
+                        </a>
+                    </li>
+                }
+
+
+            }
+
+        </ul>
+    </div>
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="/activity/manage">Home</a></li>
+                    <li>@ViewBag.CurrentData.Title</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    @if (ViewBag.CurrentData.Id != null)
+                    {
+                        <header class="panel-heading">
+                            <a href="javascript:showmodal('myModalAddNode')">THÊM MỤC CON</a> ------------ <a href="javascript:deleteNode()">XÓA</a>
+                        </header>
+                    }
+                    else
+                    {
+                        <header class="panel-heading">
+                            <a href="javascript:showmodal('myModalAddNode')">THÊM MỤC CON</a>
+                        </header>
+                    }
+
+                    <div class="panel-body">
+                        @if (ViewBag.CurrentData.Id != null)
+                        {
+                            <form method="post" action="/activity/updatecontent" enctype="multipart/form-data" onsubmit="if(!confirm('Cập nhật nội dung?')){return false;}">
+
+                                <input type="hidden" value="@ViewBag.CurrentData.Id" name="id" />
+                                <div class="form-group">
+                                    <label>Tiêu đề</label>
+                                    <input type="text" class="form-control" name="title" value="@ViewBag.CurrentData.Title" required />
+                                </div>
+                                <div class="form-group ">
+                                    <label for="ccomment" class="control-label">Nội dung<span class="required"></span></label>
+                                    <textarea class="form-control" placeholder="Place some text here" id="editor"
+                                              name="content" required>
+                                        @ViewBag.CurrentData.Content
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Cập nhật</button>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </section>
+</section>
+<!--main content end-->
+@section scripts {
+    <script type="text/javascript">
+        initeditor();
+
+
+        function deleteNode() {
+            $('#formdelete').submit();
+        }
+
+    </script>
+}
+
+
+<!-- Modal -->
+<div id="myModalAddNode" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">THÊM MỤC</h4>
+            </div>
+            <form method="post" action="/activity/addnode" onsubmit="if(!confirm('Thêm mục ?')){return false;}">
+                <div class=" modal-body">
+                    <div class="form-group">
+                        <label>Tên mục</label>
+                        <input type="text" class="form-control" name="title" required />
+                    </div>
+
+                    @if (ViewBag.CurrentData.Id == null)
+                    {
+                        <input type="hidden" name="parentId" value="-1" />
+                    }
+                    else
+                    {
+                        <label>Thư mục cha</label>
+                        <select name="parentId" class="form-control">
+                            <option value="@ViewBag.CurrentData.ParentId">Thư mục cha</option>
+                        </select>
+
+                        <input type="hidden" name="parentId" value="@ViewBag.CurrentData.Id" />
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default">Thêm</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<form method="post" action="/activity/delete" id="formdelete" onsubmit="if(!confirm('Xóa?')){return false;}">
+    <input type="hidden" value="@ViewBag.CurrentData.Id" name="id" />
+</form>
+

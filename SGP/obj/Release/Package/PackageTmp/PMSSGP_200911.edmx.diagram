@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="311ee3cecad5447ea029df95320088f1" Name="Diagram1">
+        <EntityTypeShape EntityType="PMSSGP_200911Model.MM_Mailers" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.SGP_KT_THUHO" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.SGP_Email" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.SGP_PackingList" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.MM_CustomerGroups" Width="1.75" PointX="8.375" PointY="8.125" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.MM_Customers" Width="1.5" PointX="1.125" PointY="7.625" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.MM_MailerDeliveryDetail" Width="1.5" PointX="5.625" PointY="6" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.MM_PostOffices" Width="1.5" PointX="1.125" PointY="14.375" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_Mailers_MM_Customers" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers1" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices4" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trung Tâm Bưu Chính Sài Gòn | </title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Scripts/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Scripts/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="~/Scripts/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/Scripts/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Scripts/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/Scripts/build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/content/activitystyle.css">
+    <link href="~/content/admin/css/style.css" rel="stylesheet">
+    <link href="~/content/admin/css/style-responsive.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    
+
+    @{
+        //var User = Session["UserName"].ToString();
+    }
+    @RenderSection("styles", false)
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/Home/Index" class="site_title"> <span>Trung Tâm SGP</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="../Content/images/logo.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <div>
+                                <form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post">
+                                    <input name="__RequestVerificationToken" type="hidden" value="TG5_kMIjja_-LM93AhhvzTmRQ__Wzvdgzn7auZlTo7GoUG1VdscTp9bTJK7muPg3PMgXQPyNSzFsfWZkHEbAoLDbCXAvG_InvN9_mMvTd9g7niAPiqO2rxWwH9dU3vBSruwrAS5tg4vwvNXUhyLRrw2" />            <li>
+                                        <a href="/Account/Manage" title="Manage">@Session["UserName"]</a>
+                                    </li>
+                                    <li><a href="/Account/login">Log off</a></li>
+                                </form>        
+                            </div>                     
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-home"></i> Khai thác <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Report/PostOffice">Sản lượng khai thác</a></li>
+                                        <li><a href="/Report/MailerDelivery">Tổng hợp sản lượng phát</a></li>
+                                        <li><a href="/Report/MailerDeliveryTime">Theo dõi bảng kê phát</a></li>
+                                        <li><a href="/Report/TotalMailer">CG chưa nhập doanh thu</a></li>
+                                        <li><a href="/Report/PackingListbyZone">Khai thác theo khu vực</a></li> 
+                                        <li><a href="/Report/CheckMailerIDScan">Kiểm soát phiếu scan</a></li>     
+                                        <li><a href="/Report/CheckPackingList">Tra cứu chuyến thư</a></li>   
+                                        <li><a href="/Report/MBVPackingList">Tra cứu MBV</a></li>                             
+                                        <li><a href="/Report/AmountKT">Báo cáo sản lượng khai thác</a></li>        
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> Doanh thu <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Report/PostOfficeAmount">Kết quả kinh doanh</a></li>
+                                        <li><a href="form_advanced.html">Doanh thu theo trọng lượng</a></li>
+                                        <li><a href="form_validation.html">Doanh thu theo nơi đến</a></li>
+                                        <li><a href="form_validation.html">Doanh thu theo dịch vụ</a></li>
+                                        <li><a href="/Report/ThuHoKT">Danh sách thu hộ</a></li>
+                                        <li><a href="/Report/ThuHoKTList">Danh sách thu hộ theo người dùng</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-desktop"></i> Khách hàng <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="general_elements.html">Công nợ khách hàng</a></li>
+                                        <li><a href="media_gallery.html">Thông tin khách hàng</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-table"></i> Công cụ hỗ trợ <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Tool/Tracking">Tra cứu phiếu gửi</a></li>
+                                        <li><a href="tables_dynamic.html">In phiếu gửi</a></li>
+                                        <li><a href="/Tool/ThuHoKT">Thu hộ kế toán</a></li>
+                                        <li><a href="/Tool/showMapSony">Phát hàng Sony</a></li>
+                                        <li><a href="/Tool/CheckMailerCG3">Tra cứu chuyến thư</a></li>
+                                        <li><a href="/Tool/TrackingEMS">Tra cứu EMS</a></li>
+                                        <li><a href="/Tool/PackingListInsert">Tạo chuyến thư MBV</a></li>
+                                        <li><a href="/Tool/PackingListUpdate">Cập nhật MBV</a></li>
+                                        <li><a href="/Tool/OnlineReport">Tạo biên bản</a></li>
+                                        <li><a href="/tool/viewreport">Xem biên bản</a></li>
+                                        <li><a href="/tool/specialcustomer">Khách hàng đặc biệt</a></li>
+                                        <li><a href="/tool/trackingsldt">Theo dõi sản lượng đường trực</a></li>
+                                        <li><a href="/tool/dhlplan">Luỹ kế</a></li>
+                                        <li><a href="/tool/chiphingoaituyen">Chi phí ngoại tuyến</a></li>
+                                        <li><a href="/tool/ThongKeSoLieu">Số liệu nhóm đóng gói</a></li>
+                                        <li><a href="/tool/SanLuongNhan">Sản lượng nhận</a></li>
+                                        <li><a href="/tool/SanLuongPhat">Sản lượng phát</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-table"></i> Quản lý kho <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="tables.html">Xuất nhập tồn</a></li>
+                                        <li><a href="tables_dynamic.html">Báo cáo</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-bar-chart-o"></i> Trích xuất số liệu <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Export/M_PackingList">Sản lượng đi đến các khu vực</a></li>
+                                        <li><a href="/Export/MailerByDate">Số liệu thô</a></li>
+                                        <li><a href="/Export/MailerDelivery">Số liệu thô phát</a></li>
+                                        <li><a href="/Export/M_Mailers28">Sản lượng phát [2kg đến 8kg]</a></li>
+                                        <li><a href="/Export/NotMailerDetails">Chi tiết phiếu gửi chưa phát</a></li>
+                                        <li><a href="/Export/MailerDelivery_Employee_Zone1">Hồi báo KV1</a></li>
+                                       
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-clone"></i>Hệ thống <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="fixed_sidebar.html">Danh mục người dùng</a></li>
+                                        <li><a href="fixed_footer.html">Phân quyền sử dụng</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-clone"></i>Thống kê<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Thongke/ThongKe">Thống kê số lượng phát</a></li>
+                                        @*<li><a href="fixed_footer.html">Phân quyền sử dụng</a></li>*@
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-table"></i>Tra cứu<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/TraCuu/TraCuuCuoc">Tra cứu cước</a></li>
+                                        @*<li><a href="fixed_footer.html">Phân quyền sử dụng</a></li>*@
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-table"></i>Hoạt động<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Activity/index">Diễn đàn trao đổi</a></li>
+                                        <li><a href="/Activity/IndexWiki">SGP Wiki</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <!-- /top tiles -->
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <script src="../Scripts/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="~/scripts/custom-file-input.js"></script>
+    <script src="~/scripts/mutiselect.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+    <!-- FastClick -->
+    <script src="~/Scripts/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="~/Scripts/build/js/custom.min.js"></script>
+    @RenderSection("scripts", false)
+
+
+</body>
+</html>

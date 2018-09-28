@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "ChiPhiNgoaiTuyen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Tool/GetPostOffice",
+                datatype: "JSON",
+                type: "Get",
+                success: function (data) {
+                    debugger;
+                    for (var i = 0; i < data.length; i++) {
+                        var opt = new Option(data[i].PostOfficeName);
+                        $("#PostOffice").append(opt);
+                    }
+                }
+            });
+        });
+
+        $(function () {
+            $("#PostOffice").change(function () {
+                //$("select[name='PostOffice'] option").remove()
+                var postname = $('#PostOffice').val();
+                $.ajax({
+                    url: "/Tool/getAddress",
+                    data: { PostOfficeName: postname },
+                    datatype: "JSON",
+                    type: "Get",
+                    success: function (response) {
+                        $('#Address').val(response.address);
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+<h2>Chi Phí Ngoại Tuyến</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="get">
+                <div class="col-sm-2">
+                    Bưu cục
+                    <select class="form-control" id="PostOffice" name="PostOffice">
+                        @*<option selected="selected"></option>*@
+                    </select>
+                </div>
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        Địa chỉ bưu cục
+                        <input type='text' class="form-control" id="Address" name="Address" value="" />
+                    </div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        Nhập địa chỉ
+                        <input type='text' class="form-control" id="InputAddress" name="InputAddress" value="" />
+                    </div>
+                </div>
+                <div class='col-sm-2'>
+                    <div class="form-group">
+                        Nhập phí trên 1km
+                        <input type='text' class="form-control" id="Fee" name="Fee" value="" />
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+   <div class="row">
+       <div class='col-sm-2'>
+           <div class="form-group">
+               Khoảng cách
+               <input type='text' class="form-control" id="InputAddress" name="InputAddress" value="@ViewBag.Distance" />
+           </div>
+       </div>
+
+       <div class='col-sm-2'>
+           <div class="form-group">
+               Chi Phí
+               <input type='text' class="form-control" id="InputAddress" name="InputAddress" value="@ViewBag.Budget" />
+           </div>
+       </div>
+   </div>
+</div>
+

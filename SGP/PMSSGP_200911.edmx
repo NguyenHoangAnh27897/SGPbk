@@ -1,0 +1,896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PMSSGP_200911Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MM_CustomerGroups">
+          <Key>
+            <PropertyRef Name="CustomerGroupID" />
+          </Key>
+          <Property Name="CustomerGroupID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerGroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MM_Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CustomerType" Type="int" />
+          <Property Name="CustomerGroupID" Type="varchar" MaxLength="15" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="DistrictID" Type="varchar" MaxLength="15" />
+          <Property Name="ProvinceID" Type="varchar" MaxLength="15" />
+          <Property Name="CountryID" Type="varchar" MaxLength="15" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="PersonalInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="20" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="PostOfficeID" Type="varchar" MaxLength="15" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="DebtDayInMonth" Type="tinyint" />
+          <Property Name="MemberOf" Type="varchar" MaxLength="50" />
+          <Property Name="DebitObjectID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MM_MailerDeliveryDetail">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+            <PropertyRef Name="MailerID" />
+          </Key>
+          <Property Name="DocumentID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="MailerID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsDeliverOver" Type="bit" />
+          <Property Name="DeliveryTo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="DeliveryStatus" Type="varchar" MaxLength="2" />
+          <Property Name="PaymentFinished" Type="bit" />
+          <Property Name="DeliveryNotes" Type="nvarchar" MaxLength="200" />
+          <Property Name="ConfirmDate" Type="datetime" />
+          <Property Name="ConfirmUserID" Type="varchar" MaxLength="20" />
+          <Property Name="ConfirmIndex" Type="varchar" MaxLength="30" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReturnReasonID" Type="varchar" MaxLength="15" />
+          <Property Name="SyncFlag" Type="bit" Nullable="false" />
+          <Property Name="LastSyncDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MM_Mailers">
+          <Key>
+            <PropertyRef Name="MailerID" />
+          </Key>
+          <Property Name="AcceptDate" Type="datetime" Nullable="false" />
+          <Property Name="AcceptTime" Type="datetime" Nullable="false" />
+          <Property Name="MailerID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SenderID" Type="varchar" MaxLength="15" />
+          <Property Name="SenderRepresenterID" Type="varchar" MaxLength="15" />
+          <Property Name="SenderName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SenderAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="SenderPhone" Type="varchar" MaxLength="50" />
+          <Property Name="SenderCountryID" Type="varchar" MaxLength="15" />
+          <Property Name="SenderProvinceID" Type="varchar" MaxLength="15" />
+          <Property Name="SenderDistrictID" Type="varchar" MaxLength="15" />
+          <Property Name="RecieverID" Type="varchar" MaxLength="15" />
+          <Property Name="RecieverRepresenterID" Type="varchar" MaxLength="15" />
+          <Property Name="RecieverName" Type="nvarchar" MaxLength="100" />
+          <Property Name="RecieverAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="RecieverPhone" Type="varchar" MaxLength="14" />
+          <Property Name="RecieverCountryID" Type="varchar" MaxLength="15" />
+          <Property Name="RecieverProvinceID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="RecieverDistrictID" Type="varchar" MaxLength="15" />
+          <Property Name="ServiceTypeID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="MailerTypeID" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="RealWeight" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="Money" Type="money" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="PriceDefault" Type="money" Nullable="false" />
+          <Property Name="PriceService" Type="money" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="BefVATAmount" Type="money" Nullable="false" />
+          <Property Name="VATPercent" Type="float" Nullable="false" />
+          <Property Name="VATAmount" Type="money" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="AmountBefDiscount" Type="money" Nullable="false" />
+          <Property Name="PostOfficeAcceptID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PostOfficeRecieverMoneyID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="20" />
+          <Property Name="MailerDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="ThirdpartyDocID" Type="varchar" MaxLength="20" />
+          <Property Name="ThirdpartyCost" Type="money" />
+          <Property Name="ThirdpartyPaymentMethodID" Type="varchar" MaxLength="15" />
+          <Property Name="ParentMailerID" Type="varchar" MaxLength="20" />
+          <Property Name="UserGroupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastUserGroupID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="CurrentStatusID" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="CurrentPostOfficeID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="DocIndex" Type="varchar" MaxLength="30" />
+          <Property Name="RangeWeightID" Type="varchar" MaxLength="15" />
+          <Property Name="RangeDistanceID" Type="varchar" MaxLength="15" />
+          <Property Name="PriceType" Type="varchar" MaxLength="1" />
+          <Property Name="PriceIncludeVAT" Type="bit" />
+          <Property Name="CommissionAmt" Type="money" />
+          <Property Name="CommissionPercent" Type="float" />
+          <Property Name="CostAmt" Type="money" />
+          <Property Name="SalesClosingDate" Type="datetime" />
+          <Property Name="RecieverAddressNbr" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReceiveProvinceID" Type="varchar" MaxLength="15" />
+          <Property Name="DiscountPercent" Type="float" />
+          <Property Name="LastUpdDate" Type="date" />
+          <Property Name="RecordState" Type="int" Nullable="false" />
+          <Property Name="SyncFlag" Type="bit" Nullable="false" />
+          <Property Name="LastSyncDate" Type="datetime" />
+          <Property Name="Amt4Comm" Type="money" />
+          <Property Name="LastUpdStatusTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MM_PostOffices">
+          <Key>
+            <PropertyRef Name="PostOfficeID" />
+          </Key>
+          <Property Name="PostOfficeID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PostOfficeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZoneID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ProvinceID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="25" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCollaborator" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccount" Type="varchar" MaxLength="50" />
+          <Property Name="MemberOf" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="SGP_Email">
+          <Key>
+            <PropertyRef Name="PostOfficeID" />
+          </Key>
+          <Property Name="PostOfficeID" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="CC" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SGP_KT_THUHO">
+          <Key>
+            <PropertyRef Name="MailerID" />
+          </Key>
+          <Property Name="MailerID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="DocID" Type="nvarchar" MaxLength="30" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Invoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SGP_PackingList">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DocumentDate" Type="datetime" />
+          <Property Name="PostOfficeIDAccept" Type="nvarchar" MaxLength="5" />
+          <Property Name="NumberOfPackage" Type="int" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="TripNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="DocumentOrder" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tranport" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="RecieveDate" Type="datetime" />
+          <Property Name="RecieveDescription" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_MM_MailerDeliveryDetail_MM_Mailers">
+          <End Role="MM_Mailers" Type="Self.MM_Mailers" Multiplicity="1" />
+          <End Role="MM_MailerDeliveryDetail" Type="Self.MM_MailerDeliveryDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Mailers">
+              <PropertyRef Name="MailerID" />
+            </Principal>
+            <Dependent Role="MM_MailerDeliveryDetail">
+              <PropertyRef Name="MailerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_MailerDeliveryDetail_MM_Mailers1">
+          <End Role="MM_Mailers" Type="Self.MM_Mailers" Multiplicity="1" />
+          <End Role="MM_MailerDeliveryDetail" Type="Self.MM_MailerDeliveryDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Mailers">
+              <PropertyRef Name="MailerID" />
+            </Principal>
+            <Dependent Role="MM_MailerDeliveryDetail">
+              <PropertyRef Name="MailerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_Mailers_MM_Customers">
+          <End Role="MM_Customers" Type="Self.MM_Customers" Multiplicity="0..1" />
+          <End Role="MM_Mailers" Type="Self.MM_Mailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="MM_Mailers">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_Mailers_MM_PostOffices4">
+          <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="1" />
+          <End Role="MM_Mailers" Type="Self.MM_Mailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_Mailers">
+              <PropertyRef Name="PostOfficeAcceptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_Mailers_MM_PostOffices5">
+          <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="1" />
+          <End Role="MM_Mailers" Type="Self.MM_Mailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_Mailers">
+              <PropertyRef Name="PostOfficeRecieverMoneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_PostOffices_MM_PostOffices">
+          <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="0..1" />
+          <End Role="MM_PostOffices1" Type="Self.MM_PostOffices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_PostOffices1">
+              <PropertyRef Name="MemberOf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="MM_CustomerGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="MM_FindCustomerID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerGroupID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SGP_insertPackingList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="PMSSGP_200911ModelStoreContainer">
+          <EntitySet Name="MM_CustomerGroups" EntityType="Self.MM_CustomerGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MM_Customers" EntityType="Self.MM_Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MM_MailerDeliveryDetail" EntityType="Self.MM_MailerDeliveryDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MM_Mailers" EntityType="Self.MM_Mailers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MM_PostOffices" EntityType="Self.MM_PostOffices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGP_Email" EntityType="Self.SGP_Email" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGP_KT_THUHO" EntityType="Self.SGP_KT_THUHO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGP_PackingList" EntityType="Self.SGP_PackingList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MM_MailerDeliveryDetail_MM_Mailers" Association="Self.FK_MM_MailerDeliveryDetail_MM_Mailers">
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+            <End Role="MM_MailerDeliveryDetail" EntitySet="MM_MailerDeliveryDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_MailerDeliveryDetail_MM_Mailers1" Association="Self.FK_MM_MailerDeliveryDetail_MM_Mailers1">
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+            <End Role="MM_MailerDeliveryDetail" EntitySet="MM_MailerDeliveryDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_Mailers_MM_Customers" Association="Self.FK_MM_Mailers_MM_Customers">
+            <End Role="MM_Customers" EntitySet="MM_Customers" />
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_Mailers_MM_PostOffices4" Association="Self.FK_MM_Mailers_MM_PostOffices4">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_Mailers_MM_PostOffices5" Association="Self.FK_MM_Mailers_MM_PostOffices5">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="Self.FK_MM_PostOffices_MM_PostOffices">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PMSSGP_200911Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PMSSGP_200911Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MM_Mailers" EntityType="PMSSGP_200911Model.MM_Mailers" />
+          <EntitySet Name="SGP_KT_THUHO" EntityType="PMSSGP_200911Model.SGP_KT_THUHO" />
+          <EntitySet Name="SGP_Email" EntityType="PMSSGP_200911Model.SGP_Email" />
+          <FunctionImport Name="SGP_insertPackingList" ReturnType="Collection(PMSSGP_200911Model.SGP_insertPackingList_Result)">
+          <Parameter Name="DocumentID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="SGP_PackingList" EntityType="PMSSGP_200911Model.SGP_PackingList" />
+          <EntitySet Name="MM_CustomerGroups" EntityType="PMSSGP_200911Model.MM_CustomerGroups" />
+          <EntitySet Name="MM_Customers" EntityType="PMSSGP_200911Model.MM_Customers" />
+          <EntitySet Name="MM_MailerDeliveryDetail" EntityType="PMSSGP_200911Model.MM_MailerDeliveryDetail" />
+          <EntitySet Name="MM_PostOffices" EntityType="PMSSGP_200911Model.MM_PostOffices" />
+          <AssociationSet Name="FK_MM_Mailers_MM_Customers" Association="PMSSGP_200911Model.FK_MM_Mailers_MM_Customers">
+            <End Role="MM_Customers" EntitySet="MM_Customers" />
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_MailerDeliveryDetail_MM_Mailers" Association="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers">
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+            <End Role="MM_MailerDeliveryDetail" EntitySet="MM_MailerDeliveryDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_MailerDeliveryDetail_MM_Mailers1" Association="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers1">
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+            <End Role="MM_MailerDeliveryDetail" EntitySet="MM_MailerDeliveryDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_Mailers_MM_PostOffices4" Association="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices4">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_Mailers_MM_PostOffices5" Association="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_Mailers" EntitySet="MM_Mailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices">
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+            <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+          </AssociationSet>
+          <FunctionImport Name="MM_CustomerGroup" ReturnType="Collection(String)" />
+          <FunctionImport Name="MM_FindCustomerID" ReturnType="Collection(String)">
+          <Parameter Name="CustomerGroupID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="MM_Mailers">
+          <Key>
+            <PropertyRef Name="MailerID" />
+          </Key>
+          <Property Name="AcceptDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AcceptTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MailerID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SenderID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SenderRepresenterID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SenderName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SenderAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SenderPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenderCountryID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SenderProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SenderDistrictID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverRepresenterID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RecieverAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RecieverPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverCountryID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverProvinceID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverDistrictID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceTypeID" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="MailerTypeID" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="RealWeight" Type="Double" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="Money" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PriceDefault" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PriceService" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="BefVATAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="VATPercent" Type="Double" Nullable="false" />
+          <Property Name="VATAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="AmountBefDiscount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PostOfficeAcceptID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentMethodID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PostOfficeRecieverMoneyID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MailerDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ThirdpartyDocID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ThirdpartyCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ThirdpartyPaymentMethodID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ParentMailerID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserGroupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastUserGroupID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrentStatusID" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentPostOfficeID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="DocIndex" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RangeWeightID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RangeDistanceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PriceType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PriceIncludeVAT" Type="Boolean" />
+          <Property Name="CommissionAmt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CommissionPercent" Type="Double" />
+          <Property Name="CostAmt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SalesClosingDate" Type="DateTime" Precision="3" />
+          <Property Name="RecieverAddressNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiveProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Double" />
+          <Property Name="LastUpdDate" Type="DateTime" Precision="0" />
+          <Property Name="RecordState" Type="Int32" Nullable="false" />
+          <Property Name="SyncFlag" Type="Boolean" Nullable="false" />
+          <Property Name="LastSyncDate" Type="DateTime" Precision="3" />
+          <Property Name="Amt4Comm" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LastUpdStatusTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MM_Customers" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_Customers" FromRole="MM_Mailers" ToRole="MM_Customers" />
+          <NavigationProperty Name="MM_MailerDeliveryDetail" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers" FromRole="MM_Mailers" ToRole="MM_MailerDeliveryDetail" />
+          <NavigationProperty Name="MM_MailerDeliveryDetail1" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers1" FromRole="MM_Mailers" ToRole="MM_MailerDeliveryDetail" />
+          <NavigationProperty Name="MM_PostOffices" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices4" FromRole="MM_Mailers" ToRole="MM_PostOffices" />
+          <NavigationProperty Name="MM_PostOffices1" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5" FromRole="MM_Mailers" ToRole="MM_PostOffices" />
+        </EntityType>
+        <EntityType Name="SGP_KT_THUHO">
+          <Key>
+            <PropertyRef Name="MailerID" />
+          </Key>
+          <Property Name="MailerID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DocID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Invoice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SGP_Email">
+          <Key>
+            <PropertyRef Name="PostOfficeID" />
+          </Key>
+          <Property Name="PostOfficeID" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="SGP_insertPackingList_Result">
+          <Property Type="String" Name="DocumentID" Nullable="false" MaxLength="15" />
+          <Property Type="DateTime" Name="DocumentDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PostOfficeIDAccept" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="NumberOfPackage" Nullable="true" MaxLength="10" />
+          <Property Type="Double" Name="Weight" Nullable="true" />
+          <Property Type="String" Name="TripNumber" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <EntityType Name="SGP_PackingList">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentDate" Type="DateTime" Precision="3" />
+          <Property Name="PostOfficeIDAccept" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfPackage" Type="Int32" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="TripNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tranport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="RecieveDate" Type="DateTime" Precision="3" />
+          <Property Name="RecieveDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MM_CustomerGroups">
+          <Key>
+            <PropertyRef Name="CustomerGroupID" />
+          </Key>
+          <Property Name="CustomerGroupID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerGroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MM_Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerType" Type="Int32" />
+          <Property Name="CustomerGroupID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CountryID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="PostOfficeID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="DebtDayInMonth" Type="Byte" />
+          <Property Name="MemberOf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DebitObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MM_Mailers" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_Customers" FromRole="MM_Customers" ToRole="MM_Mailers" />
+        </EntityType>
+        <EntityType Name="MM_MailerDeliveryDetail">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+            <PropertyRef Name="MailerID" />
+          </Key>
+          <Property Name="DocumentID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MailerID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeliverOver" Type="Boolean" />
+          <Property Name="DeliveryTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryStatus" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentFinished" Type="Boolean" />
+          <Property Name="DeliveryNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmIndex" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReturnReasonID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SyncFlag" Type="Boolean" Nullable="false" />
+          <Property Name="LastSyncDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MM_Mailers" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers" FromRole="MM_MailerDeliveryDetail" ToRole="MM_Mailers" />
+          <NavigationProperty Name="MM_Mailers1" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers1" FromRole="MM_MailerDeliveryDetail" ToRole="MM_Mailers" />
+        </EntityType>
+        <EntityType Name="MM_PostOffices">
+          <Key>
+            <PropertyRef Name="PostOfficeID" />
+          </Key>
+          <Property Name="PostOfficeID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PostOfficeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCollaborator" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberOf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MM_Mailers" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices4" FromRole="MM_PostOffices" ToRole="MM_Mailers" />
+          <NavigationProperty Name="MM_Mailers1" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5" FromRole="MM_PostOffices" ToRole="MM_Mailers" />
+          <NavigationProperty Name="MM_PostOffices1" Relationship="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices" ToRole="MM_PostOffices1" />
+          <NavigationProperty Name="MM_PostOffices2" Relationship="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices1" ToRole="MM_PostOffices" />
+        </EntityType>
+        <Association Name="FK_MM_Mailers_MM_Customers">
+          <End Type="PMSSGP_200911Model.MM_Customers" Role="MM_Customers" Multiplicity="0..1" />
+          <End Type="PMSSGP_200911Model.MM_Mailers" Role="MM_Mailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="MM_Mailers">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_MailerDeliveryDetail_MM_Mailers">
+          <End Type="PMSSGP_200911Model.MM_Mailers" Role="MM_Mailers" Multiplicity="1" />
+          <End Type="PMSSGP_200911Model.MM_MailerDeliveryDetail" Role="MM_MailerDeliveryDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Mailers">
+              <PropertyRef Name="MailerID" />
+            </Principal>
+            <Dependent Role="MM_MailerDeliveryDetail">
+              <PropertyRef Name="MailerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_MailerDeliveryDetail_MM_Mailers1">
+          <End Type="PMSSGP_200911Model.MM_Mailers" Role="MM_Mailers" Multiplicity="1" />
+          <End Type="PMSSGP_200911Model.MM_MailerDeliveryDetail" Role="MM_MailerDeliveryDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Mailers">
+              <PropertyRef Name="MailerID" />
+            </Principal>
+            <Dependent Role="MM_MailerDeliveryDetail">
+              <PropertyRef Name="MailerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_Mailers_MM_PostOffices4">
+          <End Type="PMSSGP_200911Model.MM_PostOffices" Role="MM_PostOffices" Multiplicity="1" />
+          <End Type="PMSSGP_200911Model.MM_Mailers" Role="MM_Mailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_Mailers">
+              <PropertyRef Name="PostOfficeAcceptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_Mailers_MM_PostOffices5">
+          <End Type="PMSSGP_200911Model.MM_PostOffices" Role="MM_PostOffices" Multiplicity="1" />
+          <End Type="PMSSGP_200911Model.MM_Mailers" Role="MM_Mailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_Mailers">
+              <PropertyRef Name="PostOfficeRecieverMoneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MM_PostOffices_MM_PostOffices">
+          <End Type="PMSSGP_200911Model.MM_PostOffices" Role="MM_PostOffices" Multiplicity="0..1" />
+          <End Type="PMSSGP_200911Model.MM_PostOffices" Role="MM_PostOffices1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_PostOffices">
+              <PropertyRef Name="PostOfficeID" />
+            </Principal>
+            <Dependent Role="MM_PostOffices1">
+              <PropertyRef Name="MemberOf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PMSSGP_200911ModelStoreContainer" CdmEntityContainer="PMSSGP_200911Entities">
+          <EntitySetMapping Name="MM_Mailers">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_Mailers">
+              <MappingFragment StoreEntitySet="MM_Mailers">
+                <ScalarProperty Name="LastUpdStatusTime" ColumnName="LastUpdStatusTime" />
+                <ScalarProperty Name="Amt4Comm" ColumnName="Amt4Comm" />
+                <ScalarProperty Name="LastSyncDate" ColumnName="LastSyncDate" />
+                <ScalarProperty Name="SyncFlag" ColumnName="SyncFlag" />
+                <ScalarProperty Name="RecordState" ColumnName="RecordState" />
+                <ScalarProperty Name="LastUpdDate" ColumnName="LastUpdDate" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="ReceiveProvinceID" ColumnName="ReceiveProvinceID" />
+                <ScalarProperty Name="RecieverAddressNbr" ColumnName="RecieverAddressNbr" />
+                <ScalarProperty Name="SalesClosingDate" ColumnName="SalesClosingDate" />
+                <ScalarProperty Name="CostAmt" ColumnName="CostAmt" />
+                <ScalarProperty Name="CommissionPercent" ColumnName="CommissionPercent" />
+                <ScalarProperty Name="CommissionAmt" ColumnName="CommissionAmt" />
+                <ScalarProperty Name="PriceIncludeVAT" ColumnName="PriceIncludeVAT" />
+                <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+                <ScalarProperty Name="RangeDistanceID" ColumnName="RangeDistanceID" />
+                <ScalarProperty Name="RangeWeightID" ColumnName="RangeWeightID" />
+                <ScalarProperty Name="DocIndex" ColumnName="DocIndex" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="CurrentPostOfficeID" ColumnName="CurrentPostOfficeID" />
+                <ScalarProperty Name="CurrentStatusID" ColumnName="CurrentStatusID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastUserGroupID" ColumnName="LastUserGroupID" />
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="ParentMailerID" ColumnName="ParentMailerID" />
+                <ScalarProperty Name="ThirdpartyPaymentMethodID" ColumnName="ThirdpartyPaymentMethodID" />
+                <ScalarProperty Name="ThirdpartyCost" ColumnName="ThirdpartyCost" />
+                <ScalarProperty Name="ThirdpartyDocID" ColumnName="ThirdpartyDocID" />
+                <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PostOfficeRecieverMoneyID" ColumnName="PostOfficeRecieverMoneyID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+                <ScalarProperty Name="AmountBefDiscount" ColumnName="AmountBefDiscount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+                <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+                <ScalarProperty Name="BefVATAmount" ColumnName="BefVATAmount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+                <ScalarProperty Name="PriceDefault" ColumnName="PriceDefault" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MailerTypeID" ColumnName="MailerTypeID" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+                <ScalarProperty Name="RecieverDistrictID" ColumnName="RecieverDistrictID" />
+                <ScalarProperty Name="RecieverProvinceID" ColumnName="RecieverProvinceID" />
+                <ScalarProperty Name="RecieverCountryID" ColumnName="RecieverCountryID" />
+                <ScalarProperty Name="RecieverPhone" ColumnName="RecieverPhone" />
+                <ScalarProperty Name="RecieverAddress" ColumnName="RecieverAddress" />
+                <ScalarProperty Name="RecieverName" ColumnName="RecieverName" />
+                <ScalarProperty Name="RecieverRepresenterID" ColumnName="RecieverRepresenterID" />
+                <ScalarProperty Name="RecieverID" ColumnName="RecieverID" />
+                <ScalarProperty Name="SenderDistrictID" ColumnName="SenderDistrictID" />
+                <ScalarProperty Name="SenderProvinceID" ColumnName="SenderProvinceID" />
+                <ScalarProperty Name="SenderCountryID" ColumnName="SenderCountryID" />
+                <ScalarProperty Name="SenderPhone" ColumnName="SenderPhone" />
+                <ScalarProperty Name="SenderAddress" ColumnName="SenderAddress" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="SenderRepresenterID" ColumnName="SenderRepresenterID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+                <ScalarProperty Name="AcceptTime" ColumnName="AcceptTime" />
+                <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGP_KT_THUHO">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.SGP_KT_THUHO">
+              <MappingFragment StoreEntitySet="SGP_KT_THUHO">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="DocID" ColumnName="DocID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGP_Email">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.SGP_Email">
+              <MappingFragment StoreEntitySet="SGP_Email">
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SGP_insertPackingList" FunctionName="PMSSGP_200911Model.Store.SGP_insertPackingList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PMSSGP_200911Model.SGP_insertPackingList_Result">
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="PostOfficeIDAccept" ColumnName="PostOfficeIDAccept" />
+                <ScalarProperty Name="NumberOfPackage" ColumnName="NumberOfPackage" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="TripNumber" ColumnName="TripNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="SGP_PackingList">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.SGP_PackingList">
+              <MappingFragment StoreEntitySet="SGP_PackingList">
+                <ScalarProperty Name="RecieveDescription" ColumnName="RecieveDescription" />
+                <ScalarProperty Name="RecieveDate" ColumnName="RecieveDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Tranport" ColumnName="Tranport" />
+                <ScalarProperty Name="DocumentOrder" ColumnName="DocumentOrder" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TripNumber" ColumnName="TripNumber" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="NumberOfPackage" ColumnName="NumberOfPackage" />
+                <ScalarProperty Name="PostOfficeIDAccept" ColumnName="PostOfficeIDAccept" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MM_CustomerGroups">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_CustomerGroups">
+              <MappingFragment StoreEntitySet="MM_CustomerGroups">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="CustomerGroupName" ColumnName="CustomerGroupName" />
+                <ScalarProperty Name="CustomerGroupID" ColumnName="CustomerGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MM_Customers">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_Customers">
+              <MappingFragment StoreEntitySet="MM_Customers">
+                <ScalarProperty Name="DebitObjectID" ColumnName="DebitObjectID" />
+                <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
+                <ScalarProperty Name="DebtDayInMonth" ColumnName="DebtDayInMonth" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="PersonalInfo" ColumnName="PersonalInfo" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CustomerGroupID" ColumnName="CustomerGroupID" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MM_MailerDeliveryDetail">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_MailerDeliveryDetail">
+              <MappingFragment StoreEntitySet="MM_MailerDeliveryDetail">
+                <ScalarProperty Name="LastSyncDate" ColumnName="LastSyncDate" />
+                <ScalarProperty Name="SyncFlag" ColumnName="SyncFlag" />
+                <ScalarProperty Name="ReturnReasonID" ColumnName="ReturnReasonID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="ConfirmIndex" ColumnName="ConfirmIndex" />
+                <ScalarProperty Name="ConfirmUserID" ColumnName="ConfirmUserID" />
+                <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+                <ScalarProperty Name="DeliveryNotes" ColumnName="DeliveryNotes" />
+                <ScalarProperty Name="PaymentFinished" ColumnName="PaymentFinished" />
+                <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="DeliveryTo" ColumnName="DeliveryTo" />
+                <ScalarProperty Name="IsDeliverOver" ColumnName="IsDeliverOver" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MM_PostOffices">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_PostOffices">
+              <MappingFragment StoreEntitySet="MM_PostOffices">
+                <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsCollaborator" ColumnName="IsCollaborator" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+                <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MM_CustomerGroup" FunctionName="PMSSGP_200911Model.Store.MM_CustomerGroup" />
+          <FunctionImportMapping FunctionImportName="MM_FindCustomerID" FunctionName="PMSSGP_200911Model.Store.MM_FindCustomerID" />
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

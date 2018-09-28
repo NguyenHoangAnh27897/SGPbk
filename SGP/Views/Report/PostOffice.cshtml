@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SGP.Models.ResponsePostOffice>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sản lượng khai thác các bưu cục (khởi tạo)</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="select2-selection--single">
+                       </br>
+                        Chọn khu vực
+                        <select name="ZoneID">
+                            <option value="KV1">KV1</option>
+                            <option value="KV2">KV2</option>
+                            <option value="KV3">KV3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    </br>
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+
+<div class="code-cut">
+    @Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add(c => c.MBC).Titled("Mã BC").Filterable(true);
+                        columns.Add(c => c.BC).Titled("Tên BC").Filterable(true);
+                        columns.Add(c => c.SL).Titled("TongSL").Filterable(true);
+                        columns.Add(c => c.TL).Titled("TongTL").Filterable(true);
+                        columns.Add()
+                        .Encoded(false)
+                        .Sanitized(false)
+                        .SetWidth(30)
+                        .RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.MBC }));
+
+                    }).WithPaging(10).Sortable(true)
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        var a = [];
+
+        @foreach (var item in Model) {
+            @:a.push('@item.BC');
+                        }
+
+        console.log(a);
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}
+
+
+
+
+

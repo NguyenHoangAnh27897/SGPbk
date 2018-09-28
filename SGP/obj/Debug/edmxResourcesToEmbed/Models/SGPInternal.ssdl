@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SGPInternalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActivityInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UserPost" Type="nvarchar" MaxLength="256" />
+    <Property Name="PostOfficeId" Type="nvarchar" MaxLength="32" />
+    <Property Name="IsClock" Type="int" />
+    <Property Name="UserLock" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserPost" Type="nvarchar" MaxLength="256" />
+    <Property Name="PostOfficeId" Type="nvarchar" MaxLength="32" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="FileAttach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DocumentName" Type="nvarchar(max)" />
+    <Property Name="DocumentPath" Type="nvarchar(max)" />
+    <Property Name="DoucumentType" Type="nvarchar" MaxLength="256" />
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="FileAttachComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DocumentName" Type="nvarchar(max)" />
+    <Property Name="DocumentPath" Type="nvarchar(max)" />
+    <Property Name="DoucumentType" Type="nvarchar" MaxLength="256" />
+    <Property Name="CommentId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="PostOffice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="512" />
+    <Property Name="ZoneId" Type="nvarchar" MaxLength="32" />
+    <Property Name="ProvinceId" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="SGPWiki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="LastTime" Type="datetime" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="256" />
+    <Property Name="SortNumber" Type="int" />
+    <Property Name="ParentId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ZoneInfo">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="ZoneName" Type="nvarchar" MaxLength="512" />
+  </EntityType>
+  <Association Name="FK__ActivityI__PostO__4222D4EF">
+    <End Role="PostOffice" Type="Self.PostOffice" Multiplicity="0..1" />
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostOffice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityInfo">
+        <PropertyRef Name="PostOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__Activit__52593CB8">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__PostOff__5165187F">
+    <End Role="PostOffice" Type="Self.PostOffice" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostOffice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="PostOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Activ__4CA06362">
+    <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+    <End Role="FileAttach" Type="Self.FileAttach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttach">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Comme__571DF1D5">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="FileAttachComment" Type="Self.FileAttachComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttachComment">
+        <PropertyRef Name="CommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SGPInternalModelStoreContainer">
+    <EntitySet Name="ActivityInfo" EntityType="Self.ActivityInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileAttach" EntityType="Self.FileAttach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileAttachComment" EntityType="Self.FileAttachComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostOffice" EntityType="Self.PostOffice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SGPWiki" EntityType="Self.SGPWiki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZoneInfo" EntityType="Self.ZoneInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ActivityI__PostO__4222D4EF" Association="Self.FK__ActivityI__PostO__4222D4EF">
+      <End Role="PostOffice" EntitySet="PostOffice" />
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__Activit__52593CB8" Association="Self.FK__Comment__Activit__52593CB8">
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__PostOff__5165187F" Association="Self.FK__Comment__PostOff__5165187F">
+      <End Role="PostOffice" EntitySet="PostOffice" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Activ__4CA06362" Association="Self.FK__FileAttac__Activ__4CA06362">
+      <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+      <End Role="FileAttach" EntitySet="FileAttach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Comme__571DF1D5" Association="Self.FK__FileAttac__Comme__571DF1D5">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="FileAttachComment" EntitySet="FileAttachComment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

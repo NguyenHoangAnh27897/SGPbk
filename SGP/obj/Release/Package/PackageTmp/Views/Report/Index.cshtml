@@ -1,0 +1,167 @@
+﻿@model IEnumerable<SGP.Models.ResponeMailers>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>General report</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form action="/Report/Index" method="post">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        To date
+                        <div class='input-group date' id='dtptodate'>
+                            <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit">Primary</button>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+
+<div class="code-cut">
+    @Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add(c=> c.PostOfficeID).Titled("Buu cuc").Filterable(true);
+                        columns.Add(c => c.TongCG).Titled("TongCG").Filterable(true);
+                        columns.Add(c => c.TongSL).Titled("TongSL").Filterable(true);
+                        columns.Add(c => c.TongTL).Titled("TongTL").Filterable(true);
+                        columns.Add()
+                        .Encoded(false)
+                        .Sanitized(false)
+                        .SetWidth(30)
+                        .RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.PostOfficeID }));
+
+                    }).WithPaging(10).Sortable(true)
+</div>
+
+    <div class="x_title">    
+        <canvas id="myLineChart" width="300" height="100"></canvas>    
+    </div>
+@section scripts{
+<script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#dtpfromdate').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+    $(function () {
+        $('#dtptodate').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+</script>
+
+    <script>
+
+    
+    function callChart() {
+        var fromdate = $('#fdate').val();
+        var todate = $('#tdate').val();
+        var jsonData = JSON.stringify({
+            FromDate: fromdate,
+            ToDate: todate
+        });
+
+        $.ajax({
+            url: "/Report/GetMailer",
+            data: {
+                FromDate: fromdate,
+                ToDate: todate
+            },
+            success: OnSucess_,
+            error: OnErrorCall_
+        });
+
+    }
+    function OnSucess_(response) {
+        console.log(response);
+
+
+        // var aData = reponse.d;
+        // var aLabels = aData[0];
+        // alert(aLabels);
+        //var aDatasets1 = aData[1];
+        //var aDatasets2 = aData[2];
+
+        var arrLabel = [];
+        var arrData = [];
+        $(response).each(function (i, e) {
+            arrLabel.push(e.PostOfficeID);
+            arrData.push(e.TongCG);
+        });
+
+        var ctx = document.getElementById("myLineChart");
+        var data = {
+            labels: arrLabel,
+            datasets: [
+                {
+                    label: "My First dataset",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "rgba(75,192,192,0.4)",
+                    borderColor: "rgba(75,192,192,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: arrData,
+                    spanGaps: false,
+                }
+            ]
+        };
+        console.log("data");
+        var myLinechart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    }
+    function OnErrorCall_(repo) {
+        alert("Woops something went wrong, pls try later !");
+    }
+</script>
+
+
+}
+   
+
+
+  
+

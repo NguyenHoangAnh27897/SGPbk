@@ -1,0 +1,112 @@
+﻿@model PagedList.IPagedList<SGP.Models.PostOffice>
+@using PagedList.Mvc;
+@using GridMvc.Html
+@{
+    ViewBag.Title = "ThongKe";
+}
+
+<h2>Thống kê số lượng phát</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-4">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    Chọn mã khách hàng
+                        </br>
+                    <input type="text" id="SenderID" placeholder="Ma Khach Hang" name="SenderID" value="@ViewBag.SenderID">   
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<br />
+<div class="table-responsive">
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Khu vực</th>
+                <th class="column-title">Bưu cục</th>
+                <th class="column-title">Tổng số phát</th>
+                <th class="column-title">Đã phát</th>
+                <th class="column-title">Tỉ lệ</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr @*class="even pointer @(item.TongSoPhat > 5 ? "success" : "danger")"*@>
+                    <td>@item.ZoneID</td>
+                    <td>@item.PostOfficeName</td>
+                    <td>@item.TongSoPhat</td>
+                    <td>@item.DaPhat</td>
+                    <td>@item.TiLe</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("ThongKe",
+                                            new { page, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate, SenderID = ViewBag.SenderID }))
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        var a = [];
+
+        @foreach (var item in Model) {
+            @:a.push('@item.PostOfficeName');
+                        }
+
+        console.log(a);
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}
+

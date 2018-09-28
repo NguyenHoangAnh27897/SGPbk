@@ -1,0 +1,113 @@
+﻿@using GridMvc.Html
+
+@model PagedList.IPagedList<SGP.Models.ResponeTongCG>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>CG chưa nhập doanh thu</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <div class='col-sm-4'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-4">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <a href="/report/ExcelPostOfficeAmount?FromDate=@ViewBag.FromDate&ToDate=@ViewBag.ToDate" class="btn btn-primary">Xuat Excel</a>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<br />
+<div class="table-responsive">
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Vùng</th>
+                <th class="column-title">Mã BC</th>
+                <th class="column-title">Tên BC</th>
+                <th class="column-title">Tổng CG</th>
+                <th class="column-title">Tổng CG chưa nhập DT</th>
+                <th class="column-title">Xem chi tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr class="even pointer @(item.ChuaNhapDT > 0 ? "success" : "danger")">
+                    <td>@item.ZoneID</td>
+                    <td>@item.MaBC</td>
+                    <td>@item.BC</td>
+                    <td>@item.TongCG</td>
+                    <td>@item.ChuaNhapDT</td>
+                    <td><a href="/Export/SGP_WEB_TongCG_BC?FromDate=@ViewBag.FromDate&ToDate=@ViewBag.ToDate&PostOfficeID=@item.MaBC">Xem</a><td/>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("TotalMailer",
+                            new { page, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate }))
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        var a = [];
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}
+
+
+
+
+

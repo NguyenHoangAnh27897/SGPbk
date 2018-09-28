@@ -1,0 +1,201 @@
+﻿@using PagedList.Mvc;
+@using GridMvc.Html
+@model PagedList.IPagedList<SGP.Models.DuongTruc_KTNhan>
+@{
+    ViewBag.Title = "TrackingSLDT";
+}
+
+<h2>Theo dõi sản lượng đường trực</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        From date
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-3">
+                    To date
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    Loại hàng
+                    </br>
+                    <select class="form-control" id="opt" name="opt">
+                        @if (ViewBag.OPT == 1)
+                        {
+                            <option value="0">Hàng dự kiến</option>
+                            <option value="1" selected>Hàng đã nhận</option>
+                            <option value="2">Hàng đã chuyển</option>
+                        }
+                        else if (ViewBag.OPT == 2)
+                        {
+                            <option value="0">Hàng dự kiến</option>
+                            <option value="1">Hàng đã nhận</option>
+                            <option value="2" selected>Hàng đã chuyển</option>
+                        }
+                        else if (ViewBag.OPT == 0)
+                        {
+                            <option value="0" selected>Hàng dự kiến</option>
+                            <option value="1">Hàng đã nhận</option>
+                            <option value="2">Hàng đã chuyển</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Lọc</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<br />
+@if (ViewBag.OPT == 1)
+{
+    <div class="table-responsive">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="headings">
+                    <th class="column-title">Bưu cục nhận</th>
+                    <th class="column-title">Nơi đến</th>
+                    <th class="column-title">Khu vực</th>
+                    <th class="column-title">Dịch vụ</th>
+                    <th class="column-title">Tổng CG</th>
+                    <th class="column-title">Số lượng</th>
+                    <th class="column-title">Trọng lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.PostOfficeAcceptID</td>
+                        <td>@item.RecieverProvinceID</td>
+                        <td>@item.ZoneID</td>
+                        <td>@item.ServiceTypeID</td>
+                        <td>@item.MailerID</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Weight</td>                    
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+}
+else if(ViewBag.OPT == 2)
+{
+    <div class="table-responsive">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="headings">
+                    <th class="column-title">Bưu cục</th>
+                    <th class="column-title">Tổng CG</th>
+                    <th class="column-title">Dịch vụ</th>
+                    <th class="column-title">Nội dung</th>
+                    <th class="column-title">Số lượng</th>
+                    <th class="column-title">Khu vực</th>
+                </tr>
+            </thead>
+            @*<tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.FromDate</td>
+                        <td>@item.ToDate</td>
+                        <td>@item.CustomerGroupID</td>
+                        <td>@item.CustomerID</td>
+                        <td>@item.TongCG</td>
+                        <td>@item.TongPhat</td>
+                        <td>@item.ChuaPhat</td>
+                    </tr>
+
+                }
+            </tbody>*@
+        </table>
+    </div>
+}
+else if (ViewBag.OPT == 0)
+{
+    <div class="table-responsive">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="headings">
+                    <th class="column-title">Bưu cục nhận</th>
+                    <th class="column-title">Nơi đến</th>
+                    <th class="column-title">Khu vực</th>
+                    <th class="column-title">Dịch vụ</th>
+                    <th class="column-title">Tổng CG</th>
+                    <th class="column-title">Số lượng</th>
+                    <th class="column-title">Trọng lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.PostOfficeAcceptID</td>
+                        <td>@item.RecieverProvinceID</td>
+                        <td>@item.ZoneID</td>
+                        <td>@item.ServiceTypeID</td>
+                        <td>@item.MailerID</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Weight</td> 
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+       
+    </div>
+}
+
+<br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("TrackingSLDT",
+                                                              new { page, opt = ViewBag.OPT, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate }))
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+
+    <script type="text/javascript">
+        var a = [];
+        console.log(a);
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="003c2c912feb4557b5c45317c031f6fd" Name="Diagram1" >
+        <EntityTypeShape EntityType="SGPAPIModel.Fault" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="SGPAPIModel.ReportOnline" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="SGPAPIModel.FK_ReportOnline_Fault" />
+        <EntityTypeShape EntityType="SGPAPIModel.ActivityInfo" Width="1.5" PointX="0.75" PointY="7.625" />
+        <EntityTypeShape EntityType="SGPAPIModel.Comment" Width="1.5" PointX="3" PointY="10.5" />
+        <EntityTypeShape EntityType="SGPAPIModel.FileAttach" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="SGPAPIModel.FileAttachComment" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="SGPAPIModel.SGPWiki" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SGPAPIModel.ZoneInfo" Width="1.5" PointX="3" PointY="5.25" />
+        <AssociationConnector Association="SGPAPIModel.FK__Comment__Activit__1940BAED" />
+        <AssociationConnector Association="SGPAPIModel.FK__FileAttac__Activ__1B29035F" />
+        <AssociationConnector Association="SGPAPIModel.FK__FileAttac__Comme__1C1D2798" />
+        <AssociationConnector Association="SGPAPIModel.ActivityZone" />
+        <EntityTypeShape EntityType="SGPAPIModel.WK_PostOffice" Width="1.5" PointX="7.625" PointY="7.875" />
+        <AssociationConnector Association="SGPAPIModel.FK__ActivityI__PostO__16644E42" />
+        <AssociationConnector Association="SGPAPIModel.FK__Comment__PostOff__1A34DF26" />
+        <EntityTypeShape EntityType="SGPAPIModel.UMS_tblUserAccount" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SGPAPIModel.AspNetRole" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SGPAPIModel.AspNetUserRole" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SGPAPIModel.AspNetUser" Width="1.5" PointX="10.375" PointY="3.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

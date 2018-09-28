@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "DHLplan";
+}
+
+<h2>Luỹ kế</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="get" action="/tool/exceldhlplan">
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        Từ ngày
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-3">
+                    Đến ngày
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    </br>
+                    <button type="submit" class="btn btn-primary">Xuất Excel</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY',
+                defaultDate: new Date(),
+                locale: 'Vi'
+            });
+        });
+    </script>
+}

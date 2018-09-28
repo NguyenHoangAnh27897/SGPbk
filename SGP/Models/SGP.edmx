@@ -1,0 +1,1069 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SGPAPIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UserPost" Type="nvarchar" MaxLength="256" />
+          <Property Name="PostOfficeId" Type="nvarchar" MaxLength="32" />
+          <Property Name="IsClock" Type="int" />
+          <Property Name="UserLock" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="ActivityZone">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ActivityId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ZoneId" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserPost" Type="nvarchar" MaxLength="256" />
+          <Property Name="PostOfficeId" Type="nvarchar" MaxLength="32" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ActivityId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Fault">
+          <Key>
+            <PropertyRef Name="IDFault" />
+          </Key>
+          <Property Name="IDFault" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaultName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Point" Type="int" />
+        </EntityType>
+        <EntityType Name="FileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DocumentName" Type="nvarchar(max)" />
+          <Property Name="DocumentPath" Type="nvarchar(max)" />
+          <Property Name="DoucumentType" Type="nvarchar" MaxLength="256" />
+          <Property Name="ActivityId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="FileAttachComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DocumentName" Type="nvarchar(max)" />
+          <Property Name="DocumentPath" Type="nvarchar(max)" />
+          <Property Name="DoucumentType" Type="nvarchar" MaxLength="256" />
+          <Property Name="CommentId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="ReportOnline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDReceipt" Type="nvarchar" MaxLength="20" />
+          <Property Name="DetailContent" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="IDFault" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SGPWiki">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="LastTime" Type="datetime" />
+          <Property Name="LastUser" Type="nvarchar" MaxLength="256" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="ParentId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="UMS_tblUserAccount">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+          </Key>
+          <Property Name="UserGroupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UserGroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FValid" Type="bit" Nullable="false" />
+          <Property Name="FGroup" Type="bit" Nullable="false" />
+          <Property Name="FAdm" Type="bit" Nullable="false" />
+          <Property Name="FSpv" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="240" />
+          <Property Name="CantChangePwd" Type="bit" Nullable="false" />
+          <Property Name="PwdNeverExpire" Type="bit" Nullable="false" />
+          <Property Name="MustChangePwd" Type="bit" Nullable="false" />
+          <Property Name="DateOfChangePwd" Type="datetime" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="MemberOf" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="WK_PostOffice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="512" />
+          <Property Name="ZoneId" Type="nvarchar" MaxLength="32" />
+          <Property Name="ProvinceId" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="ZoneInfo">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="ZoneName" Type="nvarchar" MaxLength="512" />
+        </EntityType>
+        <Association Name="FK__ActivityI__PostO__16644E42">
+          <End Role="WK_PostOffice" Type="Self.WK_PostOffice" Multiplicity="0..1" />
+          <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WK_PostOffice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityInfo">
+              <PropertyRef Name="PostOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityZ__Activ__1758727B">
+          <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="1" />
+          <End Role="ActivityZone" Type="Self.ActivityZone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityZone">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityZ__ZoneI__184C96B4">
+          <End Role="ZoneInfo" Type="Self.ZoneInfo" Multiplicity="1" />
+          <End Role="ActivityZone" Type="Self.ActivityZone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZoneInfo">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="ActivityZone">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__Activit__1940BAED">
+          <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__PostOff__1A34DF26">
+          <End Role="WK_PostOffice" Type="Self.WK_PostOffice" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WK_PostOffice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PostOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileAttac__Activ__1B29035F">
+          <End Role="ActivityInfo" Type="Self.ActivityInfo" Multiplicity="0..1" />
+          <End Role="FileAttach" Type="Self.FileAttach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileAttach">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileAttac__Comme__1C1D2798">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+          <End Role="FileAttachComment" Type="Self.FileAttachComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileAttachComment">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportOnline_Fault">
+          <End Role="Fault" Type="Self.Fault" Multiplicity="0..1" />
+          <End Role="ReportOnline" Type="Self.ReportOnline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fault">
+              <PropertyRef Name="IDFault" />
+            </Principal>
+            <Dependent Role="ReportOnline">
+              <PropertyRef Name="IDFault" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SGP_WEB_AmountByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SGP_WEB_DuongTruc_BCKT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SGP_WEB_DuongTruc_KTNhan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SGP_WEB_Mailer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fromdate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SGP_WEB_MailerByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ZoneID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SGP_WEB_MailerBySaleDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ToDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="ZoneID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SGP_WEB_ReportOnline" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SGPAPIModelStoreContainer">
+          <EntitySet Name="ActivityInfo" EntityType="Self.ActivityInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityZone" EntityType="Self.ActivityZone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fault" EntityType="Self.Fault" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileAttach" EntityType="Self.FileAttach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileAttachComment" EntityType="Self.FileAttachComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportOnline" EntityType="Self.ReportOnline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SGPWiki" EntityType="Self.SGPWiki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMS_tblUserAccount" EntityType="Self.UMS_tblUserAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WK_PostOffice" EntityType="Self.WK_PostOffice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneInfo" EntityType="Self.ZoneInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ActivityI__PostO__16644E42" Association="Self.FK__ActivityI__PostO__16644E42">
+            <End Role="WK_PostOffice" EntitySet="WK_PostOffice" />
+            <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityZ__Activ__1758727B" Association="Self.FK__ActivityZ__Activ__1758727B">
+            <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+            <End Role="ActivityZone" EntitySet="ActivityZone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityZ__ZoneI__184C96B4" Association="Self.FK__ActivityZ__ZoneI__184C96B4">
+            <End Role="ZoneInfo" EntitySet="ZoneInfo" />
+            <End Role="ActivityZone" EntitySet="ActivityZone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__Activit__1940BAED" Association="Self.FK__Comment__Activit__1940BAED">
+            <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__PostOff__1A34DF26" Association="Self.FK__Comment__PostOff__1A34DF26">
+            <End Role="WK_PostOffice" EntitySet="WK_PostOffice" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileAttac__Activ__1B29035F" Association="Self.FK__FileAttac__Activ__1B29035F">
+            <End Role="ActivityInfo" EntitySet="ActivityInfo" />
+            <End Role="FileAttach" EntitySet="FileAttach" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileAttac__Comme__1C1D2798" Association="Self.FK__FileAttac__Comme__1C1D2798">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="FileAttachComment" EntitySet="FileAttachComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportOnline_Fault" Association="Self.FK_ReportOnline_Fault">
+            <End Role="Fault" EntitySet="Fault" />
+            <End Role="ReportOnline" EntitySet="ReportOnline" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGPAPIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SGPAPIEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="SGP_WEB_Mailer" ReturnType="Collection(SGPAPIModel.SGP_WEB_Mailer_Result)">
+            <Parameter Name="Fromdate" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SGP_WEB_AmountByMonth" ReturnType="Collection(SGPAPIModel.SGP_WEB_AmountByMonth_Result)" />
+          <FunctionImport Name="SGP_WEB_ReportOnline" ReturnType="Collection(SGPAPIModel.SGP_WEB_ReportOnline_Result)" />
+          <EntitySet Name="Faults" EntityType="SGPAPIModel.Fault" />
+          <EntitySet Name="ReportOnlines" EntityType="SGPAPIModel.ReportOnline" />
+          <AssociationSet Name="FK_ReportOnline_Fault" Association="SGPAPIModel.FK_ReportOnline_Fault">
+            <End Role="Fault" EntitySet="Faults" />
+            <End Role="ReportOnline" EntitySet="ReportOnlines" />
+          </AssociationSet>
+          <EntitySet Name="ActivityInfoes" EntityType="SGPAPIModel.ActivityInfo" />
+          <EntitySet Name="Comments" EntityType="SGPAPIModel.Comment" />
+          <EntitySet Name="FileAttaches" EntityType="SGPAPIModel.FileAttach" />
+          <EntitySet Name="FileAttachComments" EntityType="SGPAPIModel.FileAttachComment" />
+          <EntitySet Name="SGPWikis" EntityType="SGPAPIModel.SGPWiki" />
+          <EntitySet Name="ZoneInfoes" EntityType="SGPAPIModel.ZoneInfo" />
+          <AssociationSet Name="FK__Comment__Activit__1940BAED" Association="SGPAPIModel.FK__Comment__Activit__1940BAED">
+            <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileAttac__Activ__1B29035F" Association="SGPAPIModel.FK__FileAttac__Activ__1B29035F">
+            <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+            <End Role="FileAttach" EntitySet="FileAttaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FileAttac__Comme__1C1D2798" Association="SGPAPIModel.FK__FileAttac__Comme__1C1D2798">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="FileAttachComment" EntitySet="FileAttachComments" />
+          </AssociationSet>
+          <AssociationSet Name="ActivityZone" Association="SGPAPIModel.ActivityZone">
+            <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+            <End Role="ZoneInfo" EntitySet="ZoneInfoes" />
+          </AssociationSet>
+          <EntitySet Name="WK_PostOffice" EntityType="SGPAPIModel.WK_PostOffice" />
+          <AssociationSet Name="FK__ActivityI__PostO__16644E42" Association="SGPAPIModel.FK__ActivityI__PostO__16644E42">
+            <End Role="WK_PostOffice" EntitySet="WK_PostOffice" />
+            <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__PostOff__1A34DF26" Association="SGPAPIModel.FK__Comment__PostOff__1A34DF26">
+            <End Role="WK_PostOffice" EntitySet="WK_PostOffice" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <FunctionImport Name="SGP_WEB_DuongTruc_BCKT" ReturnType="Collection(SGPAPIModel.SGP_WEB_DuongTruc_BCKT_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SGP_WEB_DuongTruc_KTNhan" ReturnType="Collection(SGPAPIModel.SGP_WEB_DuongTruc_KTNhan_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SGP_WEB_MailerBySaleDate" ReturnType="Collection(SGPAPIModel.SGP_WEB_MailerBySaleDate_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="String" />
+            <Parameter Name="ZoneID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SGP_WEB_MailerByDate" ReturnType="Collection(SGPAPIModel.SGP_WEB_MailerByDate_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="String" />
+            <Parameter Name="ZoneID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="UMS_tblUserAccount" EntityType="SGPAPIModel.UMS_tblUserAccount" />
+          <EntitySet Name="AspNetRoles" EntityType="SGPAPIModel.AspNetRole" />
+          <EntitySet Name="AspNetUserRoles" EntityType="SGPAPIModel.AspNetUserRole" />
+          <EntitySet Name="AspNetUsers" EntityType="SGPAPIModel.AspNetUser" />
+          </EntityContainer>
+        <ComplexType Name="SGP_WEB_Mailer_Result">
+          <Property Type="String" Name="PostOfficeAcceptID" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="TongCG" Nullable="true" />
+          <Property Type="Int32" Name="TongSL" Nullable="true" />
+          <Property Type="Double" Name="TongTL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SGP_WEB_AmountByMonth_Result">
+          <Property Type="Int32" Name="Thang" Nullable="true" />
+          <Property Type="Decimal" Name="DoanhThu" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="SGP_WEB_ReportOnline_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IDReceipt" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DetailContent" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CreateName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IDFault" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Fault">
+          <Key>
+            <PropertyRef Name="IDFault" />
+          </Key>
+          <Property Name="IDFault" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaultName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Point" Type="Int32" />
+          <NavigationProperty Name="ReportOnlines" Relationship="SGPAPIModel.FK_ReportOnline_Fault" FromRole="Fault" ToRole="ReportOnline" />
+        </EntityType>
+        <EntityType Name="ReportOnline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDReceipt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DetailContent" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="IDFault" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Fault" Relationship="SGPAPIModel.FK_ReportOnline_Fault" FromRole="ReportOnline" ToRole="Fault" />
+        </EntityType>
+        <Association Name="FK_ReportOnline_Fault">
+          <End Type="SGPAPIModel.Fault" Role="Fault" Multiplicity="0..1" />
+          <End Type="SGPAPIModel.ReportOnline" Role="ReportOnline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fault">
+              <PropertyRef Name="IDFault" />
+            </Principal>
+            <Dependent Role="ReportOnline">
+              <PropertyRef Name="IDFault" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActivityInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UserPost" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PostOfficeId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="IsClock" Type="Int32" />
+          <Property Name="UserLock" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Comments" Relationship="SGPAPIModel.FK__Comment__Activit__1940BAED" FromRole="ActivityInfo" ToRole="Comment" />
+          <NavigationProperty Name="FileAttaches" Relationship="SGPAPIModel.FK__FileAttac__Activ__1B29035F" FromRole="ActivityInfo" ToRole="FileAttach" />
+          <NavigationProperty Name="ZoneInfoes" Relationship="SGPAPIModel.ActivityZone" FromRole="ActivityInfo" ToRole="ZoneInfo" />
+          <NavigationProperty Name="WK_PostOffice" Relationship="SGPAPIModel.FK__ActivityI__PostO__16644E42" FromRole="ActivityInfo" ToRole="WK_PostOffice" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserPost" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PostOfficeId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ActivityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActivityInfo" Relationship="SGPAPIModel.FK__Comment__Activit__1940BAED" FromRole="Comment" ToRole="ActivityInfo" />
+          <NavigationProperty Name="FileAttachComments" Relationship="SGPAPIModel.FK__FileAttac__Comme__1C1D2798" FromRole="Comment" ToRole="FileAttachComment" />
+          <NavigationProperty Name="WK_PostOffice" Relationship="SGPAPIModel.FK__Comment__PostOff__1A34DF26" FromRole="Comment" ToRole="WK_PostOffice" />
+        </EntityType>
+        <EntityType Name="FileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DoucumentType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActivityInfo" Relationship="SGPAPIModel.FK__FileAttac__Activ__1B29035F" FromRole="FileAttach" ToRole="ActivityInfo" />
+        </EntityType>
+        <EntityType Name="FileAttachComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DoucumentType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CommentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Comment" Relationship="SGPAPIModel.FK__FileAttac__Comme__1C1D2798" FromRole="FileAttachComment" ToRole="Comment" />
+        </EntityType>
+        <EntityType Name="SGPWiki">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastTime" Type="DateTime" Precision="3" />
+          <Property Name="LastUser" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="ParentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ZoneInfo">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActivityInfoes" Relationship="SGPAPIModel.ActivityZone" FromRole="ZoneInfo" ToRole="ActivityInfo" />
+        </EntityType>
+        <Association Name="FK__Comment__Activit__1940BAED">
+          <End Type="SGPAPIModel.ActivityInfo" Role="ActivityInfo" Multiplicity="0..1" />
+          <End Type="SGPAPIModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileAttac__Activ__1B29035F">
+          <End Type="SGPAPIModel.ActivityInfo" Role="ActivityInfo" Multiplicity="0..1" />
+          <End Type="SGPAPIModel.FileAttach" Role="FileAttach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileAttach">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FileAttac__Comme__1C1D2798">
+          <End Type="SGPAPIModel.Comment" Role="Comment" Multiplicity="0..1" />
+          <End Type="SGPAPIModel.FileAttachComment" Role="FileAttachComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileAttachComment">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActivityZone">
+          <End Type="SGPAPIModel.ActivityInfo" Role="ActivityInfo" Multiplicity="*" />
+          <End Type="SGPAPIModel.ZoneInfo" Role="ZoneInfo" Multiplicity="*" />
+        </Association>
+        <EntityType Name="WK_PostOffice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActivityInfoes" Relationship="SGPAPIModel.FK__ActivityI__PostO__16644E42" FromRole="WK_PostOffice" ToRole="ActivityInfo" />
+          <NavigationProperty Name="Comments" Relationship="SGPAPIModel.FK__Comment__PostOff__1A34DF26" FromRole="WK_PostOffice" ToRole="Comment" />
+        </EntityType>
+        <Association Name="FK__ActivityI__PostO__16644E42">
+          <End Type="SGPAPIModel.WK_PostOffice" Role="WK_PostOffice" Multiplicity="0..1" />
+          <End Type="SGPAPIModel.ActivityInfo" Role="ActivityInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WK_PostOffice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityInfo">
+              <PropertyRef Name="PostOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__PostOff__1A34DF26">
+          <End Type="SGPAPIModel.WK_PostOffice" Role="WK_PostOffice" Multiplicity="0..1" />
+          <End Type="SGPAPIModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WK_PostOffice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PostOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SGP_WEB_DuongTruc_BCKT_Result">
+          <Property Type="String" Name="PostOfficeAcceptID" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="MailerID" Nullable="true" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Double" Name="Weight" Nullable="true" />
+          <Property Type="Double" Name="RealWeight" Nullable="true" />
+          <Property Type="String" Name="RecieverProvinceID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="ZoneID" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SGP_WEB_DuongTruc_KTNhan_Result">
+          <Property Type="String" Name="PostOfficeAcceptID" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="MailerID" Nullable="true" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Double" Name="Weight" Nullable="true" />
+          <Property Type="Double" Name="RealWeight" Nullable="true" />
+          <Property Type="String" Name="RecieverProvinceID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="ZoneID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="MailerDescription" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ServiceTypeID" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="SGP_WEB_MailerBySaleDate_Result">
+          <Property Type="DateTime" Name="AcceptDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="MailerID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SenderID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="SenderName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SenderProvinceID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ReceiveProvinceID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RecieverDistrictID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ServiceTypeID" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="MailerTypeID" Nullable="false" MaxLength="2" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Double" Name="RealWeight" Nullable="false" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="Decimal" Name="Money" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="PriceDefault" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="PriceService" Nullable="false" Precision="19" />
+          <Property Type="Double" Name="Discount" Nullable="false" />
+          <Property Type="Decimal" Name="BefVATAmount" Nullable="false" Precision="19" />
+          <Property Type="Double" Name="VATPercent" Nullable="false" />
+          <Property Type="Decimal" Name="VATAmount" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="AmountBefDiscount" Nullable="false" Precision="19" />
+          <Property Type="String" Name="PostOfficeAcceptID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PaymentMethodID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PostOfficeRecieverMoneyID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="MailerDescription" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ThirdpartyDocID" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="ThirdpartyCost" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="CommissionAmt" Nullable="true" Precision="19" />
+          <Property Type="Double" Name="CommissionPercent" Nullable="true" />
+          <Property Type="Decimal" Name="CostAmt" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="SalesClosingDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ReceiveProvinceID1" Nullable="true" MaxLength="15" />
+          <Property Type="Double" Name="DiscountPercent" Nullable="true" />
+          <Property Type="String" Name="PostOfficeID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PostOfficeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ZoneID" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SGP_WEB_MailerByDate_Result">
+          <Property Type="DateTime" Name="AcceptDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="MailerID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SenderID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="SenderName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SenderProvinceID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ReceiveProvinceID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RecieverDistrictID" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ServiceTypeID" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="MailerTypeID" Nullable="false" MaxLength="2" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Double" Name="RealWeight" Nullable="false" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="Decimal" Name="Money" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="PriceDefault" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="PriceService" Nullable="false" Precision="19" />
+          <Property Type="Double" Name="Discount" Nullable="false" />
+          <Property Type="Decimal" Name="BefVATAmount" Nullable="false" Precision="19" />
+          <Property Type="Double" Name="VATPercent" Nullable="false" />
+          <Property Type="Decimal" Name="VATAmount" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="AmountBefDiscount" Nullable="false" Precision="19" />
+          <Property Type="String" Name="PostOfficeAcceptID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PaymentMethodID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PostOfficeRecieverMoneyID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="MailerDescription" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ThirdpartyDocID" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="ThirdpartyCost" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="CommissionAmt" Nullable="true" Precision="19" />
+          <Property Type="Double" Name="CommissionPercent" Nullable="true" />
+          <Property Type="Decimal" Name="CostAmt" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="SalesClosingDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ReceiveProvinceID1" Nullable="true" MaxLength="15" />
+          <Property Type="Double" Name="DiscountPercent" Nullable="true" />
+          <Property Type="String" Name="PostOfficeID" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PostOfficeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ZoneID" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <EntityType Name="UMS_tblUserAccount">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+          </Key>
+          <Property Name="UserGroupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserGroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FValid" Type="Boolean" Nullable="false" />
+          <Property Name="FGroup" Type="Boolean" Nullable="false" />
+          <Property Name="FAdm" Type="Boolean" Nullable="false" />
+          <Property Name="FSpv" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="240" FixedLength="false" Unicode="true" />
+          <Property Name="CantChangePwd" Type="Boolean" Nullable="false" />
+          <Property Name="PwdNeverExpire" Type="Boolean" Nullable="false" />
+          <Property Name="MustChangePwd" Type="Boolean" Nullable="false" />
+          <Property Name="DateOfChangePwd" Type="DateTime" Precision="3" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="MemberOf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUserRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discriminator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SGPAPIModelStoreContainer" CdmEntityContainer="SGPAPIEntities" >
+          <FunctionImportMapping FunctionImportName="SGP_WEB_Mailer" FunctionName="SGPAPIModel.Store.SGP_WEB_Mailer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_Mailer_Result">
+                <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+                <ScalarProperty Name="TongCG" ColumnName="TongCG" />
+                <ScalarProperty Name="TongSL" ColumnName="TongSL" />
+                <ScalarProperty Name="TongTL" ColumnName="TongTL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGP_WEB_AmountByMonth" FunctionName="SGPAPIModel.Store.SGP_WEB_AmountByMonth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_AmountByMonth_Result">
+                <ScalarProperty Name="Thang" ColumnName="Thang" />
+                <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGP_WEB_ReportOnline" FunctionName="SGPAPIModel.Store.SGP_WEB_ReportOnline">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_ReportOnline_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IDReceipt" ColumnName="IDReceipt" />
+                <ScalarProperty Name="DetailContent" ColumnName="DetailContent" />
+                <ScalarProperty Name="CreateName" ColumnName="CreateName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IDFault" ColumnName="IDFault" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Faults">
+            <EntityTypeMapping TypeName="SGPAPIModel.Fault">
+              <MappingFragment StoreEntitySet="Fault">
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="FaultName" ColumnName="FaultName" />
+                <ScalarProperty Name="IDFault" ColumnName="IDFault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportOnlines">
+            <EntityTypeMapping TypeName="SGPAPIModel.ReportOnline">
+              <MappingFragment StoreEntitySet="ReportOnline">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IDFault" ColumnName="IDFault" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateName" ColumnName="CreateName" />
+                <ScalarProperty Name="DetailContent" ColumnName="DetailContent" />
+                <ScalarProperty Name="IDReceipt" ColumnName="IDReceipt" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityInfoes">
+            <EntityTypeMapping TypeName="SGPAPIModel.ActivityInfo">
+              <MappingFragment StoreEntitySet="ActivityInfo">
+                <ScalarProperty Name="UserLock" ColumnName="UserLock" />
+                <ScalarProperty Name="IsClock" ColumnName="IsClock" />
+                <ScalarProperty Name="PostOfficeId" ColumnName="PostOfficeId" />
+                <ScalarProperty Name="UserPost" ColumnName="UserPost" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="SGPAPIModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PostOfficeId" ColumnName="PostOfficeId" />
+                <ScalarProperty Name="UserPost" ColumnName="UserPost" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileAttaches">
+            <EntityTypeMapping TypeName="SGPAPIModel.FileAttach">
+              <MappingFragment StoreEntitySet="FileAttach">
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="DoucumentType" ColumnName="DoucumentType" />
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileAttachComments">
+            <EntityTypeMapping TypeName="SGPAPIModel.FileAttachComment">
+              <MappingFragment StoreEntitySet="FileAttachComment">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="DoucumentType" ColumnName="DoucumentType" />
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGPWikis">
+            <EntityTypeMapping TypeName="SGPAPIModel.SGPWiki">
+              <MappingFragment StoreEntitySet="SGPWiki">
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneInfoes">
+            <EntityTypeMapping TypeName="SGPAPIModel.ZoneInfo">
+              <MappingFragment StoreEntitySet="ZoneInfo">
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ActivityZone" TypeName="SGPAPIModel.ActivityZone" StoreEntitySet="ActivityZone">
+            <EndProperty Name="ZoneInfo">
+              <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+            </EndProperty>
+            <EndProperty Name="ActivityInfo">
+              <ScalarProperty Name="Id" ColumnName="ActivityId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="WK_PostOffice">
+            <EntityTypeMapping TypeName="SGPAPIModel.WK_PostOffice">
+              <MappingFragment StoreEntitySet="WK_PostOffice">
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SGP_WEB_DuongTruc_BCKT" FunctionName="SGPAPIModel.Store.SGP_WEB_DuongTruc_BCKT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_DuongTruc_BCKT_Result">
+                <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+                <ScalarProperty Name="RecieverProvinceID" ColumnName="RecieverProvinceID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGP_WEB_DuongTruc_KTNhan" FunctionName="SGPAPIModel.Store.SGP_WEB_DuongTruc_KTNhan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_DuongTruc_KTNhan_Result">
+                <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+                <ScalarProperty Name="RecieverProvinceID" ColumnName="RecieverProvinceID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGP_WEB_MailerBySaleDate" FunctionName="SGPAPIModel.Store.SGP_WEB_MailerBySaleDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_MailerBySaleDate_Result">
+                <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="SenderProvinceID" ColumnName="SenderProvinceID" />
+                <ScalarProperty Name="ReceiveProvinceID" ColumnName="ReceiveProvinceID" />
+                <ScalarProperty Name="RecieverDistrictID" ColumnName="RecieverDistrictID" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+                <ScalarProperty Name="MailerTypeID" ColumnName="MailerTypeID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceDefault" ColumnName="PriceDefault" />
+                <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="BefVATAmount" ColumnName="BefVATAmount" />
+                <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+                <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AmountBefDiscount" ColumnName="AmountBefDiscount" />
+                <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PostOfficeRecieverMoneyID" ColumnName="PostOfficeRecieverMoneyID" />
+                <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+                <ScalarProperty Name="ThirdpartyDocID" ColumnName="ThirdpartyDocID" />
+                <ScalarProperty Name="ThirdpartyCost" ColumnName="ThirdpartyCost" />
+                <ScalarProperty Name="CommissionAmt" ColumnName="CommissionAmt" />
+                <ScalarProperty Name="CommissionPercent" ColumnName="CommissionPercent" />
+                <ScalarProperty Name="CostAmt" ColumnName="CostAmt" />
+                <ScalarProperty Name="SalesClosingDate" ColumnName="SalesClosingDate" />
+                <ScalarProperty Name="ReceiveProvinceID1" ColumnName="ReceiveProvinceID1" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+                <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGP_WEB_MailerByDate" FunctionName="SGPAPIModel.Store.SGP_WEB_MailerByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SGPAPIModel.SGP_WEB_MailerByDate_Result">
+                <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+                <ScalarProperty Name="MailerID" ColumnName="MailerID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="SenderProvinceID" ColumnName="SenderProvinceID" />
+                <ScalarProperty Name="ReceiveProvinceID" ColumnName="ReceiveProvinceID" />
+                <ScalarProperty Name="RecieverDistrictID" ColumnName="RecieverDistrictID" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+                <ScalarProperty Name="MailerTypeID" ColumnName="MailerTypeID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RealWeight" ColumnName="RealWeight" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceDefault" ColumnName="PriceDefault" />
+                <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="BefVATAmount" ColumnName="BefVATAmount" />
+                <ScalarProperty Name="VATPercent" ColumnName="VATPercent" />
+                <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AmountBefDiscount" ColumnName="AmountBefDiscount" />
+                <ScalarProperty Name="PostOfficeAcceptID" ColumnName="PostOfficeAcceptID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PostOfficeRecieverMoneyID" ColumnName="PostOfficeRecieverMoneyID" />
+                <ScalarProperty Name="MailerDescription" ColumnName="MailerDescription" />
+                <ScalarProperty Name="ThirdpartyDocID" ColumnName="ThirdpartyDocID" />
+                <ScalarProperty Name="ThirdpartyCost" ColumnName="ThirdpartyCost" />
+                <ScalarProperty Name="CommissionAmt" ColumnName="CommissionAmt" />
+                <ScalarProperty Name="CommissionPercent" ColumnName="CommissionPercent" />
+                <ScalarProperty Name="CostAmt" ColumnName="CostAmt" />
+                <ScalarProperty Name="SalesClosingDate" ColumnName="SalesClosingDate" />
+                <ScalarProperty Name="ReceiveProvinceID1" ColumnName="ReceiveProvinceID1" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+                <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="UMS_tblUserAccount">
+            <EntityTypeMapping TypeName="SGPAPIModel.UMS_tblUserAccount">
+              <MappingFragment StoreEntitySet="UMS_tblUserAccount">
+                <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="DateOfChangePwd" ColumnName="DateOfChangePwd" />
+                <ScalarProperty Name="MustChangePwd" ColumnName="MustChangePwd" />
+                <ScalarProperty Name="PwdNeverExpire" ColumnName="PwdNeverExpire" />
+                <ScalarProperty Name="CantChangePwd" ColumnName="CantChangePwd" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FSpv" ColumnName="FSpv" />
+                <ScalarProperty Name="FAdm" ColumnName="FAdm" />
+                <ScalarProperty Name="FGroup" ColumnName="FGroup" />
+                <ScalarProperty Name="FValid" ColumnName="FValid" />
+                <ScalarProperty Name="UserGroupName" ColumnName="UserGroupName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="SGPAPIModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserRoles">
+            <EntityTypeMapping TypeName="SGPAPIModel.AspNetUserRole">
+              <MappingFragment StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="SGPAPIModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

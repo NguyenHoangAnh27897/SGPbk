@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBLISTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TB_DHLPlan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="D_O" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PGI" Type="DateTime" Precision="0" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="ToZone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneDesc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ToNodeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ShiptoNM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ShiptoAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Quatity" Type="Int32" />
+    <Property Name="Unit1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Unit2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Subcon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SL" Type="Int32" />
+    <Property Name="TL" Type="Int32" />
+    <Property Name="TP" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="KH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Unit3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TongSL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SenderAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Contact1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Zone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DBLISTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_DHLPlan" EntityType="Self.TB_DHLPlan" />
+  </EntityContainer>
+</Schema>

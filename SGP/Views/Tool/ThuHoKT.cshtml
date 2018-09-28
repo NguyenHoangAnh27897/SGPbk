@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Thu ho ke toan";
+}
+
+<h2>Hỗ trợ thu hộ kế toán</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">
+                </p>
+                <form method="post" onsubmit="if(!confirm('Them moi?')){return false;}">
+                    Số phiếu:<input type="text" id="MailerID" placeholder="" name="MailerID" />
+                    Tổng tiền:<input type="text" id="Amount" placeholder="" name="Amount" class="number" />
+                    Phiếu thu:<input type="text" id="DocID" placeholder="" name="DocID"/>
+                    Hóa Đơn:<input type="text" id="Invoice" placeholder="" name="Invoice"  />
+                    Ghi chú:<input type="text" id="Description" placeholder="" name="Description"  />
+                    <input type="submit" value="Cập nhật" class="btn btn-success btn-sm" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        $('#MailerID').keyup(function () {
+          
+            var mailerId = $('#MailerID').val();
+            $.ajax({
+                url: "/Tool/getAmount",
+                data: { MailerID: mailerId },
+                success: function (response) {
+                    if (response.stt === 0) {
+                       
+                        $('#DocID').val(response.pt);
+                        $('#Invoice').val(response.hd);
+                        $('#Description').val(response.gc);
+                        $('#Amount').val(response.tt);
+                        $('#Amount').val(function (index, value) {
+                            return value
+                            .replace(/\D/g, "")
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            ;
+                        });
+                    } else {
+                       // alert('Khong lay duoc');
+                    }
+                }
+            });
+
+        });
+
+        $('input.number').keyup(function (event) {
+
+            // skip for arrow keys
+            if (event.which >= 37 && event.which <= 40) return;
+
+            // format number
+            $(this).val(function (index, value) {
+                return value
+                .replace(/\D/g, "")
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                ;
+            });
+        });
+
+    </script>
+}

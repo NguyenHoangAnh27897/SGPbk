@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMS_TESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BS_Districts">
+    <Key>
+      <PropertyRef Name="DistrictID" />
+    </Key>
+    <Property Name="DistrictID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="PMS_TESTEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BS_Districts" EntityType="Self.BS_Districts" />
+    <EntitySet Name="MM_PostOffices" EntityType="PMS_TESTModel.MM_PostOffices" />
+    <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="PMS_TESTModel.FK_MM_PostOffices_MM_PostOffices">
+      <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+      <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MM_PostOffices">
+    <Key>
+      <PropertyRef Name="PostOfficeID" />
+    </Key>
+    <Property Name="PostOfficeID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PostOfficeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsCollaborator" Type="Boolean" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberOf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MM_PostOffices1" Relationship="PMS_TESTModel.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices" ToRole="MM_PostOffices1" />
+    <NavigationProperty Name="MM_PostOffices2" Relationship="PMS_TESTModel.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices1" ToRole="MM_PostOffices" />
+  </EntityType>
+  <Association Name="FK_MM_PostOffices_MM_PostOffices">
+    <End Type="PMS_TESTModel.MM_PostOffices" Role="MM_PostOffices" Multiplicity="0..1" />
+    <End Type="PMS_TESTModel.MM_PostOffices" Role="MM_PostOffices1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MM_PostOffices">
+        <PropertyRef Name="PostOfficeID" />
+      </Principal>
+      <Dependent Role="MM_PostOffices1">
+        <PropertyRef Name="MemberOf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

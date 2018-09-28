@@ -1,0 +1,527 @@
+D:\Laptrinh\WebSite\SGP\SGP\bin\SGP.dll.config
+D:\Laptrinh\WebSite\SGP\SGP\bin\SGP.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\SGP.pdb
+D:\Laptrinh\WebSite\SGP\SGP\bin\Antlr3.Runtime.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\EntityFramework.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\EntityFramework.SqlServer.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\GridMvc.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Google.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Web.Infrastructure.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Newtonsoft.Json.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\Owin.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Helpers.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Mvc.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Optimization.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Razor.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.WebPages.Deployment.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.WebPages.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.WebPages.Razor.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\WebGrease.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Helpers.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Mvc.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Optimization.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.Razor.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.WebPages.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.WebPages.Deployment.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\System.Web.WebPages.Razor.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Newtonsoft.Json.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Antlr3.Runtime.pdb
+D:\Laptrinh\WebSite\SGP\SGP\bin\EntityFramework.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\EntityFramework.SqlServer.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Google.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Laptrinh\WebSite\SGP\SGP\obj\Debug\SGP.dll
+D:\Laptrinh\WebSite\SGP\SGP\obj\Debug\SGP.pdb
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\SGP.dll.config
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\SGP.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\SGP.pdb
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Antlr3.Runtime.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\EntityFramework.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\EntityFramework.SqlServer.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\GridMvc.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Google.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Web.Infrastructure.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Newtonsoft.Json.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Owin.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Helpers.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Mvc.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Optimization.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Razor.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.WebPages.Deployment.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.WebPages.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.WebPages.Razor.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\WebGrease.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Helpers.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Mvc.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Optimization.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.Razor.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.WebPages.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.WebPages.Deployment.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\System.Web.WebPages.Razor.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Newtonsoft.Json.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Antlr3.Runtime.pdb
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\EntityFramework.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\EntityFramework.SqlServer.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Google.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\obj\Debug\SGP.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\obj\Debug\SGP.pdb
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\MvcPaging.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\PagedList.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\PagedList.Mvc.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\MvcPaging.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\PagedList.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\PagedList.Mvc.xml
+D:\Laptrinh\WebSite\SGP_old\SGP\bin\EPPlus.dll
+D:\Laptrinh\WebSite\SGP_old\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+D:\Laptrinh\WebSite\SGP\SGP\bin\EPPlus.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\MvcPaging.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\PagedList.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\PagedList.Mvc.dll
+D:\Laptrinh\WebSite\SGP\SGP\bin\MvcPaging.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\PagedList.xml
+D:\Laptrinh\WebSite\SGP\SGP\bin\PagedList.Mvc.xml
+D:\Laptrinh\WebSite\SGP\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+D:\laptrinh\SGP_bk\SGP\bin\SGP.dll.config
+D:\laptrinh\SGP_bk\SGP\bin\SGP.dll
+D:\laptrinh\SGP_bk\SGP\bin\SGP.pdb
+D:\laptrinh\SGP_bk\SGP\bin\Antlr3.Runtime.dll
+D:\laptrinh\SGP_bk\SGP\bin\EntityFramework.dll
+D:\laptrinh\SGP_bk\SGP\bin\EntityFramework.SqlServer.dll
+D:\laptrinh\SGP_bk\SGP\bin\EPPlus.dll
+D:\laptrinh\SGP_bk\SGP\bin\GridMvc.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Web.Infrastructure.dll
+D:\laptrinh\SGP_bk\SGP\bin\MvcPaging.dll
+D:\laptrinh\SGP_bk\SGP\bin\Newtonsoft.Json.dll
+D:\laptrinh\SGP_bk\SGP\bin\Owin.dll
+D:\laptrinh\SGP_bk\SGP\bin\PagedList.dll
+D:\laptrinh\SGP_bk\SGP\bin\PagedList.Mvc.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Helpers.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Mvc.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Optimization.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Razor.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.WebPages.dll
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.WebPages.Razor.dll
+D:\laptrinh\SGP_bk\SGP\bin\WebGrease.dll
+D:\laptrinh\SGP_bk\SGP\bin\EPPlus.xml
+D:\laptrinh\SGP_bk\SGP\bin\MvcPaging.xml
+D:\laptrinh\SGP_bk\SGP\bin\PagedList.xml
+D:\laptrinh\SGP_bk\SGP\bin\PagedList.Mvc.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Helpers.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Mvc.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Optimization.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.Razor.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.WebPages.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.xml
+D:\laptrinh\SGP_bk\SGP\bin\System.Web.WebPages.Razor.xml
+D:\laptrinh\SGP_bk\SGP\bin\Newtonsoft.Json.xml
+D:\laptrinh\SGP_bk\SGP\bin\Antlr3.Runtime.pdb
+D:\laptrinh\SGP_bk\SGP\bin\EntityFramework.xml
+D:\laptrinh\SGP_bk\SGP\bin\EntityFramework.SqlServer.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+D:\laptrinh\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\laptrinh\SGP_bk\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+D:\laptrinh\SGP_bk\SGP\obj\Debug\SGP.dll
+D:\laptrinh\SGP_bk\SGP\obj\Debug\SGP.pdb
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\SGP.dll.config
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\SGP.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\SGP.pdb
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Antlr3.Runtime.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\EntityFramework.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\EntityFramework.SqlServer.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\EPPlus.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\GridMvc.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Web.Infrastructure.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\MvcPaging.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Newtonsoft.Json.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Owin.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\PagedList.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\PagedList.Mvc.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Helpers.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Mvc.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Optimization.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Razor.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.WebPages.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.WebPages.Razor.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\WebGrease.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\EPPlus.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\MvcPaging.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\PagedList.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\PagedList.Mvc.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Helpers.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Mvc.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Optimization.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.Razor.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.WebPages.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\System.Web.WebPages.Razor.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Newtonsoft.Json.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Antlr3.Runtime.pdb
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\EntityFramework.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\EntityFramework.SqlServer.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Laptrinh\WebSite\SGP_bk\SGP\obj\Debug\SGP.dll
+D:\Laptrinh\WebSite\SGP_bk\SGP\obj\Debug\SGP.pdb
+D:\Laptrinh\WebSite\SGP_bk\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\obj\Debug\SGP.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\obj\Debug\SGP.pdb
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\SGP.dll.config
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\SGP.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\SGP.pdb
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Antlr3.Runtime.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\EntityFramework.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\EntityFramework.SqlServer.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\EPPlus.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\GridMvc.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\MvcPaging.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Newtonsoft.Json.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Owin.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\PagedList.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\PagedList.Mvc.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Helpers.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Mvc.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Optimization.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Razor.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.WebPages.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Razor.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\WebGrease.dll
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\EPPlus.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\MvcPaging.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\PagedList.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\PagedList.Mvc.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Helpers.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Mvc.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Optimization.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.Razor.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.WebPages.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Razor.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Newtonsoft.Json.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Antlr3.Runtime.pdb
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\EntityFramework.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\EntityFramework.SqlServer.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Shu\Documents\Visual Studio 2017\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\SGP.dll.config
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\SGP.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\SGP.pdb
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Antlr3.Runtime.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.SqlServer.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EPPlus.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\GridMvc.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\MvcPaging.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Newtonsoft.Json.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Owin.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.Mvc.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Helpers.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Mvc.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Optimization.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Razor.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Razor.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\WebGrease.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EPPlus.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\MvcPaging.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.Mvc.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Helpers.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Mvc.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Optimization.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Razor.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Razor.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Newtonsoft.Json.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Antlr3.Runtime.pdb
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.SqlServer.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\obj\Debug\SGP.dll
+C:\Users\Shu\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\obj\Debug\SGP.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\obj\Debug\SGP.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\obj\Debug\SGP.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\SGP.dll.config
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\SGP.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\SGP.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Antlr3.Runtime.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\EntityFramework.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\EntityFramework.SqlServer.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\EPPlus.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\GridMvc.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\MvcPaging.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Newtonsoft.Json.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Owin.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\PagedList.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\PagedList.Mvc.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Helpers.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Mvc.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Optimization.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Razor.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.WebPages.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.WebPages.Razor.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\WebGrease.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\EPPlus.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\MvcPaging.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\PagedList.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\PagedList.Mvc.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Helpers.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Mvc.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Optimization.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.Razor.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.WebPages.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\System.Web.WebPages.Razor.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Newtonsoft.Json.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Antlr3.Runtime.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\EntityFramework.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\EntityFramework.SqlServer.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Templates\ProjectTemplates\Visual C#\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\SGP.dll.config
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\SGP.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\SGP.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Antlr3.Runtime.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.SqlServer.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EPPlus.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\GridMvc.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\MvcPaging.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Newtonsoft.Json.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Owin.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.Mvc.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Helpers.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Mvc.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Optimization.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Razor.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Razor.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\WebGrease.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EPPlus.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\MvcPaging.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\PagedList.Mvc.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Helpers.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Mvc.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Optimization.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.Razor.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\System.Web.WebPages.Razor.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Newtonsoft.Json.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Antlr3.Runtime.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\EntityFramework.SqlServer.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\obj\Debug\SGP.dll
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\obj\Debug\SGP.pdb
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\obj\Debug\SGP.csprojResolveAssemblyReference.cache
+C:\Users\hoang\Documents\Visual Studio 2013\Projects\SGP_bk\SGP\bin\GoogleMaps.LocationServices.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportSource.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.Shared.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\LAPTRINH\SGP_bk\SGP\bin\stdole.dll

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBLISTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_DHLPlan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D/O" Type="nvarchar" MaxLength="10" />
+          <Property Name="PGI" Type="date" />
+          <Property Name="DeliveryDate" Type="date" />
+          <Property Name="ToZone" Type="nvarchar" MaxLength="20" />
+          <Property Name="ZoneDesc" Type="nvarchar" MaxLength="20" />
+          <Property Name="ToNodeCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="ShiptoNM" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiptoAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="Quatity" Type="int" />
+          <Property Name="Unit1" Type="nvarchar" MaxLength="10" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Unit2" Type="nvarchar" MaxLength="10" />
+          <Property Name="Subcon" Type="nvarchar" MaxLength="50" />
+          <Property Name="CG" Type="nvarchar" MaxLength="20" />
+          <Property Name="SL" Type="int" />
+          <Property Name="TL" Type="int" />
+          <Property Name="TP" Type="nvarchar" MaxLength="3" />
+          <Property Name="KH" Type="nvarchar" MaxLength="10" />
+          <Property Name="Unit3" Type="nvarchar" MaxLength="10" />
+          <Property Name="TongSL" Type="nvarchar" MaxLength="50" />
+          <Property Name="SenderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SenderAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Contact1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Employee" Type="nvarchar" MaxLength="20" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="DBLISTModelStoreContainer">
+          <EntitySet Name="TB_DHLPlan" EntityType="Self.TB_DHLPlan" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBLISTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_DHLPlan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_O" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PGI" Type="DateTime" Precision="0" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="ToZone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneDesc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ToNodeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ShiptoNM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiptoAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Quatity" Type="Int32" />
+          <Property Name="Unit1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Unit2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Subcon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SL" Type="Int32" />
+          <Property Name="TL" Type="Int32" />
+          <Property Name="TP" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="KH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Unit3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TongSL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SenderAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Contact1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Employee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Zone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DBLISTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_DHLPlan" EntityType="Self.TB_DHLPlan" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBLISTModelStoreContainer" CdmEntityContainer="DBLISTEntities">
+          <EntitySetMapping Name="TB_DHLPlan">
+            <EntityTypeMapping TypeName="DBLISTModel.TB_DHLPlan">
+              <MappingFragment StoreEntitySet="TB_DHLPlan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="D_O" ColumnName="D/O" />
+                <ScalarProperty Name="PGI" ColumnName="PGI" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="ToZone" ColumnName="ToZone" />
+                <ScalarProperty Name="ZoneDesc" ColumnName="ZoneDesc" />
+                <ScalarProperty Name="ToNodeCode" ColumnName="ToNodeCode" />
+                <ScalarProperty Name="ShiptoNM" ColumnName="ShiptoNM" />
+                <ScalarProperty Name="ShiptoAddress" ColumnName="ShiptoAddress" />
+                <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+                <ScalarProperty Name="Unit1" ColumnName="Unit1" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Unit2" ColumnName="Unit2" />
+                <ScalarProperty Name="Subcon" ColumnName="Subcon" />
+                <ScalarProperty Name="CG" ColumnName="CG" />
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="TL" ColumnName="TL" />
+                <ScalarProperty Name="TP" ColumnName="TP" />
+                <ScalarProperty Name="KH" ColumnName="KH" />
+                <ScalarProperty Name="Unit3" ColumnName="Unit3" />
+                <ScalarProperty Name="TongSL" ColumnName="TongSL" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="SenderAddress" ColumnName="SenderAddress" />
+                <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact3" ColumnName="Contact3" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,135 @@
+﻿@model IEnumerable<SGP.Models.ResponseSonyMap>
+
+@{
+    ViewBag.Title = "showMapSony";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h3>Danh sách địa chỉ phát hàng Sony</h3>
+    <div class="row">
+        <form method="post">
+            <div class='col-sm-3'>
+                <div class="form-group">
+                    From date
+                    <div class='input-group date' id='dtpfromdate'>
+                        <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-3">
+                To date
+                <div class='input-group date' id='dtptodate'>
+                    <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>            
+            <div class="col-sm-1">
+                <br />
+                <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+            </div>
+        </form>
+
+    </div>
+    <div id="map"></div>
+
+    @section scripts{
+    <script>
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        //
+        function initMap() {
+
+            var lats = [];
+            var longs = [];
+            var contents = [];
+
+            @foreach (var d in Model)
+            {
+                @:lats.push(@d.Lang);
+                @:longs.push(@d.Long);
+                @:contents.push("@d.Address")
+            }
+
+            var uluru = { lat: lats[0], lng: longs[0] };
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: new google.maps.LatLng(lats[0], longs[0])
+            });
+
+            var size = lats.length;
+            var marker;
+
+
+            for (var i = 0; i < size; i++) {
+
+                var infowindow = new google.maps.InfoWindow();
+                var contentString = '<div id="content">' +
+                '<div id="bodyContent">' +
+                '<p>' + contents[i] + '</p>' +
+                '</div>' +
+                '</div>';
+
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(lats[i], longs[i]),
+                    map: map
+                });
+
+
+                google.maps.event.addListener(marker, 'click', (function (marker, contentString, infowindow) {
+                    return function () {
+                        infowindow.setContent(contentString);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, contentString, infowindow));
+            }
+        }
+
+        //new function
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            directionsService.route({
+                origin: document.getElementById('start').value,
+                destination: document.getElementById('end').value,
+                travelMode: 'DRIVING'
+            }, function(response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAZKhuMMItI8pkkOJ86BxPKIgP-M9ztMs&callback=initMap">
+    </script>
+        }
+</body>
+</html>

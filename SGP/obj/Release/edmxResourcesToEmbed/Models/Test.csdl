@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MM_MailerDelivery">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TripNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentTime" Type="DateTime" Precision="3" />
+    <Property Name="PostOfficeID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MailerCount" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="NumberOfPackage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UserGroupID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdDate" Type="DateTime" Precision="0" />
+    <Property Name="RecordState" Type="Int32" Nullable="false" />
+    <Property Name="SyncFlag" Type="Boolean" Nullable="false" />
+    <Property Name="LastSyncDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MM_PostOffices" Relationship="Self.FK_MM_MailerDelivery_MM_PostOffices" FromRole="MM_MailerDelivery" ToRole="MM_PostOffices" />
+    <NavigationProperty Name="MM_MailerDeliveryDetail" Relationship="Self.FK_MM_MailerDeliveryDetail_MM_MailerDelivery" FromRole="MM_MailerDelivery" ToRole="MM_MailerDeliveryDetail" />
+  </EntityType>
+  <EntityType Name="MM_MailerDeliveryDetail">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+      <PropertyRef Name="MailerID" />
+    </Key>
+    <Property Name="DocumentID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MailerID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeliverOver" Type="Boolean" />
+    <Property Name="DeliveryTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+    <Property Name="DeliveryStatus" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentFinished" Type="Boolean" />
+    <Property Name="DeliveryNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmIndex" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReturnReasonID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MM_MailerDelivery" Relationship="Self.FK_MM_MailerDeliveryDetail_MM_MailerDelivery" FromRole="MM_MailerDeliveryDetail" ToRole="MM_MailerDelivery" />
+  </EntityType>
+  <EntityType Name="MM_PostOffices">
+    <Key>
+      <PropertyRef Name="PostOfficeID" />
+    </Key>
+    <Property Name="PostOfficeID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PostOfficeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsCollaborator" Type="Boolean" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberOf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MM_MailerDelivery" Relationship="Self.FK_MM_MailerDelivery_MM_PostOffices" FromRole="MM_PostOffices" ToRole="MM_MailerDelivery" />
+    <NavigationProperty Name="MM_PostOffices1" Relationship="Self.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices" ToRole="MM_PostOffices1" />
+    <NavigationProperty Name="MM_PostOffices2" Relationship="Self.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices1" ToRole="MM_PostOffices" />
+  </EntityType>
+  <Association Name="FK_MM_MailerDelivery_MM_PostOffices">
+    <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="1" />
+    <End Role="MM_MailerDelivery" Type="Self.MM_MailerDelivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MM_PostOffices">
+        <PropertyRef Name="PostOfficeID" />
+      </Principal>
+      <Dependent Role="MM_MailerDelivery">
+        <PropertyRef Name="PostOfficeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MM_MailerDeliveryDetail_MM_MailerDelivery">
+    <End Role="MM_MailerDelivery" Type="Self.MM_MailerDelivery" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MM_MailerDeliveryDetail" Type="Self.MM_MailerDeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MM_MailerDelivery">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="MM_MailerDeliveryDetail">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MM_PostOffices_MM_PostOffices">
+    <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="0..1" />
+    <End Role="MM_PostOffices1" Type="Self.MM_PostOffices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MM_PostOffices">
+        <PropertyRef Name="PostOfficeID" />
+      </Principal>
+      <Dependent Role="MM_PostOffices1">
+        <PropertyRef Name="MemberOf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Test1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MM_MailerDelivery" EntityType="Self.MM_MailerDelivery" />
+    <EntitySet Name="MM_MailerDeliveryDetail" EntityType="Self.MM_MailerDeliveryDetail" />
+    <EntitySet Name="MM_PostOffices" EntityType="Self.MM_PostOffices" />
+    <AssociationSet Name="FK_MM_MailerDelivery_MM_PostOffices" Association="Self.FK_MM_MailerDelivery_MM_PostOffices">
+      <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+      <End Role="MM_MailerDelivery" EntitySet="MM_MailerDelivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MM_MailerDeliveryDetail_MM_MailerDelivery" Association="Self.FK_MM_MailerDeliveryDetail_MM_MailerDelivery">
+      <End Role="MM_MailerDelivery" EntitySet="MM_MailerDelivery" />
+      <End Role="MM_MailerDeliveryDetail" EntitySet="MM_MailerDeliveryDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="Self.FK_MM_PostOffices_MM_PostOffices">
+      <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+      <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+    </AssociationSet>
+    <EntitySet Name="ActivityInfoes" EntityType="Model.ActivityInfo" />
+    <EntitySet Name="Comments" EntityType="Model.Comment" />
+    <EntitySet Name="FileAttaches" EntityType="Model.FileAttach" />
+    <EntitySet Name="FileAttachComments" EntityType="Model.FileAttachComment" />
+    <EntitySet Name="SGPWikis" EntityType="Model.SGPWiki" />
+    <EntitySet Name="ZoneInfoes" EntityType="Model.ZoneInfo" />
+    <AssociationSet Name="FK__Comment__Activit__0E84FDD0" Association="Model.FK__Comment__Activit__0E84FDD0">
+      <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Activ__106D4642" Association="Model.FK__FileAttac__Activ__106D4642">
+      <End Role="ActivityInfo" EntitySet="ActivityInfoes" />
+      <End Role="FileAttach" EntitySet="FileAttaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FileAttac__Comme__11616A7B" Association="Model.FK__FileAttac__Comme__11616A7B">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="FileAttachComment" EntitySet="FileAttachComments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActivityInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UserPost" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PostOfficeId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="IsClock" Type="Int32" />
+    <Property Name="UserLock" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comments" Relationship="Model.FK__Comment__Activit__0E84FDD0" FromRole="ActivityInfo" ToRole="Comment" />
+    <NavigationProperty Name="FileAttaches" Relationship="Model.FK__FileAttac__Activ__106D4642" FromRole="ActivityInfo" ToRole="FileAttach" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserPost" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PostOfficeId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="ActivityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityInfo" Relationship="Model.FK__Comment__Activit__0E84FDD0" FromRole="Comment" ToRole="ActivityInfo" />
+    <NavigationProperty Name="FileAttachComments" Relationship="Model.FK__FileAttac__Comme__11616A7B" FromRole="Comment" ToRole="FileAttachComment" />
+  </EntityType>
+  <EntityType Name="FileAttach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoucumentType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityInfo" Relationship="Model.FK__FileAttac__Activ__106D4642" FromRole="FileAttach" ToRole="ActivityInfo" />
+  </EntityType>
+  <EntityType Name="FileAttachComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoucumentType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CommentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comment" Relationship="Model.FK__FileAttac__Comme__11616A7B" FromRole="FileAttachComment" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="SGPWiki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastTime" Type="DateTime" Precision="3" />
+    <Property Name="LastUser" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SortNumber" Type="Int32" />
+    <Property Name="ParentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ZoneInfo">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__Comment__Activit__0E84FDD0">
+    <End Type="Model.ActivityInfo" Role="ActivityInfo" Multiplicity="0..1" />
+    <End Type="Model.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Activ__106D4642">
+    <End Type="Model.ActivityInfo" Role="ActivityInfo" Multiplicity="0..1" />
+    <End Type="Model.FileAttach" Role="FileAttach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttach">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FileAttac__Comme__11616A7B">
+    <End Type="Model.Comment" Role="Comment" Multiplicity="0..1" />
+    <End Type="Model.FileAttachComment" Role="FileAttachComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileAttachComment">
+        <PropertyRef Name="CommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

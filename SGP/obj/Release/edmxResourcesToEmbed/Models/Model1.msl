@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBLISTModelStoreContainer" CdmEntityContainer="DBLISTEntities">
+    <EntitySetMapping Name="TB_DHLPlan">
+      <EntityTypeMapping TypeName="DBLISTModel.TB_DHLPlan">
+        <MappingFragment StoreEntitySet="TB_DHLPlan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="D_O" ColumnName="D/O" />
+          <ScalarProperty Name="PGI" ColumnName="PGI" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="ToZone" ColumnName="ToZone" />
+          <ScalarProperty Name="ZoneDesc" ColumnName="ZoneDesc" />
+          <ScalarProperty Name="ToNodeCode" ColumnName="ToNodeCode" />
+          <ScalarProperty Name="ShiptoNM" ColumnName="ShiptoNM" />
+          <ScalarProperty Name="ShiptoAddress" ColumnName="ShiptoAddress" />
+          <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+          <ScalarProperty Name="Unit1" ColumnName="Unit1" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Unit2" ColumnName="Unit2" />
+          <ScalarProperty Name="Subcon" ColumnName="Subcon" />
+          <ScalarProperty Name="CG" ColumnName="CG" />
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="TL" ColumnName="TL" />
+          <ScalarProperty Name="TP" ColumnName="TP" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="Unit3" ColumnName="Unit3" />
+          <ScalarProperty Name="TongSL" ColumnName="TongSL" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="SenderAddress" ColumnName="SenderAddress" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="Contact3" ColumnName="Contact3" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="Zone" ColumnName="Zone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
