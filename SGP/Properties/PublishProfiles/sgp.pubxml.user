@@ -12,6 +12,51 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>06/06/2017 08:20:00</publishTime>
     </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ClientDoc.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommLayer.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonControls.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonObjectModel.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Controllers.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CubeDefModel.dll">
+      <publishTime>10/19/2014 06:46:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataDefModel.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ObjectFactory.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Prompting.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ReportDefModel.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.XmlSerialize.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportSource.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>10/19/2014 06:46:22</publishTime>
+    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/06/2017 08:20:00</publishTime>
     </File>
@@ -82,7 +127,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/06/2017 08:20:00</publishTime>
     </File>
     <File Include="bin/SGP.dll">
-      <publishTime>07/06/2018 15:31:06</publishTime>
+      <publishTime>10/11/2018 15:23:00</publishTime>
+    </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>03/18/2010 23:21:56</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>06/06/2017 08:20:00</publishTime>
@@ -5539,7 +5587,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/06/2017 08:24:00</publishTime>
     </File>
     <File Include="Views/Tool/SpecialCustomer.cshtml">
-      <publishTime>05/03/2018 17:08:46</publishTime>
+      <publishTime>10/01/2018 18:45:01</publishTime>
     </File>
     <File Include="Views/Tool/ThongKeSoLieu.cshtml">
       <publishTime>04/12/2018 15:37:41</publishTime>
@@ -5569,7 +5617,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/06/2017 08:24:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/03/2018 17:19:32</publishTime>
+      <publishTime>10/11/2018 15:22:05</publishTime>
     </File>
   </ItemGroup>
 </Project>

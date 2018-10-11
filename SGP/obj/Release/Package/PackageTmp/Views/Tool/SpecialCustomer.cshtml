@@ -78,21 +78,21 @@
                     </div>
                     <div class="col-sm-2">
                         Nhóm khách hàng
-                        </br>
+                        <br />
                         <select class="form-control" id="op1" name="CustomerGroupID">
                             @*<option selected="selected"></option>*@
                         </select>
                     </div>
                     <div class="col-sm-2">
                         Mã khách hàng
-                        </br>
+                        <br />
                         <select class="form-control" id="op2" name="CustomerID">
                             <option selected="selected"></option>
                         </select>
                     </div>
                     <div class="col-sm-3">
                         Loại Báo cáo
-                        </br>
+                        <br />
                         <select class="form-control" id="opt" name="opt">
                             @if (ViewBag.OPT == 1)
                             {
@@ -228,12 +228,12 @@ else
 
         $(function () {
             $('#dtpfromdate').datetimepicker({
-                format: 'DD/MM/YYYY'
+                language: 'pt-BR'
             });
         });
         $(function () {
             $('#dtptodate').datetimepicker({
-                format: 'DD/MM/YYYY'
+                language: 'pt-BR'
             });
         });
     </script>

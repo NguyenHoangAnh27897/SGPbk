@@ -1340,26 +1340,215 @@ namespace SGP.Controllers
                     worksheet.Cells[1, 2].Value = "Tháng " +  thang +"/"+ nam ;
                     int count = 1;
                     int dong = 1;
-                    for (int i = 0; i < list.Count+2; i++)
+                    for (int i = 0; i < list.Count; i++)
                     {
-
                         try
-                        {
-                            
-                            if (dong % 9 == 0)
+                        {  
+                            if(list[i].KV != null)
                             {
-                                worksheet.Cells[i + 6, 2].Value = "";
-                                worksheet.Cells[i + 6, 3].Value = "";
-                                dong++;
+                                if (list[i].KV.Equals("1A.HNI->HNI"))
+                                {
+                                    worksheet.Cells[6, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[6, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[6, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1B.HNI->KV1"))
+                                {
+                                    worksheet.Cells[7, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[7, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[7, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1C.HNI->HCM"))
+                                {
+                                    worksheet.Cells[8, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[8, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[8, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1D.HNI->KV2"))
+                                {
+                                    worksheet.Cells[9, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[9, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[9, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1E.HNI->DNG"))
+                                {
+                                    worksheet.Cells[10, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[10, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[10, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1F.HNI->KV3"))
+                                {
+                                    worksheet.Cells[11, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[11, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[11, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1G.HNI->CTO"))
+                                {
+                                    worksheet.Cells[12, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[12, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[12, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("1H.HNI->KV4"))
+                                {
+                                    worksheet.Cells[13, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[13, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[13, 4].Value = list[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list[i].KV.Equals("2A.HCM->HNI"))
+                                {
+                                    worksheet.Cells[15, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[15, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[15, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2B.HCM->KV1"))
+                                {
+                                    worksheet.Cells[16, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[16, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[16, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2C.HCM->HCM"))
+                                {
+                                    worksheet.Cells[17, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[17, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[17, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2D.HCM->KV2"))
+                                {
+                                    worksheet.Cells[18, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[18, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[18, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2E.HCM->DNG"))
+                                {
+                                    worksheet.Cells[19, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[19, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[19, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2F.HCM->KV3"))
+                                {
+                                    worksheet.Cells[20, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[20, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[20, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2G.HCM->CTO"))
+                                {
+                                    worksheet.Cells[21, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[21, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[21, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("2H.HCM->KV4"))
+                                {
+                                    worksheet.Cells[22, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[22, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[22, 4].Value = list[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list[i].KV.Equals("3A.DNG->HNI"))
+                                {
+                                    worksheet.Cells[24, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[24, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[24, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3B.DNG->KV1"))
+                                {
+                                    worksheet.Cells[25, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[25, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[25, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3C.DNG->HCM"))
+                                {
+                                    worksheet.Cells[26, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[26, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[26, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3D.DNG->KV2"))
+                                {
+                                    worksheet.Cells[27, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[27, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[27, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3E.DNG->DNG"))
+                                {
+                                    worksheet.Cells[28, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[28, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[28, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3F.DNG->KV3"))
+                                {
+                                    worksheet.Cells[29, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[29, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[29, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3G.DNG->CTO"))
+                                {
+                                    worksheet.Cells[30, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[30, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[30, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("3H.DNG->KV4"))
+                                {
+                                    worksheet.Cells[31, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[31, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[31, 4].Value = list[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list[i].KV.Equals("4A.CTO->HNI"))
+                                {
+                                    worksheet.Cells[33, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[33, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[33, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4B.CTO->KV1"))
+                                {
+                                    worksheet.Cells[34, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[34, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[34, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4C.CTO->HCM"))
+                                {
+                                    worksheet.Cells[35, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[35, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[35, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4D.CTO->KV2"))
+                                {
+                                    worksheet.Cells[36, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[36, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[36, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4E.CTO->DNG"))
+                                {
+                                    worksheet.Cells[37, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[37, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[37, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4F.CTO->KV3"))
+                                {
+                                    worksheet.Cells[38, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[38, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[38, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4G.CTO->CTO"))
+                                {
+                                    worksheet.Cells[39, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[39, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[39, 4].Value = list[i].TrongLuongKhoi;
+                                }
+                                if (list[i].KV.Equals("4H.CTO->KV4"))
+                                {
+                                    worksheet.Cells[40, 2].Value = list[i].SoLuong;
+                                    worksheet.Cells[40, 3].Value = list[i].TrongLuong;
+                                    worksheet.Cells[40, 4].Value = list[i].TrongLuongKhoi;
+                                }
                             }
-                            else
-                            {
-                                worksheet.Cells[i + 6, 2].Value = list[count].SoLuong;
-                                worksheet.Cells[i + 6, 3].Value = list[count].TrongLuong;
-                                worksheet.Cells[i + 6, 4].Value = list[count].TrongLuongKhoi;
-                                count++;
-                                dong++;
-                            }                        
+                         
                         }
                         catch
                         {
@@ -1367,27 +1556,224 @@ namespace SGP.Controllers
                         }
 
                     }
-                    count = 1;
-                    dong = 1;
-                    for (int i = 0; i < list1.Count +3; i++)
+                    if(list1[0].KV != null)
+                    {
+                        count = 0;
+                        dong = 0;
+                    }else
+                    {
+                        count = 1;
+                        dong = 1;
+                    }              
+                    for (int i = 0; i < list1.Count; i++)
                     {
 
                         try
                         {
 
-                            if (dong % 9 == 0)
+                            if (list1[i].KV != null)
                             {
-                                worksheet.Cells[i + 6, 5].Value = "";
-                                worksheet.Cells[i + 6, 6].Value = "";
-                                dong++;
-                            }
-                            else
-                            {
-                                    worksheet.Cells[i + 6, 5].Value = list1[count].SoLuong;
-                                    worksheet.Cells[i + 6, 6].Value = list1[count].TrongLuong;
-                                    worksheet.Cells[i + 6, 7].Value = list1[count].TrongLuongKhoi;
-                                    count++;
-                                    dong++;
+                                if (list1[i].KV.Equals("1A.HNI->HNI"))
+                                {
+                                    worksheet.Cells[6, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[6, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[6, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1B.HNI->KV1"))
+                                {
+                                    worksheet.Cells[7, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[7, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[7, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1C.HNI->HCM"))
+                                {
+                                    worksheet.Cells[8, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[8, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[8, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1D.HNI->KV2"))
+                                {
+                                    worksheet.Cells[9, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[9, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[9, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1E.HNI->DNG"))
+                                {
+                                    worksheet.Cells[10, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[10, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[10, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1F.HNI->KV3"))
+                                {
+                                    worksheet.Cells[11, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[11, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[11, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1G.HNI->CTO"))
+                                {
+                                    worksheet.Cells[12, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[12, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[12, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("1H.HNI->KV4"))
+                                {
+                                    worksheet.Cells[13, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[13, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[13, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list1[i].KV.Equals("2A.HCM->HNI"))
+                                {
+                                    worksheet.Cells[15, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[15, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[15, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2B.HCM->KV1"))
+                                {
+                                    worksheet.Cells[16, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[16, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[16, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2C.HCM->HCM"))
+                                {
+                                    worksheet.Cells[17, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[17, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[17, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2D.HCM->KV2"))
+                                {
+                                    worksheet.Cells[18, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[18, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[18, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2E.HCM->DNG"))
+                                {
+                                    worksheet.Cells[19, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[19, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[19, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2F.HCM->KV3"))
+                                {
+                                    worksheet.Cells[20, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[20, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[20, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2G.HCM->CTO"))
+                                {
+                                    worksheet.Cells[21, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[21, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[21, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("2H.HCM->KV4"))
+                                {
+                                    worksheet.Cells[22, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[22, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[22, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list1[i].KV.Equals("3A.DNG->HNI"))
+                                {
+                                    worksheet.Cells[24, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[24, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[24, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3B.DNG->KV1"))
+                                {
+                                    worksheet.Cells[25, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[25, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[25, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3C.DNG->HCM"))
+                                {
+                                    worksheet.Cells[26, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[26, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[26, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3D.DNG->KV2"))
+                                {
+                                    worksheet.Cells[27, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[27, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[27, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3E.DNG->DNG"))
+                                {
+                                    worksheet.Cells[28, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[28, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[28, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3F.DNG->KV3"))
+                                {
+                                    worksheet.Cells[29, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[29, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[29, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3G.DNG->CTO"))
+                                {
+                                    worksheet.Cells[30, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[30, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[30, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("3H.DNG->KV4"))
+                                {
+                                    worksheet.Cells[31, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[31, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[31, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list1[i].KV.Equals("4A.CTO->HNI"))
+                                {
+                                    worksheet.Cells[33, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[33, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[33, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4B.CTO->KV1"))
+                                {
+                                    worksheet.Cells[34, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[34, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[34, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4C.CTO->HCM"))
+                                {
+                                    worksheet.Cells[35, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[35, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[35, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4D.CTO->KV2"))
+                                {
+                                    worksheet.Cells[36, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[36, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[36, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4E.CTO->DNG"))
+                                {
+                                    worksheet.Cells[37, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[37, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[37, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4F.CTO->KV3"))
+                                {
+                                    worksheet.Cells[38, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[38, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[38, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4G.CTO->CTO"))
+                                {
+                                    worksheet.Cells[39, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[39, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[39, 7].Value = list1[i].TrongLuongKhoi;
+                                }
+                                if (list1[i].KV.Equals("4H.CTO->KV4"))
+                                {
+                                    worksheet.Cells[40, 5].Value = list1[i].SoLuong;
+                                    worksheet.Cells[40, 6].Value = list1[i].TrongLuong;
+                                    worksheet.Cells[40, 7].Value = list1[i].TrongLuongKhoi;
+                                }
                             }
                         }
                         catch
@@ -1396,27 +1782,225 @@ namespace SGP.Controllers
                         }
 
                     }
-                    count = 1;
-                    dong = 1;
-                    for (int i = 0; i < list2.Count +6; i++)
+                    if (list2[0].KV != null)
+                    {
+                        count = 0;
+                        dong = 0;
+                    }
+                    else
+                    {
+                        count = 1;
+                        dong = 1;
+                    }
+                    for (int i = 0; i < list2.Count; i++)
                     {
 
                         try
                         {
 
-                            if (dong % 9 == 0 || dong == 20 || dong == 25 || dong == 26)
+                            if (list2[i].KV != null)
                             {
-                                worksheet.Cells[i + 6, 8].Value = "";
-                                worksheet.Cells[i + 6, 9].Value = "";
-                                dong++;
-                            }
-                            else
-                            {
-                                worksheet.Cells[i + 6, 8].Value = list2[count].SoLuong;
-                                worksheet.Cells[i + 6, 9].Value = list2[count].TrongLuong;
-                                worksheet.Cells[i + 6, 10].Value = list2[count].TrongLuongKhoi;
-                                count++;
-                                dong++;
+                                if (list2[i].KV.Equals("1A.HNI->HNI"))
+                                {
+                                    worksheet.Cells[6, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[6, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[6, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1B.HNI->KV1"))
+                                {
+                                    worksheet.Cells[7, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[7, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[7, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1C.HNI->HCM"))
+                                {
+                                    worksheet.Cells[8, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[8, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[8, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1D.HNI->KV2"))
+                                {
+                                    worksheet.Cells[9, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[9, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[9, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1E.HNI->DNG"))
+                                {
+                                    worksheet.Cells[10, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[10, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[10, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1F.HNI->KV3"))
+                                {
+                                    worksheet.Cells[11, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[11, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[11, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1G.HNI->CTO"))
+                                {
+                                    worksheet.Cells[12, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[12, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[12, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("1H.HNI->KV4"))
+                                {
+                                    worksheet.Cells[13, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[13, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[13, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list2[i].KV.Equals("2A.HCM->HNI"))
+                                {
+                                    worksheet.Cells[15, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[15, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[15, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2B.HCM->KV1"))
+                                {
+                                    worksheet.Cells[16, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[16, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[16, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2C.HCM->HCM"))
+                                {
+                                    worksheet.Cells[17, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[17, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[17, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2D.HCM->KV2"))
+                                {
+                                    worksheet.Cells[18, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[18, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[18, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2E.HCM->DNG"))
+                                {
+                                    worksheet.Cells[19, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[19, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[19, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2F.HCM->KV3"))
+                                {
+                                    worksheet.Cells[20, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[20, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[20, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2G.HCM->CTO"))
+                                {
+                                    worksheet.Cells[21, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[21, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[21, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("2H.HCM->KV4"))
+                                {
+                                    worksheet.Cells[22, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[22, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[22, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list2[i].KV.Equals("3A.DNG->HNI"))
+                                {
+                                    worksheet.Cells[24, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[24, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[24, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3B.DNG->KV1"))
+                                {
+                                    worksheet.Cells[25, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[25, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[25, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3C.DNG->HCM"))
+                                {
+                                    worksheet.Cells[26, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[26, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[26, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3D.DNG->KV2"))
+                                {
+                                    worksheet.Cells[27, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[27, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[27, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3E.DNG->DNG"))
+                                {
+                                    worksheet.Cells[28, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[28, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[28, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3F.DNG->KV3"))
+                                {
+                                    worksheet.Cells[29, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[29, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[29, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3G.DNG->CTO"))
+                                {
+                                    worksheet.Cells[30, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[30, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[30, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("3H.DNG->KV4"))
+                                {
+                                    worksheet.Cells[31, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[31, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[31, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list2[i].KV.Equals("4A.CTO->HNI"))
+                                {
+                                    worksheet.Cells[33, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[33, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[33, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4B.CTO->KV1"))
+                                {
+                                    worksheet.Cells[34, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[34, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[34, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4C.CTO->HCM"))
+                                {
+                                    worksheet.Cells[35, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[35, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[35, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4D.CTO->KV2"))
+                                {
+                                    worksheet.Cells[36, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[36, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[36, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4E.CTO->DNG"))
+                                {
+                                    worksheet.Cells[37, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[37, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[37, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4F.CTO->KV3"))
+                                {
+                                    worksheet.Cells[38, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[38, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[38, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4G.CTO->CTO"))
+                                {
+                                    worksheet.Cells[39, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[39, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[39, 10].Value = list2[i].TrongLuongKhoi;
+                                }
+                                if (list2[i].KV.Equals("4H.CTO->KV4"))
+                                {
+                                    worksheet.Cells[40, 8].Value = list2[i].SoLuong;
+                                    worksheet.Cells[40, 9].Value = list2[i].TrongLuong;
+                                    worksheet.Cells[40, 10].Value = list2[i].TrongLuongKhoi;
+                                }
                             }
                         }
                         catch
@@ -1425,28 +2009,227 @@ namespace SGP.Controllers
                         }
 
                     }
-                    count = 1;
-                    dong = 1;
-                    for (int i = 0; i < list3.Count +7; i++)
+                    if (list3[0].KV != null)
+                    {
+                        count = 0;
+                        dong = 0;
+                    }
+                    else
+                    {
+                        count = 1;
+                        dong = 1;
+                    }
+                    for (int i = 0; i < list3.Count; i++)
                     {
 
                         try
                         {
 
-                            if (dong % 9 == 0 || dong == 20 || dong == 23 || dong == 25 || dong == 26 || dong == 33)
+                            if (list3[i].KV != null)
                             {
-                                worksheet.Cells[i + 6, 11].Value = "";
-                                worksheet.Cells[i + 6, 12].Value = "";
-                                dong++;
+                                if (list3[i].KV.Equals("1A.HNI->HNI"))
+                                {
+                                    worksheet.Cells[6, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[6, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[6, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1B.HNI->KV1"))
+                                {
+                                    worksheet.Cells[7, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[7, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[7, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1C.HNI->HCM"))
+                                {
+                                    worksheet.Cells[8, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[8, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[8, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1D.HNI->KV2"))
+                                {
+                                    worksheet.Cells[9, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[9, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[9, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1E.HNI->DNG"))
+                                {
+                                    worksheet.Cells[10, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[10, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[10, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1F.HNI->KV3"))
+                                {
+                                    worksheet.Cells[11, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[11, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[11, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1G.HNI->CTO"))
+                                {
+                                    worksheet.Cells[12, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[12, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[12, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("1H.HNI->KV4"))
+                                {
+                                    worksheet.Cells[13, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[13, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[13, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list3[i].KV.Equals("2A.HCM->HNI"))
+                                {
+                                    worksheet.Cells[15, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[15, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[15, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2B.HCM->KV1"))
+                                {
+                                    worksheet.Cells[16, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[16, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[16, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2C.HCM->HCM"))
+                                {
+                                    worksheet.Cells[17, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[17, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[17, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2D.HCM->KV2"))
+                                {
+                                    worksheet.Cells[18, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[18, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[18, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2E.HCM->DNG"))
+                                {
+                                    worksheet.Cells[19, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[19, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[19, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2F.HCM->KV3"))
+                                {
+                                    worksheet.Cells[20, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[20, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[20, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2G.HCM->CTO"))
+                                {
+                                    worksheet.Cells[21, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[21, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[21, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("2H.HCM->KV4"))
+                                {
+                                    worksheet.Cells[22, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[22, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[22, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list3[i].KV.Equals("3A.DNG->HNI"))
+                                {
+                                    worksheet.Cells[24, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[24, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[24, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3B.DNG->KV1"))
+                                {
+                                    worksheet.Cells[25, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[25, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[25, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3C.DNG->HCM"))
+                                {
+                                    worksheet.Cells[26, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[26, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[26, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3D.DNG->KV2"))
+                                {
+                                    worksheet.Cells[27, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[27, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[27, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3E.DNG->DNG"))
+                                {
+                                    worksheet.Cells[28, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[28, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[28, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3F.DNG->KV3"))
+                                {
+                                    worksheet.Cells[29, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[29, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[29, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3G.DNG->CTO"))
+                                {
+                                    worksheet.Cells[30, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[30, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[30, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("3H.DNG->KV4"))
+                                {
+                                    worksheet.Cells[31, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[31, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[31, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+
+
+                                //
+                                if (list3[i].KV.Equals("4A.CTO->HNI"))
+                                {
+                                    worksheet.Cells[33, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[33, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[33, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4B.CTO->KV1"))
+                                {
+                                    worksheet.Cells[34, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[34, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[34, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4C.CTO->HCM"))
+                                {
+                                    worksheet.Cells[35, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[35, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[35, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4D.CTO->KV2"))
+                                {
+                                    worksheet.Cells[36, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[36, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[36, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4E.CTO->DNG"))
+                                {
+                                    worksheet.Cells[37, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[37, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[37, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4F.CTO->KV3"))
+                                {
+                                    worksheet.Cells[38, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[38, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[38, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4G.CTO->CTO"))
+                                {
+                                    worksheet.Cells[39, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[39, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[39, 13].Value = list3[i].TrongLuongKhoi;
+                                }
+                                if (list3[i].KV.Equals("4H.CTO->KV4"))
+                                {
+                                    worksheet.Cells[40, 11].Value = list3[i].SoLuong;
+                                    worksheet.Cells[40, 12].Value = list3[i].TrongLuong;
+                                    worksheet.Cells[40, 13].Value = list3[i].TrongLuongKhoi;
+                                }
                             }
-                            else
-                            {
-                                worksheet.Cells[i + 6, 11].Value = list3[count].SoLuong;
-                                worksheet.Cells[i + 6, 12].Value = list3[count].TrongLuong;
-                                worksheet.Cells[i + 6, 13].Value = list3[count].TrongLuongKhoi;
-                                count++;
-                                dong++;
-                            }
+
                         }
                         catch
                         {
