@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "KHDacBiet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Khách hàng đặc biệt</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        Từ ngày
+                        <div class='input-group date' id='dtpfromdate'>
+                            <input type='text' class="form-control" id="fdate" name="FromDate" value="@ViewBag.FromDate" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-3">
+                    Đến ngày
+                    <div class='input-group date' id='dtptodate'>
+                        <input type='text' class="form-control" name="ToDate" id="tdate" value="@ViewBag.ToDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        Chọn khu vực
+                        <select name="ZoneID" class="form-control">
+                            <option value="KV1" @(ViewBag.ZoneID == "KV1" ? "selected" : "")>KV1</option>
+                            <option value="KV2" @(ViewBag.ZoneID == "KV2" ? "selected" : "")>KV2</option>
+                            <option value="KV3" @(ViewBag.ZoneID == "KV3" ? "selected" : "")>KV3</option>
+                            <option value="KV4" @(ViewBag.ZoneID == "KV4" ? "selected" : "")>KV4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        Phương thức
+                        <select name="Type" class="form-control">
+                            <option value="CTH" @(ViewBag.Type == "CTH" ? "selected" : "")>Cần thu hộ</option>
+                            <option value="NTH" @(ViewBag.Type == "NTH" ? "selected" : "")>Nhờ thu hộ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Xem</button>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <a href="/report/ExcelKeToanTH1?FromDate=@ViewBag.FromDate&ToDate=@ViewBag.ToDate&ZoneID=@ViewBag.ZoneID&Type=@ViewBag.Type" class="btn btn-primary">Xuat Excel</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<br />
+<div class="table-responsive">
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Ngày gửi</th>
+                <th class="column-title">Số phiếu</th>
+                <th class="column-title">Mã KH</th>
+                <th class="column-title">Tên KH</th>
+                <th class="column-title">BC chấp nhận</th>
+                <th class="column-title">BC nhận tiền</th>
+                <th class="column-title">BC phát</th>
+                <th class="column-title">Tổng tiền</th>
+                <th class="column-title">Phiếu thu</th>
+                <th class="column-title">Hóa đơn</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr class="even pointer @(item.DocID == "" || item.DocID == null ? "danger" : "success")">
+                    <td>@item.AcceptDate</td>
+                    <td>@item.MailerID</td>
+                    <td>@item.SenderID</td>
+                    <td>@item.SenderName</td>
+                    <td>@item.PostOfficeAcceptID</td>
+                    <td>@item.PostOfficeRecieverMoneyID</td>
+                    <td>@item.PostOfficeID</td>
+                    <td>@String.Format("{0:n0}", item.Amount)</td>
+                    <td>@item.DocID</td>
+                    <td>@item.Invoice</td>
+                    <td />
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("ThuHoKT",
+                            new { page, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate,ZoneID = ViewBag.ZoneID,Type = ViewBag.Type }))
+</div>
+
+@section scripts{
+    <script src="../Scripts/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript">
+        var a = [];
+
+        $(function () {
+            $('#dtpfromdate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+        $(function () {
+            $('#dtptodate').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+}
+
+

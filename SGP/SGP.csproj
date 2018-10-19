@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -2365,6 +2366,7 @@
     <Content Include="Views\Tool\ThongKeSoLieu.cshtml" />
     <Content Include="Views\Tool\SanLuongNhan.cshtml" />
     <Content Include="Views\Tool\SanLuongPhat.cshtml" />
+    <Content Include="Views\Tool\KHDacBiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
