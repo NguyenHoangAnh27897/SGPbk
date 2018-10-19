@@ -1,9 +1,52 @@
-﻿
+﻿@using PagedList.Mvc;
+@using GridMvc.Html
+@model PagedList.IPagedList<>
 @{
     ViewBag.Title = "KHDacBiet";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Tool/GetData",
+                datatype: "JSON",
+                type: "Get",
+                success: function (data) {
+                    debugger;
+                    for (var i = 0; i < data.length; i++) {
+                        var opt = new Option(data[i].CustomerGroupID);
+                        $("#op1").append(opt);
+                    }
+                }
+            });
+        });
 
+        //$(document).ready(function () {
+        $(function() {
+            $("#op1").change(function () {
+                $("select[name='CustomerID'] option").remove()
+                var cusgroupid = $('#op1').val();
+                $.ajax({
+                    url: "/Tool/GetCustomerData",
+                    data: { CustomerGroupID: cusgroupid },
+                    datatype: "JSON",
+                    type: "Get",
+                    success: function (data) {
+                        debugger;
+                        $("#op2").prepend("<option> </option>");
+                        for (var i = 0; i < data.length; i++) {
+                            var opt = new Option(data[i].CustomerID);
+                            $("#op2").append(opt);
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
 <h2>Khách hàng đặc biệt</h2>
 <div>
     <div class="container">
@@ -36,10 +79,10 @@
                     <div class="form-group">
                         Chọn khu vực
                         <select name="ZoneID" class="form-control">
-                            <option value="KV1" @(ViewBag.ZoneID == "KV1" ? "selected" : "")>KV1</option>
-                            <option value="KV2" @(ViewBag.ZoneID == "KV2" ? "selected" : "")>KV2</option>
-                            <option value="KV3" @(ViewBag.ZoneID == "KV3" ? "selected" : "")>KV3</option>
-                            <option value="KV4" @(ViewBag.ZoneID == "KV4" ? "selected" : "")>KV4</option>
+                            <option value="1" @(ViewBag.ZoneID == "KV1" ? "selected" : "")>KV1</option>
+                            <option value="2" @(ViewBag.ZoneID == "KV2" ? "selected" : "")>KV2</option>
+                            <option value="3" @(ViewBag.ZoneID == "KV3" ? "selected" : "")>KV3</option>
+                            <option value="4" @(ViewBag.ZoneID == "KV4" ? "selected" : "")>KV4</option>
                         </select>
                     </div>
                 </div>

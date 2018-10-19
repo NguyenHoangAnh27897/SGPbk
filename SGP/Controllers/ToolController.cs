@@ -4913,35 +4913,77 @@ namespace SGP.Controllers
             return File(pathTo, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", string.Format("sanluongphat" + DateTime.Now.ToString("ddMMyyyyhhmmss") + ".{0}", "xlsx"));
             }
 
-        public List<getPostOffice> getPostOffice()
+        public List<getPostOffice> getPostOffice(int check)
         {
-            var query = (from ds in pms.MM_PostOffices
-                         select new getPostOffice()
-                         {
-                             PostOfficeID = ds.PostOfficeID,
-                             PostOfficeName = ds.PostOfficeName
+            if(check == 2 || check == 4)
+            {
+                var query = (from ds in pms.MM_PostOffices
+                             select new getPostOffice()
+                             {
+                                 PostOfficeID = ds.PostOfficeID,
+                                 PostOfficeName = ds.PostOfficeName
 
-                         });
-            return query.ToList();
+                             });
+                return query.ToList();
+            }else
+            {
+                return null;
+            }
+            
         }
 
-
-        public List<DB.MM_CustomerGroup> getCustomerGroupPMS()
+        public List<getListSpCustomer> getListSpCustomer(string tungay, string denngay, string customerid, string buucuc, int loai)
         {
-            List<DB.MM_CustomerGroup> data = pms.MM_CustomerGroups.ToList();
+            var parafrom = new SqlParameter("@FromDate", tungay);
+            var parato = new SqlParameter("@ToDate", denngay);
+            var paracustomer = new SqlParameter("@CustomerID", customerid);
+            var parabuucuc = new SqlParameter("@PostOfficeID", buucuc);
+            var paraloai = new SqlParameter("@Loai", loai);
+            List<getListSpCustomer> list = new List<getListSpCustomer>();
+            var result = sgp.Database.SqlQuery<getListSpCustomer>("SGP_WEB_SpecialCustomerTab4 @FromDate,@ToDate,@CustomerID,@PostOfficeID,@Loai", parafrom, parato, paracustomer, parabuucuc, paraloai).ToList();
+            foreach (var item in result)
+            {
+                list.Add(new getListSpCustomer()
+                {
+                    PostOfficeAcceptID = item.PostOfficeAcceptID,
+                    ReceiveProvinceID = item.ReceiveProvinceID,
+                    RecieverAddress = item.RecieverAddress,
+                    SenderName = item.SenderName,
+                    Amount = item.Amount,
+                    DeliveryDate = item.DeliveryDate,
+                    DeliveryTo = item.DeliveryTo,
+                    MailerID = item.MailerID,
+                    Price = item.Price,
+                    Quantity = item.Quantity,
+                    SenderID = item.SenderID,
+                    ServiceTypeID = item.ServiceTypeID
+                });
+            }
+            return list;
+        }
+
+        public List<MM_CustomerGroups> getCustomerGroupPMS()
+        {
+            List<MM_CustomerGroups> data = pms.MM_CustomerGroups.ToList();
             return data;
         }
 
-        public List<ZoneList> getZone()
+        public List<ZoneList> getZone(int check)
         {
-            var query = (from ds in pms.MM_Zones
-                         select new ZoneList
-                         {
-                             ZoneID = ds.ZoneID
+            if(check == 1 || check == 3)
+            {
+                var query = (from ds in pms.MM_Zones
+                             select new ZoneList
+                             {
+                                 ZoneID = ds.ZoneID
 
-                         });
-            return query.ToList();
+                             });
+                return query.ToList();
+            }
+            return null;
         }
+
+
 
         public ActionResult KHDacBiet(string FromDate, string ToDate, int? page = 1)
         {

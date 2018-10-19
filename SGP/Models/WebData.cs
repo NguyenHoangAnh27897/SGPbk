@@ -8,6 +8,26 @@ namespace SGP.Models
     public class WebData
     {
     }
+
+    public class getListSpCustomer
+    {
+        public string PostOfficeAcceptID { get; set; }
+        public string SenderID { get; set; }
+        public string SenderName { get; set; }
+        public string MailerID { get; set; }
+        public int Quantity { get; set; }
+        public string ReceiveProvinceID { get; set; }
+        public string RecieverAddress { get; set; }
+        public string ServiceTypeID { get; set; }
+        public decimal Price { get; set; }
+        public decimal Amount { get; set; }
+        public string DeliveryTo { get; set; }
+        public DateTime? DeliveryDate { get; set; }
+        public string AcceptDate { get; set; }
+        public double? Weight { get; set; }
+        public string PostOfficeDelivery { get; set; }
+        public string EmployeeName { get; set; }
+    }
     public class ZoneList
     {
         public string ZoneID { get; set; }

@@ -44,6 +44,7 @@ namespace SGP
         public Nullable<byte> DebtDayInMonth { get; set; }
         public string MemberOf { get; set; }
         public string DebitObjectID { get; set; }
+        public string CustomerPreID { get; set; }
     
         public virtual ICollection<MM_Mailers> MM_Mailers { get; set; }
     }

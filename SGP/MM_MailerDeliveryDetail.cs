@@ -32,6 +32,8 @@ namespace SGP
         public string ReturnReasonID { get; set; }
         public bool SyncFlag { get; set; }
         public Nullable<System.DateTime> LastSyncDate { get; set; }
+        public string CallStart { get; set; }
+        public string CallEnd { get; set; }
     
         public virtual MM_Mailers MM_Mailers { get; set; }
         public virtual MM_Mailers MM_Mailers1 { get; set; }

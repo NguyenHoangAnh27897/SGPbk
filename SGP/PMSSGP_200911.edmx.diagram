@@ -19,6 +19,8 @@
         <AssociationConnector Association="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices4" />
         <AssociationConnector Association="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5" />
         <AssociationConnector Association="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices" />
+        <EntityTypeShape EntityType="PMSSGP_200911Model.MM_Zones" Width="1.5" PointX="1.125" PointY="20.875" />
+        <AssociationConnector Association="PMSSGP_200911Model.FK_MM_PostOffices_MM_Zones" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -35,6 +35,7 @@ namespace SGP
         public virtual DbSet<MM_Customers> MM_Customers { get; set; }
         public virtual DbSet<MM_MailerDeliveryDetail> MM_MailerDeliveryDetail { get; set; }
         public virtual DbSet<MM_PostOffices> MM_PostOffices { get; set; }
+        public virtual DbSet<MM_Zones> MM_Zones { get; set; }
     
         public virtual ObjectResult<SGP_insertPackingList_Result> SGP_insertPackingList(string documentID)
         {

@@ -89,6 +89,9 @@ namespace SGP
         public Nullable<System.DateTime> LastSyncDate { get; set; }
         public Nullable<decimal> Amt4Comm { get; set; }
         public Nullable<System.DateTime> LastUpdStatusTime { get; set; }
+        public string CustomerDebt { get; set; }
+        public string CustomerNameDebt { get; set; }
+        public string PostOfficeDebt { get; set; }
     
         public virtual MM_Customers MM_Customers { get; set; }
         public virtual ICollection<MM_MailerDeliveryDetail> MM_MailerDeliveryDetail { get; set; }

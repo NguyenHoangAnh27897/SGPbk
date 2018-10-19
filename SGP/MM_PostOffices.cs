@@ -36,10 +36,13 @@ namespace SGP
         public string TaxCode { get; set; }
         public string BankAccount { get; set; }
         public string MemberOf { get; set; }
+        public string CustomerPre { get; set; }
+        public string SGPPostOfficeName { get; set; }
     
         public virtual ICollection<MM_Mailers> MM_Mailers { get; set; }
         public virtual ICollection<MM_Mailers> MM_Mailers1 { get; set; }
         public virtual ICollection<MM_PostOffices> MM_PostOffices1 { get; set; }
         public virtual MM_PostOffices MM_PostOffices2 { get; set; }
+        public virtual MM_Zones MM_Zones { get; set; }
     }
 }

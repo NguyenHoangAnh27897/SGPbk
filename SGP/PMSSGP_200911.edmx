@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PMSSGP_200911Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PMSSGP_200911Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MM_CustomerGroups">
           <Key>
             <PropertyRef Name="CustomerGroupID" />
@@ -44,6 +44,7 @@
           <Property Name="DebtDayInMonth" Type="tinyint" />
           <Property Name="MemberOf" Type="varchar" MaxLength="50" />
           <Property Name="DebitObjectID" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerPreID" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="MM_MailerDeliveryDetail">
           <Key>
@@ -68,6 +69,8 @@
           <Property Name="ReturnReasonID" Type="varchar" MaxLength="15" />
           <Property Name="SyncFlag" Type="bit" Nullable="false" />
           <Property Name="LastSyncDate" Type="datetime" />
+          <Property Name="CallStart" Type="nvarchar" MaxLength="50" />
+          <Property Name="CallEnd" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MM_Mailers">
           <Key>
@@ -142,6 +145,9 @@
           <Property Name="LastSyncDate" Type="datetime" />
           <Property Name="Amt4Comm" Type="money" />
           <Property Name="LastUpdStatusTime" Type="datetime" />
+          <Property Name="CustomerDebt" Type="varchar" MaxLength="15" />
+          <Property Name="CustomerNameDebt" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostOfficeDebt" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="MM_PostOffices">
           <Key>
@@ -162,6 +168,18 @@
           <Property Name="TaxCode" Type="varchar" MaxLength="50" />
           <Property Name="BankAccount" Type="varchar" MaxLength="50" />
           <Property Name="MemberOf" Type="varchar" MaxLength="15" />
+          <Property Name="CustomerPre" Type="varchar" MaxLength="10" />
+          <Property Name="SGPPostOfficeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MM_Zones">
+          <Key>
+            <PropertyRef Name="ZoneID" />
+          </Key>
+          <Property Name="ZoneID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ZoneName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="SGP_Email">
           <Key>
@@ -273,6 +291,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MM_PostOffices_MM_Zones">
+          <End Role="MM_Zones" Type="Self.MM_Zones" Multiplicity="1" />
+          <End Role="MM_PostOffices" Type="Self.MM_PostOffices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Zones">
+              <PropertyRef Name="ZoneID" />
+            </Principal>
+            <Dependent Role="MM_PostOffices">
+              <PropertyRef Name="ZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="MM_CustomerGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="MM_FindCustomerID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CustomerGroupID" Type="nvarchar" Mode="In" />
@@ -286,6 +316,7 @@
           <EntitySet Name="MM_MailerDeliveryDetail" EntityType="Self.MM_MailerDeliveryDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MM_Mailers" EntityType="Self.MM_Mailers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MM_PostOffices" EntityType="Self.MM_PostOffices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MM_Zones" EntityType="Self.MM_Zones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SGP_Email" EntityType="Self.SGP_Email" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SGP_KT_THUHO" EntityType="Self.SGP_KT_THUHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SGP_PackingList" EntityType="Self.SGP_PackingList" Schema="dbo" store:Type="Tables" />
@@ -312,6 +343,10 @@
           <AssociationSet Name="FK_MM_PostOffices_MM_PostOffices" Association="Self.FK_MM_PostOffices_MM_PostOffices">
             <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
             <End Role="MM_PostOffices1" EntitySet="MM_PostOffices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MM_PostOffices_MM_Zones" Association="Self.FK_MM_PostOffices_MM_Zones">
+            <End Role="MM_Zones" EntitySet="MM_Zones" />
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -358,6 +393,11 @@
           <FunctionImport Name="MM_FindCustomerID" ReturnType="Collection(String)">
           <Parameter Name="CustomerGroupID" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="MM_Zones" EntityType="PMSSGP_200911Model.MM_Zones" />
+          <AssociationSet Name="FK_MM_PostOffices_MM_Zones" Association="PMSSGP_200911Model.FK_MM_PostOffices_MM_Zones">
+            <End Role="MM_Zones" EntitySet="MM_Zones" />
+            <End Role="MM_PostOffices" EntitySet="MM_PostOffices" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="MM_Mailers">
           <Key>
@@ -437,6 +477,9 @@
           <NavigationProperty Name="MM_MailerDeliveryDetail1" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers1" FromRole="MM_Mailers" ToRole="MM_MailerDeliveryDetail" />
           <NavigationProperty Name="MM_PostOffices" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices4" FromRole="MM_Mailers" ToRole="MM_PostOffices" />
           <NavigationProperty Name="MM_PostOffices1" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5" FromRole="MM_Mailers" ToRole="MM_PostOffices" />
+          <Property Name="CustomerDebt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerNameDebt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostOfficeDebt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SGP_KT_THUHO">
           <Key>
@@ -524,6 +567,7 @@
           <Property Name="MemberOf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DebitObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MM_Mailers" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_Customers" FromRole="MM_Customers" ToRole="MM_Mailers" />
+          <Property Name="CustomerPreID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MM_MailerDeliveryDetail">
           <Key>
@@ -550,6 +594,8 @@
           <Property Name="LastSyncDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="MM_Mailers" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers" FromRole="MM_MailerDeliveryDetail" ToRole="MM_Mailers" />
           <NavigationProperty Name="MM_Mailers1" Relationship="PMSSGP_200911Model.FK_MM_MailerDeliveryDetail_MM_Mailers1" FromRole="MM_MailerDeliveryDetail" ToRole="MM_Mailers" />
+          <Property Name="CallStart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CallEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MM_PostOffices">
           <Key>
@@ -574,6 +620,9 @@
           <NavigationProperty Name="MM_Mailers1" Relationship="PMSSGP_200911Model.FK_MM_Mailers_MM_PostOffices5" FromRole="MM_PostOffices" ToRole="MM_Mailers" />
           <NavigationProperty Name="MM_PostOffices1" Relationship="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices" ToRole="MM_PostOffices1" />
           <NavigationProperty Name="MM_PostOffices2" Relationship="PMSSGP_200911Model.FK_MM_PostOffices_MM_PostOffices" FromRole="MM_PostOffices1" ToRole="MM_PostOffices" />
+          <Property Name="CustomerPre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SGPPostOfficeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MM_Zones" Relationship="PMSSGP_200911Model.FK_MM_PostOffices_MM_Zones" FromRole="MM_PostOffices" ToRole="MM_Zones" />
         </EntityType>
         <Association Name="FK_MM_Mailers_MM_Customers">
           <End Type="PMSSGP_200911Model.MM_Customers" Role="MM_Customers" Multiplicity="0..1" />
@@ -647,6 +696,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MM_Zones">
+          <Key>
+            <PropertyRef Name="ZoneID" />
+          </Key>
+          <Property Name="ZoneID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ZoneName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MM_PostOffices" Relationship="PMSSGP_200911Model.FK_MM_PostOffices_MM_Zones" FromRole="MM_Zones" ToRole="MM_PostOffices" />
+        </EntityType>
+        <Association Name="FK_MM_PostOffices_MM_Zones">
+          <End Type="PMSSGP_200911Model.MM_Zones" Role="MM_Zones" Multiplicity="1" />
+          <End Type="PMSSGP_200911Model.MM_PostOffices" Role="MM_PostOffices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MM_Zones">
+              <PropertyRef Name="ZoneID" />
+            </Principal>
+            <Dependent Role="MM_PostOffices">
+              <PropertyRef Name="ZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -656,6 +728,9 @@
           <EntitySetMapping Name="MM_Mailers">
             <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_Mailers">
               <MappingFragment StoreEntitySet="MM_Mailers">
+                <ScalarProperty Name="PostOfficeDebt" ColumnName="PostOfficeDebt" />
+                <ScalarProperty Name="CustomerNameDebt" ColumnName="CustomerNameDebt" />
+                <ScalarProperty Name="CustomerDebt" ColumnName="CustomerDebt" />
                 <ScalarProperty Name="LastUpdStatusTime" ColumnName="LastUpdStatusTime" />
                 <ScalarProperty Name="Amt4Comm" ColumnName="Amt4Comm" />
                 <ScalarProperty Name="LastSyncDate" ColumnName="LastSyncDate" />
@@ -795,6 +870,7 @@
           <EntitySetMapping Name="MM_Customers">
             <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_Customers">
               <MappingFragment StoreEntitySet="MM_Customers">
+                <ScalarProperty Name="CustomerPreID" ColumnName="CustomerPreID" />
                 <ScalarProperty Name="DebitObjectID" ColumnName="DebitObjectID" />
                 <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
                 <ScalarProperty Name="DebtDayInMonth" ColumnName="DebtDayInMonth" />
@@ -826,6 +902,8 @@
           <EntitySetMapping Name="MM_MailerDeliveryDetail">
             <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_MailerDeliveryDetail">
               <MappingFragment StoreEntitySet="MM_MailerDeliveryDetail">
+                <ScalarProperty Name="CallEnd" ColumnName="CallEnd" />
+                <ScalarProperty Name="CallStart" ColumnName="CallStart" />
                 <ScalarProperty Name="LastSyncDate" ColumnName="LastSyncDate" />
                 <ScalarProperty Name="SyncFlag" ColumnName="SyncFlag" />
                 <ScalarProperty Name="ReturnReasonID" ColumnName="ReturnReasonID" />
@@ -850,6 +928,8 @@
           <EntitySetMapping Name="MM_PostOffices">
             <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_PostOffices">
               <MappingFragment StoreEntitySet="MM_PostOffices">
+                <ScalarProperty Name="SGPPostOfficeName" ColumnName="SGPPostOfficeName" />
+                <ScalarProperty Name="CustomerPre" ColumnName="CustomerPre" />
                 <ScalarProperty Name="MemberOf" ColumnName="MemberOf" />
                 <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
                 <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
@@ -870,6 +950,17 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="MM_CustomerGroup" FunctionName="PMSSGP_200911Model.Store.MM_CustomerGroup" />
           <FunctionImportMapping FunctionImportName="MM_FindCustomerID" FunctionName="PMSSGP_200911Model.Store.MM_FindCustomerID" />
+          <EntitySetMapping Name="MM_Zones">
+            <EntityTypeMapping TypeName="PMSSGP_200911Model.MM_Zones">
+              <MappingFragment StoreEntitySet="MM_Zones">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
