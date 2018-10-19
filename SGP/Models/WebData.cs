@@ -8,6 +8,15 @@ namespace SGP.Models
     public class WebData
     {
     }
+    public class ZoneList
+    {
+        public string ZoneID { get; set; }
+    }
+    public class getPostOffice
+    {
+        public string PostOfficeID { get; set; }
+        public string PostOfficeName { get; set; }
+    }
     public class ParaMailers
     {
         public string FromDate { get; set; }

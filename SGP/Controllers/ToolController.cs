@@ -4912,5 +4912,63 @@ namespace SGP.Controllers
 
             return File(pathTo, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", string.Format("sanluongphat" + DateTime.Now.ToString("ddMMyyyyhhmmss") + ".{0}", "xlsx"));
             }
+
+        public List<getPostOffice> getPostOffice()
+        {
+            var query = (from ds in pms.MM_PostOffices
+                         select new getPostOffice()
+                         {
+                             PostOfficeID = ds.PostOfficeID,
+                             PostOfficeName = ds.PostOfficeName
+
+                         });
+            return query.ToList();
+        }
+
+
+        public List<DB.MM_CustomerGroup> getCustomerGroupPMS()
+        {
+            List<DB.MM_CustomerGroup> data = pms.MM_CustomerGroups.ToList();
+            return data;
+        }
+
+        public List<ZoneList> getZone()
+        {
+            var query = (from ds in pms.MM_Zones
+                         select new ZoneList
+                         {
+                             ZoneID = ds.ZoneID
+
+                         });
+            return query.ToList();
+        }
+
+        public ActionResult KHDacBiet(string FromDate, string ToDate, int? page = 1)
+        {
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            string fDate;
+            string fTo;
+
+            if (String.IsNullOrEmpty(FromDate) || String.IsNullOrEmpty(ToDate))
+            {
+                fDate = DateTime.Now.ToString("yyyy-MM-dd");
+                fTo = DateTime.Now.ToString("yyyy-MM-dd");
+                FromDate = DateTime.Now.ToString("dd/MM/yyyy");
+                ToDate = DateTime.Now.ToString("dd/MM/yyyy");
+
+            }
+            else
+            {
+                fDate = DateTime.ParseExact(Request["FromDate"], "dd/MM/yyyy", null).ToString("yyyy-MM-dd");
+                fTo = DateTime.ParseExact(Request["ToDate"], "dd/MM/yyyy", null).ToString("yyyy-MM-dd");
+            }
+
+            ViewBag.FromDate = FromDate;
+            ViewBag.ToDate = ToDate;
+            var parafrom = new SqlParameter("@FromDate", fDate);
+            var parato = new SqlParameter("@ToDate", fTo);
+            return View();
+        }
     }
 }
